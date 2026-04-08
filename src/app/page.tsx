@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, SubmitEvent } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { Message, Model } from "@/types/chat";
 import { ChatHeader } from "@/components/chat/ChatHeader";
@@ -118,6 +118,78 @@ function handleCompletedUpdate(prev: Message[], params: any, turnId: string | un
   });
 }
 
+function handleTurnCompletedUpdate(prev: Message[]): Message[] {
+  return prev.map((m) => (m.inProgress ? { ...m, inProgress: false } : m));
+}
+
+function processSseMessage(
+  event: MessageEvent,
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>
+) {
+  try {
+    const payload = JSON.parse(event.data);
+    const { method = "", params = {} } = payload;
+    const { turnId, delta = "", item } = params;
+
+    switch (method) {
+      case "item/started":
+        if (item?.type === "agentMessage" || item?.type === "reasoning") {
+          setMessages((prev) => handleStartedUpdate(prev, params, turnId));
+        }
+        break;
+
+      case "item/agentMessage/delta":
+        setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "content", delta, false));
+        break;
+
+      case "item/reasoning/textDelta":
+        setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "thought", delta, true));
+        break;
+
+      case "item/reasoning/summaryTextDelta":
+        setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "reasoningSummary", delta, true));
+        break;
+
+      case "item/completed":
+        if (item?.type === "agentMessage" || item?.type === "reasoning") {
+          setMessages((prev) => handleCompletedUpdate(prev, params, turnId));
+        }
+        break;
+
+      case "turn/completed":
+        setMessages(handleTurnCompletedUpdate);
+        break;
+    }
+  } catch (err) {
+    console.error("Stream parse error", err);
+  }
+}
+
+async function loadInitialModels(
+  setModels: React.Dispatch<React.SetStateAction<Model[]>>,
+  setSelectedModel: React.Dispatch<React.SetStateAction<string>>,
+  setSelectedEffort: React.Dispatch<React.SetStateAction<string>>
+) {
+  try {
+    const res = await fetch("/api/session");
+    const data = await res.json();
+    if (data.models) {
+      setModels(data.models);
+      const modelsList = data.models as Model[];
+      const defaultModel = modelsList.find((m: Model) => m.isDefault)?.id || modelsList[0]?.id;
+      if (defaultModel) {
+        setSelectedModel(defaultModel);
+        const modelObj = modelsList.find((m: Model) => m.id === defaultModel);
+        if (modelObj?.defaultReasoningEffort) {
+          setSelectedEffort(modelObj.defaultReasoningEffort);
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Failed to load models:", err);
+  }
+}
+
 function handleFinalizeTask(prev: Message[], result: any): Message[] {
   const next = [...prev];
   result.turn.items.forEach((item: any) => {
@@ -152,26 +224,7 @@ export default function Home() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    async function loadInitialData() {
-      try {
-        const res = await fetch("/api/session");
-        const data = await res.json();
-        if (data.models) {
-          setModels(data.models);
-          const defaultModel = data.models.find((m: Model) => m.isDefault)?.id || data.models[0]?.id;
-          if (defaultModel) {
-            setSelectedModel(defaultModel);
-            const modelObj = data.models.find((m: Model) => m.id === defaultModel);
-            if (modelObj?.defaultReasoningEffort) {
-              setSelectedEffort(modelObj.defaultReasoningEffort);
-            }
-          }
-        }
-      } catch (err) {
-        console.error("Failed to load models:", err);
-      }
-    }
-    loadInitialData();
+    loadInitialModels(setModels, setSelectedModel, setSelectedEffort);
     setMounted(true);
     if (window.innerWidth < 768) {
       setSidebarOpen(false);
@@ -180,51 +233,8 @@ export default function Home() {
 
   useEffect(() => {
     const es = new EventSource("/api/stream");
-    
-    const handleSseMessage = (event: MessageEvent) => {
-      try {
-        const payload = JSON.parse(event.data);
-        const { method = "", params = {} } = payload;
-        const { turnId, delta = "", item } = params;
-
-        switch (method) {
-          case "item/started":
-            if (item?.type === "agentMessage" || item?.type === "reasoning") {
-              setMessages((prev) => handleStartedUpdate(prev, params, turnId));
-            }
-            break;
-
-          case "item/agentMessage/delta":
-            setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "content", delta, false));
-            break;
-
-          case "item/reasoning/textDelta":
-            setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "thought", delta, true));
-            break;
-
-          case "item/reasoning/summaryTextDelta":
-            setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "reasoningSummary", delta, true));
-            break;
-
-          case "item/completed":
-            if (item?.type === "agentMessage" || item?.type === "reasoning") {
-              setMessages((prev) => handleCompletedUpdate(prev, params, turnId));
-            }
-            break;
-
-          case "turn/completed":
-            setMessages((prev) =>
-              prev.map((m) => (m.inProgress ? { ...m, inProgress: false } : m))
-            );
-            break;
-        }
-      } catch (err) {
-        console.error("Stream parse error", err);
-      }
-    };
-
-    es.onmessage = handleSseMessage;
-
+    const handleMessage = (e: MessageEvent) => processSseMessage(e, setMessages);
+    es.onmessage = handleMessage;
     return () => {
       es.close();
     };
@@ -236,7 +246,7 @@ export default function Home() {
     }
   }, [messages]);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
     if (!input.trim() || loading) return;
 
