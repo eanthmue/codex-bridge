@@ -1,0 +1,3274 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "OpenAI Developers" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "OpenAI Developers" [ref=e5]
+      - navigation [ref=e6]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "API" [ref=e10] [cursor=pointer]:
+          - /url: /api
+          - text: API
+          - img [ref=e11]
+        - link "Codex" [ref=e14] [cursor=pointer]:
+          - /url: /codex
+          - text: Codex
+          - img [ref=e15]
+        - link "ChatGPT" [ref=e18] [cursor=pointer]:
+          - /url: /chatgpt
+          - text: ChatGPT
+          - img [ref=e19]
+        - link "Resources" [ref=e22] [cursor=pointer]:
+          - /url: /learn
+          - text: Resources
+          - img [ref=e23]
+      - generic [ref=e25]:
+        - link "API Dashboard" [ref=e28] [cursor=pointer]:
+          - /url: https://platform.openai.com/login
+          - generic [ref=e29]:
+            - generic [ref=e30]: API Dashboard
+            - img [ref=e31]
+        - button "Toggle light and dark theme" [ref=e33] [cursor=pointer]:
+          - img [ref=e34]
+        - button "Search the Codex docs" [ref=e36] [cursor=pointer]:
+          - img [ref=e37]
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - navigation "Breadcrumb" [ref=e42]:
+        - list [ref=e43]:
+          - listitem [ref=e44]:
+            - link "Codex" [ref=e45] [cursor=pointer]:
+              - /url: /codex
+          - listitem [ref=e46]:
+            - img [ref=e48]
+            - link "Docs" [ref=e50] [cursor=pointer]:
+              - /url: /codex
+      - navigation [ref=e51]:
+        - generic [ref=e52]:
+          - heading "Getting Started" [level=3] [ref=e53]
+          - list [ref=e54]:
+            - listitem [ref=e55]:
+              - link "Overview" [ref=e56] [cursor=pointer]:
+                - /url: /codex
+                - generic [ref=e57]: Overview
+            - listitem [ref=e58]:
+              - link "Quickstart" [ref=e59] [cursor=pointer]:
+                - /url: /codex/quickstart
+                - generic [ref=e60]: Quickstart
+            - listitem [ref=e61]:
+              - link "Explore" [ref=e62] [cursor=pointer]:
+                - /url: /codex/explore
+                - generic [ref=e63]: Explore
+            - listitem [ref=e64]:
+              - link "Pricing" [ref=e65] [cursor=pointer]:
+                - /url: /codex/pricing
+                - generic [ref=e66]: Pricing
+            - listitem [ref=e67]:
+              - link "Community" [ref=e68] [cursor=pointer]:
+                - /url: /community
+                - generic [ref=e69]: Community
+            - listitem [ref=e70]:
+              - group [ref=e71]:
+                - generic "Concepts" [ref=e72] [cursor=pointer]:
+                  - generic [ref=e73]: Concepts
+                  - img [ref=e74]
+            - listitem [ref=e76]:
+              - link "Use cases" [ref=e77] [cursor=pointer]:
+                - /url: /codex/use-cases
+                - generic [ref=e78]: Use cases
+                - img [ref=e79]
+        - generic [ref=e81]:
+          - heading "Using Codex" [level=3] [ref=e82]
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - group [ref=e85]:
+                - generic "App" [ref=e86] [cursor=pointer]:
+                  - generic [ref=e87]: App
+                  - img [ref=e88]
+            - listitem [ref=e90]:
+              - group [ref=e91]:
+                - generic "IDE Extension" [ref=e92] [cursor=pointer]:
+                  - generic [ref=e93]: IDE Extension
+                  - img [ref=e94]
+            - listitem [ref=e96]:
+              - group [ref=e97]:
+                - generic "CLI" [ref=e98] [cursor=pointer]:
+                  - generic [ref=e99]: CLI
+                  - img [ref=e100]
+            - listitem [ref=e102]:
+              - group [ref=e103]:
+                - generic "Web" [ref=e104] [cursor=pointer]:
+                  - generic [ref=e105]: Web
+                  - img [ref=e106]
+            - listitem [ref=e108]:
+              - group [ref=e109]:
+                - generic "Integrations" [ref=e110] [cursor=pointer]:
+                  - generic [ref=e111]: Integrations
+                  - img [ref=e112]
+            - listitem [ref=e114]:
+              - group [ref=e115]:
+                - generic "Codex Security" [ref=e116] [cursor=pointer]:
+                  - generic [ref=e117]: Codex Security
+                  - img [ref=e118]
+        - generic [ref=e120]:
+          - heading "Configuration" [level=3] [ref=e121]
+          - list [ref=e122]:
+            - listitem [ref=e123]:
+              - group [ref=e124]:
+                - generic "Config File" [ref=e125] [cursor=pointer]:
+                  - generic [ref=e126]: Config File
+                  - img [ref=e127]
+            - listitem [ref=e129]:
+              - link "Speed" [ref=e130] [cursor=pointer]:
+                - /url: /codex/speed
+                - generic [ref=e131]: Speed
+            - listitem [ref=e132]:
+              - link "Rules" [ref=e133] [cursor=pointer]:
+                - /url: /codex/rules
+                - generic [ref=e134]: Rules
+            - listitem [ref=e135]:
+              - link "Hooks" [ref=e136] [cursor=pointer]:
+                - /url: /codex/hooks
+                - generic [ref=e137]: Hooks
+            - listitem [ref=e138]:
+              - link "AGENTS.md" [ref=e139] [cursor=pointer]:
+                - /url: /codex/guides/agents-md
+                - generic [ref=e140]: AGENTS.md
+            - listitem [ref=e141]:
+              - link "MCP" [ref=e142] [cursor=pointer]:
+                - /url: /codex/mcp
+                - generic [ref=e143]: MCP
+            - listitem [ref=e144]:
+              - group [ref=e145]:
+                - generic "Plugins" [ref=e146] [cursor=pointer]:
+                  - generic [ref=e147]: Plugins
+                  - img [ref=e148]
+            - listitem [ref=e150]:
+              - link "Skills" [ref=e151] [cursor=pointer]:
+                - /url: /codex/skills
+                - generic [ref=e152]: Skills
+            - listitem [ref=e153]:
+              - link "Subagents" [ref=e154] [cursor=pointer]:
+                - /url: /codex/subagents
+                - generic [ref=e155]: Subagents
+        - generic [ref=e156]:
+          - heading "Administration" [level=3] [ref=e157]
+          - list [ref=e158]:
+            - listitem [ref=e159]:
+              - link "Authentication" [ref=e160] [cursor=pointer]:
+                - /url: /codex/auth
+                - generic [ref=e161]: Authentication
+            - listitem [ref=e162]:
+              - link "Agent approvals & security" [ref=e163] [cursor=pointer]:
+                - /url: /codex/agent-approvals-security
+                - generic [ref=e164]: Agent approvals & security
+            - listitem [ref=e165]:
+              - group [ref=e166]:
+                - generic "Enterprise" [ref=e167] [cursor=pointer]:
+                  - generic [ref=e168]: Enterprise
+                  - img [ref=e169]
+            - listitem [ref=e171]:
+              - link "Windows" [ref=e172] [cursor=pointer]:
+                - /url: /codex/windows
+                - generic [ref=e173]: Windows
+        - generic [ref=e174]:
+          - heading "Automation" [level=3] [ref=e175]
+          - list [ref=e176]:
+            - listitem [ref=e177]:
+              - link "Non-interactive Mode" [ref=e178] [cursor=pointer]:
+                - /url: /codex/noninteractive
+                - generic [ref=e179]: Non-interactive Mode
+            - listitem [ref=e180]:
+              - link "Codex SDK" [ref=e181] [cursor=pointer]:
+                - /url: /codex/sdk
+                - generic [ref=e182]: Codex SDK
+            - listitem [ref=e183]:
+              - link "App Server" [ref=e184] [cursor=pointer]:
+                - /url: /codex/app-server
+                - generic [ref=e185]: App Server
+            - listitem [ref=e186]:
+              - link "MCP Server" [ref=e187] [cursor=pointer]:
+                - /url: /codex/guides/agents-sdk
+                - generic [ref=e188]: MCP Server
+            - listitem [ref=e189]:
+              - link "GitHub Action" [ref=e190] [cursor=pointer]:
+                - /url: /codex/github-action
+                - generic [ref=e191]: GitHub Action
+        - generic [ref=e192]:
+          - heading "Learn" [level=3] [ref=e193]
+          - list [ref=e194]:
+            - listitem [ref=e195]:
+              - link "Best practices" [ref=e196] [cursor=pointer]:
+                - /url: /codex/learn/best-practices
+                - generic [ref=e197]: Best practices
+            - listitem [ref=e198]:
+              - link "Videos" [ref=e199] [cursor=pointer]:
+                - /url: /codex/videos
+                - generic [ref=e200]: Videos
+            - listitem [ref=e201]:
+              - group [ref=e202]:
+                - generic "Blog" [ref=e203] [cursor=pointer]:
+                  - generic [ref=e204]: Blog
+                  - img [ref=e205]
+            - listitem [ref=e207]:
+              - group [ref=e208]:
+                - generic "Cookbooks" [ref=e209] [cursor=pointer]:
+                  - generic [ref=e210]: Cookbooks
+                  - img [ref=e211]
+            - listitem [ref=e213]:
+              - link "Building AI Teams" [ref=e214] [cursor=pointer]:
+                - /url: /codex/guides/build-ai-native-engineering-team
+                - generic [ref=e215]: Building AI Teams
+        - generic [ref=e216]:
+          - heading "Releases" [level=3] [ref=e217]
+          - list [ref=e218]:
+            - listitem [ref=e219]:
+              - link "Changelog" [ref=e220] [cursor=pointer]:
+                - /url: /codex/changelog
+                - generic [ref=e221]: Changelog
+            - listitem [ref=e222]:
+              - link "Feature Maturity" [ref=e223] [cursor=pointer]:
+                - /url: /codex/feature-maturity
+                - generic [ref=e224]: Feature Maturity
+            - listitem [ref=e225]:
+              - link "Open Source" [ref=e226] [cursor=pointer]:
+                - /url: /codex/open-source
+                - generic [ref=e227]: Open Source
+    - main [ref=e228]:
+      - generic [ref=e231]:
+        - generic [ref=e237]:
+          - button "Copy Page" [ref=e238] [cursor=pointer]:
+            - generic [ref=e239]:
+              - img [ref=e242]
+              - generic [ref=e244]: Copy Page
+          - button "More page actions" [ref=e245] [cursor=pointer]:
+            - generic [ref=e246]:
+              - img [ref=e247]
+              - generic [ref=e249]: More page actions
+        - generic [ref=e251]:
+          - heading "Codex App Server" [level=1] [ref=e252]
+          - paragraph [ref=e253]: Embed Codex into your product with the app-server protocol
+          - button "Copy Page" [ref=e259] [cursor=pointer]:
+            - generic [ref=e260]:
+              - img [ref=e263]
+              - generic [ref=e265]: Copy Page
+        - article [ref=e266]:
+          - paragraph [ref=e267]:
+            - text: "Codex app-server is the interface Codex uses to power rich clients (for example, the Codex VS Code extension). Use it when you want a deep integration inside your own product: authentication, conversation history, approvals, and streamed agent events. The app-server implementation is open source in the Codex GitHub repository ("
+            - link "openai/codex/codex-rs/app-server" [ref=e268] [cursor=pointer]:
+              - /url: https://github.com/openai/codex/tree/main/codex-rs/app-server
+            - text: ). See the
+            - link "Open Source" [ref=e269] [cursor=pointer]:
+              - /url: /codex/open-source
+            - text: page for the full list of open-source Codex components.
+          - generic [ref=e271]:
+            - img [ref=e273]
+            - paragraph [ref=e278]:
+              - text: If you are automating jobs or running Codex in CI, use the
+              - link "Codex SDK" [ref=e279] [cursor=pointer]:
+                - /url: /codex/sdk
+              - text: instead.
+          - heading "Protocol Copy link to protocol" [level=2] [ref=e280]:
+            - generic [ref=e281]: Protocol
+            - button "Copy link to protocol" [ref=e282] [cursor=pointer]:
+              - img [ref=e283]
+          - paragraph [ref=e285]:
+            - text: Like
+            - link "MCP" [ref=e286] [cursor=pointer]:
+              - /url: https://modelcontextprotocol.io/
+            - text: ","
+            - code [ref=e287]: codex app-server
+            - text: supports bidirectional communication using JSON-RPC 2.0 messages (with the
+            - code [ref=e288]: "\"jsonrpc\":\"2.0\""
+            - text: header omitted on the wire).
+          - paragraph [ref=e289]: "Supported transports:"
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - code [ref=e292]: stdio
+              - text: (
+              - code [ref=e293]: "--listen stdio://"
+              - text: ", default): newline-delimited JSON (JSONL)."
+            - listitem [ref=e294]:
+              - code [ref=e295]: websocket
+              - text: (
+              - code [ref=e296]: "--listen ws://IP:PORT"
+              - text: ", experimental): one JSON-RPC message per WebSocket text frame."
+          - paragraph [ref=e297]:
+            - text: In WebSocket mode, app-server uses bounded queues. When request ingress is full, the server rejects new requests with JSON-RPC error code
+            - code [ref=e298]: "-32001"
+            - text: and message
+            - code [ref=e299]: "\"Server overloaded; retry later.\""
+            - text: Clients should retry with an exponentially increasing delay and jitter.
+          - heading "Message schema Copy link to message schema" [level=2] [ref=e300]:
+            - generic [ref=e301]: Message schema
+            - button "Copy link to message schema" [ref=e302] [cursor=pointer]:
+              - img [ref=e303]
+          - paragraph [ref=e305]:
+            - text: Requests include
+            - code [ref=e306]: method
+            - text: ","
+            - code [ref=e307]: params
+            - text: ", and"
+            - code [ref=e308]: id
+            - text: ":"
+          - generic [ref=e309]:
+            - code [ref=e310]:
+              - generic [ref=e311]: "{ \"method\": \"thread/start\", \"id\": 10, \"params\": { \"model\": \"gpt-5.4\" } }"
+            - button "Copy code to clipboard" [ref=e313] [cursor=pointer]:
+              - img [ref=e314]
+          - paragraph [ref=e316]:
+            - text: Responses echo the
+            - code [ref=e317]: id
+            - text: with either
+            - code [ref=e318]: result
+            - text: or
+            - code [ref=e319]: error
+            - text: ":"
+          - generic [ref=e320]:
+            - code [ref=e321]:
+              - generic [ref=e322]: "{ \"id\": 10, \"result\": { \"thread\": { \"id\": \"thr_123\" } } }"
+            - button "Copy code to clipboard" [ref=e324] [cursor=pointer]:
+              - img [ref=e325]
+          - generic [ref=e327]:
+            - code [ref=e328]:
+              - generic [ref=e329]: "{ \"id\": 10, \"error\": { \"code\": 123, \"message\": \"Something went wrong\" } }"
+            - button "Copy code to clipboard" [ref=e331] [cursor=pointer]:
+              - img [ref=e332]
+          - paragraph [ref=e334]:
+            - text: Notifications omit
+            - code [ref=e335]: id
+            - text: and use only
+            - code [ref=e336]: method
+            - text: and
+            - code [ref=e337]: params
+            - text: ":"
+          - generic [ref=e338]:
+            - code [ref=e339]:
+              - generic [ref=e340]: "{ \"method\": \"turn/started\", \"params\": { \"turn\": { \"id\": \"turn_456\" } } }"
+            - button "Copy code to clipboard" [ref=e342] [cursor=pointer]:
+              - img [ref=e343]
+          - paragraph [ref=e345]: "You can generate a TypeScript schema or a JSON Schema bundle from the CLI. Each output is specific to the Codex version you ran, so the generated artifacts match that version exactly:"
+          - generic [ref=e346]:
+            - code [ref=e347]:
+              - generic [ref=e348]: codex app-server generate-ts --out ./schemas
+              - generic [ref=e349]: codex app-server generate-json-schema --out ./schemas
+            - button "Copy code to clipboard" [ref=e351] [cursor=pointer]:
+              - img [ref=e352]
+          - heading "Getting started Copy link to getting started" [level=2] [ref=e354]:
+            - generic [ref=e355]: Getting started
+            - button "Copy link to getting started" [ref=e356] [cursor=pointer]:
+              - img [ref=e357]
+          - list [ref=e359]:
+            - listitem [ref=e360]:
+              - text: Start the server with
+              - code [ref=e361]: codex app-server
+              - text: (default stdio transport) or
+              - code [ref=e362]: codex app-server --listen ws://127.0.0.1:4500
+              - text: (experimental WebSocket transport).
+            - listitem [ref=e363]:
+              - text: Connect a client over the selected transport, then send
+              - code [ref=e364]: initialize
+              - text: followed by the
+              - code [ref=e365]: initialized
+              - text: notification.
+            - listitem [ref=e366]: Start a thread and a turn, then keep reading notifications from the active transport stream.
+          - paragraph [ref=e367]: "Example (Node.js / TypeScript):"
+          - generic [ref=e368]:
+            - code [ref=e369]:
+              - generic [ref=e370]: "import { spawn } from \"node:child_process\";"
+              - generic [ref=e371]: import readline from "node:readline";
+              - generic [ref=e372]: "const proc = spawn(\"codex\", [\"app-server\"], {"
+              - generic [ref=e373]: "stdio: [\"pipe\", \"pipe\", \"inherit\"],"
+              - generic [ref=e374]: "});"
+              - generic [ref=e375]: "const rl = readline.createInterface({ input: proc.stdout });"
+              - generic [ref=e376]: "const send = (message: unknown) => {"
+              - generic [ref=e377]: "proc.stdin.write(`${JSON.stringify(message)}\\n`);"
+              - generic [ref=e378]: "};"
+              - generic [ref=e379]: "let threadId: string | null = null;"
+              - generic [ref=e380]: "rl.on(\"line\", (line) => {"
+              - generic [ref=e381]: const msg = JSON.parse(line) as any;
+              - generic [ref=e382]: console.log("server:", msg);
+              - generic [ref=e383]: "if (msg.id === 1 && msg.result?.thread?.id && !threadId) {"
+              - generic [ref=e384]: threadId = msg.result.thread.id;
+              - generic [ref=e385]: "send({"
+              - generic [ref=e386]: "method: \"turn/start\","
+              - generic [ref=e387]: "id: 2,"
+              - generic [ref=e388]: "params: {"
+              - generic [ref=e389]: threadId,
+              - generic [ref=e390]: "input: [{ type: \"text\", text: \"Summarize this repo.\" }],"
+              - generic [ref=e391]: "},"
+              - generic [ref=e392]: "});"
+              - generic [ref=e393]: "}"
+              - generic [ref=e394]: "});"
+              - generic [ref=e395]: "send({"
+              - generic [ref=e396]: "method: \"initialize\","
+              - generic [ref=e397]: "id: 0,"
+              - generic [ref=e398]: "params: {"
+              - generic [ref=e399]: "clientInfo: {"
+              - generic [ref=e400]: "name: \"my_product\","
+              - generic [ref=e401]: "title: \"My Product\","
+              - generic [ref=e402]: "version: \"0.1.0\","
+              - generic [ref=e403]: "},"
+              - generic [ref=e404]: "},"
+              - generic [ref=e405]: "});"
+              - generic [ref=e406]: "send({ method: \"initialized\", params: {} });"
+              - generic [ref=e407]: "send({ method: \"thread/start\", id: 1, params: { model: \"gpt-5.4\" } });"
+            - button "Copy code to clipboard" [ref=e409] [cursor=pointer]:
+              - img [ref=e410]
+          - heading "Core primitives Copy link to core primitives" [level=2] [ref=e412]:
+            - generic [ref=e413]: Core primitives
+            - button "Copy link to core primitives" [ref=e414] [cursor=pointer]:
+              - img [ref=e415]
+          - list [ref=e417]:
+            - listitem [ref=e418]:
+              - strong [ref=e419]: Thread
+              - text: ": A conversation between a user and the Codex agent. Threads contain turns."
+            - listitem [ref=e420]:
+              - strong [ref=e421]: Turn
+              - text: ": A single user request and the agent work that follows. Turns contain items and stream incremental updates."
+            - listitem [ref=e422]:
+              - strong [ref=e423]: Item
+              - text: ": A unit of input or output (user message, agent message, command runs, file change, tool call, and more)."
+          - paragraph [ref=e424]: Use the thread APIs to create, list, or archive conversations. Drive a conversation with turn APIs and stream progress via turn notifications.
+          - heading "Lifecycle overview Copy link to lifecycle overview" [level=2] [ref=e425]:
+            - generic [ref=e426]: Lifecycle overview
+            - button "Copy link to lifecycle overview" [ref=e427] [cursor=pointer]:
+              - img [ref=e428]
+          - list [ref=e430]:
+            - listitem [ref=e431]:
+              - strong [ref=e432]: Initialize once per connection
+              - text: ": Immediately after opening a transport connection, send an"
+              - code [ref=e433]: initialize
+              - text: request with your client metadata, then emit
+              - code [ref=e434]: initialized
+              - text: . The server rejects any request on that connection before this handshake.
+            - listitem [ref=e435]:
+              - strong [ref=e436]: Start (or resume) a thread
+              - text: ": Call"
+              - code [ref=e437]: thread/start
+              - text: for a new conversation,
+              - code [ref=e438]: thread/resume
+              - text: to continue an existing one, or
+              - code [ref=e439]: thread/fork
+              - text: to branch history into a new thread id.
+            - listitem [ref=e440]:
+              - strong [ref=e441]: Begin a turn
+              - text: ": Call"
+              - code [ref=e442]: turn/start
+              - text: with the target
+              - code [ref=e443]: threadId
+              - text: and user input. Optional fields override model, personality,
+              - code [ref=e444]: cwd
+              - text: ", sandbox policy, and more."
+            - listitem [ref=e445]:
+              - strong [ref=e446]: Steer an active turn
+              - text: ": Call"
+              - code [ref=e447]: turn/steer
+              - text: to append user input to the currently in-flight turn without creating a new turn.
+            - listitem [ref=e448]:
+              - strong [ref=e449]: Stream events
+              - text: ": After"
+              - code [ref=e450]: turn/start
+              - text: ", keep reading notifications on stdout:"
+              - code [ref=e451]: thread/archived
+              - text: ","
+              - code [ref=e452]: thread/unarchived
+              - text: ","
+              - code [ref=e453]: item/started
+              - text: ","
+              - code [ref=e454]: item/completed
+              - text: ","
+              - code [ref=e455]: item/agentMessage/delta
+              - text: ", tool progress, and other updates."
+            - listitem [ref=e456]:
+              - strong [ref=e457]: Finish the turn
+              - text: ": The server emits"
+              - code [ref=e458]: turn/completed
+              - text: with final status when the model finishes or after a
+              - code [ref=e459]: turn/interrupt
+              - text: cancellation.
+          - heading "Initialization Copy link to initialization" [level=2] [ref=e460]:
+            - generic [ref=e461]: Initialization
+            - button "Copy link to initialization" [ref=e462] [cursor=pointer]:
+              - img [ref=e463]
+          - paragraph [ref=e465]:
+            - text: Clients must send a single
+            - code [ref=e466]: initialize
+            - text: request per transport connection before invoking any other method on that connection, then acknowledge with an
+            - code [ref=e467]: initialized
+            - text: notification. Requests sent before initialization receive a
+            - code [ref=e468]: Not initialized
+            - text: error, and repeated
+            - code [ref=e469]: initialize
+            - text: calls on the same connection return
+            - code [ref=e470]: Already initialized
+            - text: .
+          - paragraph [ref=e471]:
+            - text: The server returns the user agent string it will present to upstream services plus
+            - code [ref=e472]: platformFamily
+            - text: and
+            - code [ref=e473]: platformOs
+            - text: values that describe the runtime target. Set
+            - code [ref=e474]: clientInfo
+            - text: to identify your integration.
+          - paragraph [ref=e475]:
+            - code [ref=e476]: initialize.params.capabilities
+            - text: also supports per-connection notification opt-out via
+            - code [ref=e477]: optOutNotificationMethods
+            - text: ", which is a list of exact method names to suppress for that connection. Matching is exact (no wildcards/prefixes). Unknown method names are accepted and ignored."
+          - paragraph [ref=e478]:
+            - strong [ref=e479]: Important
+            - text: ": Use"
+            - code [ref=e480]: clientInfo.name
+            - text: to identify your client for the OpenAI Compliance Logs Platform. If you are developing a new Codex integration intended for enterprise use, please contact OpenAI to get it added to a known clients list. For more context, see the
+            - link "Codex logs reference" [ref=e481] [cursor=pointer]:
+              - /url: https://chatgpt.com/admin/api-reference#tag/Logs:-Codex
+            - text: .
+          - paragraph [ref=e482]: "Example (from the Codex VS Code extension):"
+          - generic [ref=e483]:
+            - code [ref=e484]:
+              - generic [ref=e485]: "{"
+              - generic [ref=e486]: "\"method\": \"initialize\","
+              - generic [ref=e487]: "\"id\": 0,"
+              - generic [ref=e488]: "\"params\": {"
+              - generic [ref=e489]: "\"clientInfo\": {"
+              - generic [ref=e490]: "\"name\": \"codex_vscode\","
+              - generic [ref=e491]: "\"title\": \"Codex VS Code Extension\","
+              - generic [ref=e492]: "\"version\": \"0.1.0\""
+              - generic [ref=e493]: "}"
+              - generic [ref=e494]: "}"
+              - generic [ref=e495]: "}"
+            - button "Copy code to clipboard" [ref=e497] [cursor=pointer]:
+              - img [ref=e498]
+          - paragraph [ref=e500]: "Example with notification opt-out:"
+          - generic [ref=e501]:
+            - code [ref=e502]:
+              - generic [ref=e503]: "{"
+              - generic [ref=e504]: "\"method\": \"initialize\","
+              - generic [ref=e505]: "\"id\": 1,"
+              - generic [ref=e506]: "\"params\": {"
+              - generic [ref=e507]: "\"clientInfo\": {"
+              - generic [ref=e508]: "\"name\": \"my_client\","
+              - generic [ref=e509]: "\"title\": \"My Client\","
+              - generic [ref=e510]: "\"version\": \"0.1.0\""
+              - generic [ref=e511]: "},"
+              - generic [ref=e512]: "\"capabilities\": {"
+              - generic [ref=e513]: "\"experimentalApi\": true,"
+              - generic [ref=e514]: "\"optOutNotificationMethods\": [\"thread/started\", \"item/agentMessage/delta\"]"
+              - generic [ref=e515]: "}"
+              - generic [ref=e516]: "}"
+              - generic [ref=e517]: "}"
+            - button "Copy code to clipboard" [ref=e519] [cursor=pointer]:
+              - img [ref=e520]
+          - heading "Experimental API opt-in Copy link to experimental api opt in" [level=2] [ref=e522]:
+            - generic [ref=e523]: Experimental API opt-in
+            - button "Copy link to experimental api opt in" [ref=e524] [cursor=pointer]:
+              - img [ref=e525]
+          - paragraph [ref=e527]:
+            - text: Some app-server methods and fields are intentionally gated behind
+            - code [ref=e528]: experimentalApi
+            - text: capability.
+          - list [ref=e529]:
+            - listitem [ref=e530]:
+              - text: Omit
+              - code [ref=e531]: capabilities
+              - text: (or set
+              - code [ref=e532]: experimentalApi
+              - text: to
+              - code [ref=e533]: "false"
+              - text: ) to stay on the stable API surface, and the server rejects experimental methods/fields.
+            - listitem [ref=e534]:
+              - text: Set
+              - code [ref=e535]: capabilities.experimentalApi
+              - text: to
+              - code [ref=e536]: "true"
+              - text: to enable experimental methods and fields.
+          - generic [ref=e537]:
+            - code [ref=e538]:
+              - generic [ref=e539]: "{"
+              - generic [ref=e540]: "\"method\": \"initialize\","
+              - generic [ref=e541]: "\"id\": 1,"
+              - generic [ref=e542]: "\"params\": {"
+              - generic [ref=e543]: "\"clientInfo\": {"
+              - generic [ref=e544]: "\"name\": \"my_client\","
+              - generic [ref=e545]: "\"title\": \"My Client\","
+              - generic [ref=e546]: "\"version\": \"0.1.0\""
+              - generic [ref=e547]: "},"
+              - generic [ref=e548]: "\"capabilities\": {"
+              - generic [ref=e549]: "\"experimentalApi\": true"
+              - generic [ref=e550]: "}"
+              - generic [ref=e551]: "}"
+              - generic [ref=e552]: "}"
+            - button "Copy code to clipboard" [ref=e554] [cursor=pointer]:
+              - img [ref=e555]
+          - paragraph [ref=e557]: "If a client sends an experimental method or field without opting in, app-server rejects it with:"
+          - paragraph [ref=e558]:
+            - code [ref=e559]: <descriptor> requires experimentalApi capability
+          - heading "API overview Copy link to api overview" [level=2] [ref=e560]:
+            - generic [ref=e561]: API overview
+            - button "Copy link to api overview" [ref=e562] [cursor=pointer]:
+              - img [ref=e563]
+          - list [ref=e565]:
+            - listitem [ref=e566]:
+              - code [ref=e567]: thread/start
+              - text: "- create a new thread; emits"
+              - code [ref=e568]: thread/started
+              - text: and automatically subscribes you to turn/item events for that thread.
+            - listitem [ref=e569]:
+              - code [ref=e570]: thread/resume
+              - text: "- reopen an existing thread by id so later"
+              - code [ref=e571]: turn/start
+              - text: calls append to it.
+            - listitem [ref=e572]:
+              - code [ref=e573]: thread/fork
+              - text: "- fork a thread into a new thread id by copying stored history; emits"
+              - code [ref=e574]: thread/started
+              - text: for the new thread.
+            - listitem [ref=e575]:
+              - code [ref=e576]: thread/read
+              - text: "- read a stored thread by id without resuming it; set"
+              - code [ref=e577]: includeTurns
+              - text: to return full turn history. Returned
+              - code [ref=e578]: thread
+              - text: objects include runtime
+              - code [ref=e579]: status
+              - text: .
+            - listitem [ref=e580]:
+              - code [ref=e581]: thread/list
+              - text: "- page through stored thread logs; supports cursor-based pagination plus"
+              - code [ref=e582]: modelProviders
+              - text: ","
+              - code [ref=e583]: sourceKinds
+              - text: ","
+              - code [ref=e584]: archived
+              - text: ", and"
+              - code [ref=e585]: cwd
+              - text: filters. Returned
+              - code [ref=e586]: thread
+              - text: objects include runtime
+              - code [ref=e587]: status
+              - text: .
+            - listitem [ref=e588]:
+              - code [ref=e589]: thread/loaded/list
+              - text: "- list the thread ids currently loaded in memory."
+            - listitem [ref=e590]:
+              - code [ref=e591]: thread/name/set
+              - text: "- set or update a thread’s user-facing name for a loaded thread or a persisted rollout; emits"
+              - code [ref=e592]: thread/name/updated
+              - text: .
+            - listitem [ref=e593]:
+              - code [ref=e594]: thread/archive
+              - text: "- move a thread’s log file into the archived directory; returns"
+              - code [ref=e595]: "{}"
+              - text: on success and emits
+              - code [ref=e596]: thread/archived
+              - text: .
+            - listitem [ref=e597]:
+              - code [ref=e598]: thread/unsubscribe
+              - text: "- unsubscribe this connection from thread turn/item events. If this was the last subscriber, the server unloads the thread and emits"
+              - code [ref=e599]: thread/closed
+              - text: .
+            - listitem [ref=e600]:
+              - code [ref=e601]: thread/unarchive
+              - text: "- restore an archived thread rollout back into the active sessions directory; returns the restored"
+              - code [ref=e602]: thread
+              - text: and emits
+              - code [ref=e603]: thread/unarchived
+              - text: .
+            - listitem [ref=e604]:
+              - code [ref=e605]: thread/status/changed
+              - text: "- notification emitted when a loaded thread’s runtime"
+              - code [ref=e606]: status
+              - text: changes.
+            - listitem [ref=e607]:
+              - code [ref=e608]: thread/compact/start
+              - text: "- trigger conversation history compaction for a thread; returns"
+              - code [ref=e609]: "{}"
+              - text: immediately while progress streams via
+              - code [ref=e610]: turn/*
+              - text: and
+              - code [ref=e611]: item/*
+              - text: notifications.
+            - listitem [ref=e612]:
+              - code [ref=e613]: thread/rollback
+              - text: "- drop the last N turns from the in-memory context and persist a rollback marker; returns the updated"
+              - code [ref=e614]: thread
+              - text: .
+            - listitem [ref=e615]:
+              - code [ref=e616]: turn/start
+              - text: "- add user input to a thread and begin Codex generation; responds with the initial"
+              - code [ref=e617]: turn
+              - text: and streams events. For
+              - code [ref=e618]: collaborationMode
+              - text: ","
+              - code [ref=e619]: "settings.developer_instructions: null"
+              - text: means “use built-in instructions for the selected mode.”
+            - listitem [ref=e620]:
+              - code [ref=e621]: turn/steer
+              - text: "- append user input to the active in-flight turn for a thread; returns the accepted"
+              - code [ref=e622]: turnId
+              - text: .
+            - listitem [ref=e623]:
+              - code [ref=e624]: turn/interrupt
+              - text: "- request cancellation of an in-flight turn; success is"
+              - code [ref=e625]: "{}"
+              - text: and the turn ends with
+              - code [ref=e626]: "status: \"interrupted\""
+              - text: .
+            - listitem [ref=e627]:
+              - code [ref=e628]: review/start
+              - text: "- kick off the Codex reviewer for a thread; emits"
+              - code [ref=e629]: enteredReviewMode
+              - text: and
+              - code [ref=e630]: exitedReviewMode
+              - text: items.
+            - listitem [ref=e631]:
+              - code [ref=e632]: command/exec
+              - text: "- run a single command under the server sandbox without starting a thread/turn."
+            - listitem [ref=e633]:
+              - code [ref=e634]: command/exec/write
+              - text: "- write stdin bytes to a running"
+              - code [ref=e635]: command/exec
+              - text: session or close stdin.
+            - listitem [ref=e636]:
+              - code [ref=e637]: command/exec/resize
+              - text: "- resize a running PTY-backed"
+              - code [ref=e638]: command/exec
+              - text: session.
+            - listitem [ref=e639]:
+              - code [ref=e640]: command/exec/terminate
+              - text: "- terminate a running"
+              - code [ref=e641]: command/exec
+              - text: session.
+            - listitem [ref=e642]:
+              - code [ref=e643]: model/list
+              - text: "- list available models (set"
+              - code [ref=e644]: "includeHidden: true"
+              - text: to include entries with
+              - code [ref=e645]: "hidden: true"
+              - text: ) with effort options, optional
+              - code [ref=e646]: upgrade
+              - text: ", and"
+              - code [ref=e647]: inputModalities
+              - text: .
+            - listitem [ref=e648]:
+              - code [ref=e649]: experimentalFeature/list
+              - text: "- list feature flags with lifecycle stage metadata and cursor pagination."
+            - listitem [ref=e650]:
+              - code [ref=e651]: collaborationMode/list
+              - text: "- list collaboration mode presets (experimental, no pagination)."
+            - listitem [ref=e652]:
+              - code [ref=e653]: skills/list
+              - text: "- list skills for one or more"
+              - code [ref=e654]: cwd
+              - text: values (supports
+              - code [ref=e655]: forceReload
+              - text: and optional
+              - code [ref=e656]: perCwdExtraUserRoots
+              - text: ).
+            - listitem [ref=e657]:
+              - code [ref=e658]: plugin/list
+              - text: "- list discovered plugin marketplaces and plugin state, including install/auth policy metadata."
+            - listitem [ref=e659]:
+              - code [ref=e660]: plugin/read
+              - text: "- read one plugin by marketplace path and plugin name, including bundled skills, apps, and MCP server names."
+            - listitem [ref=e661]:
+              - code [ref=e662]: app/list
+              - text: "- list available apps (connectors) with pagination plus accessibility/enabled metadata."
+            - listitem [ref=e663]:
+              - code [ref=e664]: skills/config/write
+              - text: "- enable or disable skills by path."
+            - listitem [ref=e665]:
+              - code [ref=e666]: mcpServer/oauth/login
+              - text: "- start an OAuth login for a configured MCP server; returns an authorization URL and emits"
+              - code [ref=e667]: mcpServer/oauthLogin/completed
+              - text: on completion.
+            - listitem [ref=e668]:
+              - code [ref=e669]: tool/requestUserInput
+              - text: "- prompt the user with 1-3 short questions for a tool call (experimental); questions can set"
+              - code [ref=e670]: isOther
+              - text: for a free-form option.
+            - listitem [ref=e671]:
+              - code [ref=e672]: config/mcpServer/reload
+              - text: "- reload MCP server configuration from disk and queue a refresh for loaded threads."
+            - listitem [ref=e673]:
+              - code [ref=e674]: mcpServerStatus/list
+              - text: "- list MCP servers, tools, resources, and auth status (cursor + limit pagination)."
+            - listitem [ref=e675]:
+              - code [ref=e676]: windowsSandbox/setupStart
+              - text: "- start Windows sandbox setup for"
+              - code [ref=e677]: elevated
+              - text: or
+              - code [ref=e678]: unelevated
+              - text: mode; returns quickly and later emits
+              - code [ref=e679]: windowsSandbox/setupCompleted
+              - text: .
+            - listitem [ref=e680]:
+              - code [ref=e681]: feedback/upload
+              - text: "- submit a feedback report (classification + optional reason/logs + conversation id, plus optional"
+              - code [ref=e682]: extraLogFiles
+              - text: attachments).
+            - listitem [ref=e683]:
+              - code [ref=e684]: config/read
+              - text: "- fetch the effective configuration on disk after resolving configuration layering."
+            - listitem [ref=e685]:
+              - code [ref=e686]: externalAgentConfig/detect
+              - text: "- detect migratable external-agent artifacts with"
+              - code [ref=e687]: includeHome
+              - text: and optional
+              - code [ref=e688]: cwds
+              - text: ; each detected item includes
+              - code [ref=e689]: cwd
+              - text: (
+              - code [ref=e690]: "null"
+              - text: for home).
+            - listitem [ref=e691]:
+              - code [ref=e692]: externalAgentConfig/import
+              - text: "- apply selected external-agent migration items by passing explicit"
+              - code [ref=e693]: migrationItems
+              - text: with
+              - code [ref=e694]: cwd
+              - text: (
+              - code [ref=e695]: "null"
+              - text: for home).
+            - listitem [ref=e696]:
+              - code [ref=e697]: config/value/write
+              - text: "- write a single configuration key/value to the user’s"
+              - code [ref=e698]: config.toml
+              - text: on disk.
+            - listitem [ref=e699]:
+              - code [ref=e700]: config/batchWrite
+              - text: "- apply configuration edits atomically to the user’s"
+              - code [ref=e701]: config.toml
+              - text: on disk.
+            - listitem [ref=e702]:
+              - code [ref=e703]: configRequirements/read
+              - text: "- fetch requirements from"
+              - code [ref=e704]: requirements.toml
+              - text: and/or MDM, including allow-lists, pinned
+              - code [ref=e705]: featureRequirements
+              - text: ", and residency/network requirements (or"
+              - code [ref=e706]: "null"
+              - text: if you haven’t set any up).
+            - listitem [ref=e707]:
+              - code [ref=e708]: fs/readFile
+              - text: ","
+              - code [ref=e709]: fs/writeFile
+              - text: ","
+              - code [ref=e710]: fs/createDirectory
+              - text: ","
+              - code [ref=e711]: fs/getMetadata
+              - text: ","
+              - code [ref=e712]: fs/readDirectory
+              - text: ","
+              - code [ref=e713]: fs/remove
+              - text: ", and"
+              - code [ref=e714]: fs/copy
+              - text: "- operate on absolute filesystem paths through the app-server v2 filesystem API."
+          - heading "Models Copy link to models" [level=2] [ref=e715]:
+            - generic [ref=e716]: Models
+            - button "Copy link to models" [ref=e717] [cursor=pointer]:
+              - img [ref=e718]
+          - heading "List models (model/list) Copy link to list models modellist" [level=3] [ref=e720]:
+            - generic [ref=e721]:
+              - text: List models (
+              - code [ref=e722]: model/list
+              - text: )
+            - button "Copy link to list models modellist" [ref=e723] [cursor=pointer]:
+              - img [ref=e724]
+          - paragraph [ref=e726]:
+            - text: Call
+            - code [ref=e727]: model/list
+            - text: to discover available models and their capabilities before rendering model or personality selectors.
+          - generic [ref=e728]:
+            - code [ref=e729]:
+              - generic [ref=e730]: "{ \"method\": \"model/list\", \"id\": 6, \"params\": { \"limit\": 20, \"includeHidden\": false } }"
+              - generic [ref=e731]: "{ \"id\": 6, \"result\": {"
+              - generic [ref=e732]: "\"data\": [{"
+              - generic [ref=e733]: "\"id\": \"gpt-5.4\","
+              - generic [ref=e734]: "\"model\": \"gpt-5.4\","
+              - generic [ref=e735]: "\"displayName\": \"GPT-5.4\","
+              - generic [ref=e736]: "\"hidden\": false,"
+              - generic [ref=e737]: "\"defaultReasoningEffort\": \"medium\","
+              - generic [ref=e738]: "\"supportedReasoningEfforts\": [{"
+              - generic [ref=e739]: "\"reasoningEffort\": \"low\","
+              - generic [ref=e740]: "\"description\": \"Lower latency\""
+              - generic [ref=e741]: "}],"
+              - generic [ref=e742]: "\"inputModalities\": [\"text\", \"image\"],"
+              - generic [ref=e743]: "\"supportsPersonality\": true,"
+              - generic [ref=e744]: "\"isDefault\": true"
+              - generic [ref=e745]: "}],"
+              - generic [ref=e746]: "\"nextCursor\": null"
+              - generic [ref=e747]: "} }"
+            - button "Copy code to clipboard" [ref=e749] [cursor=pointer]:
+              - img [ref=e750]
+          - paragraph [ref=e752]: "Each model entry can include:"
+          - list [ref=e753]:
+            - listitem [ref=e754]:
+              - code [ref=e755]: supportedReasoningEfforts
+              - text: "- supported effort options for the model."
+            - listitem [ref=e756]:
+              - code [ref=e757]: defaultReasoningEffort
+              - text: "- suggested default effort for clients."
+            - listitem [ref=e758]:
+              - code [ref=e759]: upgrade
+              - text: "- optional recommended upgrade model id for migration prompts in clients."
+            - listitem [ref=e760]:
+              - code [ref=e761]: upgradeInfo
+              - text: "- optional upgrade metadata for migration prompts in clients."
+            - listitem [ref=e762]:
+              - code [ref=e763]: hidden
+              - text: "- whether the model is hidden from the default picker list."
+            - listitem [ref=e764]:
+              - code [ref=e765]: inputModalities
+              - text: "- supported input types for the model (for example"
+              - code [ref=e766]: text
+              - text: ","
+              - code [ref=e767]: image
+              - text: ).
+            - listitem [ref=e768]:
+              - code [ref=e769]: supportsPersonality
+              - text: "- whether the model supports personality-specific instructions such as"
+              - code [ref=e770]: /personality
+              - text: .
+            - listitem [ref=e771]:
+              - code [ref=e772]: isDefault
+              - text: "- whether the model is the recommended default."
+          - paragraph [ref=e773]:
+            - text: By default,
+            - code [ref=e774]: model/list
+            - text: returns picker-visible models only. Set
+            - code [ref=e775]: "includeHidden: true"
+            - text: if you need the full list and want to filter on the client side using
+            - code [ref=e776]: hidden
+            - text: .
+          - paragraph [ref=e777]:
+            - text: When
+            - code [ref=e778]: inputModalities
+            - text: is missing (older model catalogs), treat it as
+            - code [ref=e779]: "[\"text\", \"image\"]"
+            - text: for backward compatibility.
+          - heading "List experimental features (experimentalFeature/list) Copy link to list experimental features experimentalfeaturelist" [level=3] [ref=e780]:
+            - generic [ref=e781]:
+              - text: List experimental features (
+              - code [ref=e782]: experimentalFeature/list
+              - text: )
+            - button "Copy link to list experimental features experimentalfeaturelist" [ref=e783] [cursor=pointer]:
+              - img [ref=e784]
+          - paragraph [ref=e786]: "Use this endpoint to discover feature flags with metadata and lifecycle stage:"
+          - generic [ref=e787]:
+            - code [ref=e788]:
+              - generic [ref=e789]: "{ \"method\": \"experimentalFeature/list\", \"id\": 7, \"params\": { \"limit\": 20 } }"
+              - generic [ref=e790]: "{ \"id\": 7, \"result\": {"
+              - generic [ref=e791]: "\"data\": [{"
+              - generic [ref=e792]: "\"name\": \"unified_exec\","
+              - generic [ref=e793]: "\"stage\": \"beta\","
+              - generic [ref=e794]: "\"displayName\": \"Unified exec\","
+              - generic [ref=e795]: "\"description\": \"Use the unified PTY-backed execution tool.\","
+              - generic [ref=e796]: "\"announcement\": \"Beta rollout for improved command execution reliability.\","
+              - generic [ref=e797]: "\"enabled\": false,"
+              - generic [ref=e798]: "\"defaultEnabled\": false"
+              - generic [ref=e799]: "}],"
+              - generic [ref=e800]: "\"nextCursor\": null"
+              - generic [ref=e801]: "} }"
+            - button "Copy code to clipboard" [ref=e803] [cursor=pointer]:
+              - img [ref=e804]
+          - paragraph [ref=e806]:
+            - code [ref=e807]: stage
+            - text: can be
+            - code [ref=e808]: beta
+            - text: ","
+            - code [ref=e809]: underDevelopment
+            - text: ","
+            - code [ref=e810]: stable
+            - text: ","
+            - code [ref=e811]: deprecated
+            - text: ", or"
+            - code [ref=e812]: removed
+            - text: . For non-beta flags,
+            - code [ref=e813]: displayName
+            - text: ","
+            - code [ref=e814]: description
+            - text: ", and"
+            - code [ref=e815]: announcement
+            - text: may be
+            - code [ref=e816]: "null"
+            - text: .
+          - heading "Threads Copy link to threads" [level=2] [ref=e817]:
+            - generic [ref=e818]: Threads
+            - button "Copy link to threads" [ref=e819] [cursor=pointer]:
+              - img [ref=e820]
+          - list [ref=e822]:
+            - listitem [ref=e823]:
+              - code [ref=e824]: thread/read
+              - text: reads a stored thread without subscribing to it; set
+              - code [ref=e825]: includeTurns
+              - text: to include turns.
+            - listitem [ref=e826]:
+              - code [ref=e827]: thread/list
+              - text: supports cursor pagination plus
+              - code [ref=e828]: modelProviders
+              - text: ","
+              - code [ref=e829]: sourceKinds
+              - text: ","
+              - code [ref=e830]: archived
+              - text: ", and"
+              - code [ref=e831]: cwd
+              - text: filtering.
+            - listitem [ref=e832]:
+              - code [ref=e833]: thread/loaded/list
+              - text: returns the thread IDs currently in memory.
+            - listitem [ref=e834]:
+              - code [ref=e835]: thread/archive
+              - text: moves the thread’s persisted JSONL log into the archived directory.
+            - listitem [ref=e836]:
+              - code [ref=e837]: thread/unsubscribe
+              - text: unsubscribes the current connection from a loaded thread and can trigger
+              - code [ref=e838]: thread/closed
+              - text: .
+            - listitem [ref=e839]:
+              - code [ref=e840]: thread/unarchive
+              - text: restores an archived thread rollout back into the active sessions directory.
+            - listitem [ref=e841]:
+              - code [ref=e842]: thread/compact/start
+              - text: triggers compaction and returns
+              - code [ref=e843]: "{}"
+              - text: immediately.
+            - listitem [ref=e844]:
+              - code [ref=e845]: thread/rollback
+              - text: drops the last N turns from the in-memory context and records a rollback marker in the thread’s persisted JSONL log.
+          - heading "Start or resume a thread Copy link to start or resume a thread" [level=3] [ref=e846]:
+            - generic [ref=e847]: Start or resume a thread
+            - button "Copy link to start or resume a thread" [ref=e848] [cursor=pointer]:
+              - img [ref=e849]
+          - paragraph [ref=e851]: Start a fresh thread when you need a new Codex conversation.
+          - generic [ref=e852]:
+            - code [ref=e853]:
+              - generic [ref=e854]: "{ \"method\": \"thread/start\", \"id\": 10, \"params\": {"
+              - generic [ref=e855]: "\"model\": \"gpt-5.4\","
+              - generic [ref=e856]: "\"cwd\": \"/Users/me/project\","
+              - generic [ref=e857]: "\"approvalPolicy\": \"never\","
+              - generic [ref=e858]: "\"sandbox\": \"workspaceWrite\","
+              - generic [ref=e859]: "\"personality\": \"friendly\","
+              - generic [ref=e860]: "\"serviceName\": \"my_app_server_client\""
+              - generic [ref=e861]: "} }"
+              - generic [ref=e862]: "{ \"id\": 10, \"result\": {"
+              - generic [ref=e863]: "\"thread\": {"
+              - generic [ref=e864]: "\"id\": \"thr_123\","
+              - generic [ref=e865]: "\"preview\": \"\","
+              - generic [ref=e866]: "\"ephemeral\": false,"
+              - generic [ref=e867]: "\"modelProvider\": \"openai\","
+              - generic [ref=e868]: "\"createdAt\": 1730910000"
+              - generic [ref=e869]: "}"
+              - generic [ref=e870]: "} }"
+              - generic [ref=e871]: "{ \"method\": \"thread/started\", \"params\": { \"thread\": { \"id\": \"thr_123\" } } }"
+            - button "Copy code to clipboard" [ref=e873] [cursor=pointer]:
+              - img [ref=e874]
+          - paragraph [ref=e876]:
+            - code [ref=e877]: serviceName
+            - text: is optional. Set it when you want app-server to tag thread-level metrics with your integration’s service name.
+          - paragraph [ref=e878]:
+            - text: To continue a stored session, call
+            - code [ref=e879]: thread/resume
+            - text: with the
+            - code [ref=e880]: thread.id
+            - text: you recorded earlier. The response shape matches
+            - code [ref=e881]: thread/start
+            - text: . You can also pass the same configuration overrides supported by
+            - code [ref=e882]: thread/start
+            - text: ", such as"
+            - code [ref=e883]: personality
+            - text: ":"
+          - generic [ref=e884]:
+            - code [ref=e885]:
+              - generic [ref=e886]: "{ \"method\": \"thread/resume\", \"id\": 11, \"params\": {"
+              - generic [ref=e887]: "\"threadId\": \"thr_123\","
+              - generic [ref=e888]: "\"personality\": \"friendly\""
+              - generic [ref=e889]: "} }"
+              - generic [ref=e890]: "{ \"id\": 11, \"result\": { \"thread\": { \"id\": \"thr_123\", \"name\": \"Bug bash notes\", \"ephemeral\": false } } }"
+            - button "Copy code to clipboard" [ref=e892] [cursor=pointer]:
+              - img [ref=e893]
+          - paragraph [ref=e895]:
+            - text: Resuming a thread doesn’t update
+            - code [ref=e896]: thread.updatedAt
+            - text: (or the rollout file’s modified time) by itself. The timestamp updates when you start a turn.
+          - paragraph [ref=e897]:
+            - text: If you mark an enabled MCP server as
+            - code [ref=e898]: required
+            - text: in config and that server fails to initialize,
+            - code [ref=e899]: thread/start
+            - text: and
+            - code [ref=e900]: thread/resume
+            - text: fail instead of continuing without it.
+          - paragraph [ref=e901]:
+            - code [ref=e902]: dynamicTools
+            - text: "on"
+            - code [ref=e903]: thread/start
+            - text: is an experimental field (requires
+            - code [ref=e904]: capabilities.experimentalApi = true
+            - text: ). Codex persists these dynamic tools in the thread rollout metadata and restores them on
+            - code [ref=e905]: thread/resume
+            - text: when you don’t supply new dynamic tools.
+          - paragraph [ref=e906]: If you resume with a different model than the one recorded in the rollout, Codex emits a warning and applies a one-time model-switch instruction on the next turn.
+          - paragraph [ref=e907]:
+            - text: To branch from a stored session, call
+            - code [ref=e908]: thread/fork
+            - text: with the
+            - code [ref=e909]: thread.id
+            - text: . This creates a new thread id and emits a
+            - code [ref=e910]: thread/started
+            - text: "notification for it:"
+          - generic [ref=e911]:
+            - code [ref=e912]:
+              - generic [ref=e913]: "{ \"method\": \"thread/fork\", \"id\": 12, \"params\": { \"threadId\": \"thr_123\" } }"
+              - generic [ref=e914]: "{ \"id\": 12, \"result\": { \"thread\": { \"id\": \"thr_456\" } } }"
+              - generic [ref=e915]: "{ \"method\": \"thread/started\", \"params\": { \"thread\": { \"id\": \"thr_456\" } } }"
+            - button "Copy code to clipboard" [ref=e917] [cursor=pointer]:
+              - img [ref=e918]
+          - paragraph [ref=e920]:
+            - text: When a user-facing thread title has been set, app-server hydrates
+            - code [ref=e921]: thread.name
+            - text: "on"
+            - code [ref=e922]: thread/list
+            - text: ","
+            - code [ref=e923]: thread/read
+            - text: ","
+            - code [ref=e924]: thread/resume
+            - text: ","
+            - code [ref=e925]: thread/unarchive
+            - text: ", and"
+            - code [ref=e926]: thread/rollback
+            - text: responses.
+            - code [ref=e927]: thread/start
+            - text: and
+            - code [ref=e928]: thread/fork
+            - text: may omit
+            - code [ref=e929]: name
+            - text: (or return
+            - code [ref=e930]: "null"
+            - text: ) until a title is set later.
+          - heading "Read a stored thread (without resuming) Copy link to read a stored thread without resuming" [level=3] [ref=e931]:
+            - generic [ref=e932]: Read a stored thread (without resuming)
+            - button "Copy link to read a stored thread without resuming" [ref=e933] [cursor=pointer]:
+              - img [ref=e934]
+          - paragraph [ref=e936]:
+            - text: Use
+            - code [ref=e937]: thread/read
+            - text: when you want stored thread data but don’t want to resume the thread or subscribe to its events.
+          - list [ref=e938]:
+            - listitem [ref=e939]:
+              - code [ref=e940]: includeTurns
+              - text: "- when"
+              - code [ref=e941]: "true"
+              - text: ", the response includes the thread’s turns; when"
+              - code [ref=e942]: "false"
+              - text: or omitted, you get the thread summary only.
+            - listitem [ref=e943]:
+              - text: Returned
+              - code [ref=e944]: thread
+              - text: objects include runtime
+              - code [ref=e945]: status
+              - text: (
+              - code [ref=e946]: notLoaded
+              - text: ","
+              - code [ref=e947]: idle
+              - text: ","
+              - code [ref=e948]: systemError
+              - text: ", or"
+              - code [ref=e949]: active
+              - text: with
+              - code [ref=e950]: activeFlags
+              - text: ).
+          - generic [ref=e951]:
+            - code [ref=e952]:
+              - generic [ref=e953]: "{ \"method\": \"thread/read\", \"id\": 19, \"params\": { \"threadId\": \"thr_123\", \"includeTurns\": true } }"
+              - generic [ref=e954]: "{ \"id\": 19, \"result\": { \"thread\": { \"id\": \"thr_123\", \"name\": \"Bug bash notes\", \"ephemeral\": false, \"status\": { \"type\": \"notLoaded\" }, \"turns\": [] } } }"
+            - button "Copy code to clipboard" [ref=e956] [cursor=pointer]:
+              - img [ref=e957]
+          - paragraph [ref=e959]:
+            - text: Unlike
+            - code [ref=e960]: thread/resume
+            - text: ","
+            - code [ref=e961]: thread/read
+            - text: doesn’t load the thread into memory or emit
+            - code [ref=e962]: thread/started
+            - text: .
+          - heading "List threads (with pagination & filters) Copy link to list threads with pagination filters" [level=3] [ref=e963]:
+            - generic [ref=e964]: List threads (with pagination & filters)
+            - button "Copy link to list threads with pagination filters" [ref=e965] [cursor=pointer]:
+              - img [ref=e966]
+          - paragraph [ref=e968]:
+            - code [ref=e969]: thread/list
+            - text: lets you render a history UI. Results default to newest-first by
+            - code [ref=e970]: createdAt
+            - text: ". Filters apply before pagination. Pass any combination of:"
+          - list [ref=e971]:
+            - listitem [ref=e972]:
+              - code [ref=e973]: cursor
+              - text: "- opaque string from a prior response; omit for the first page."
+            - listitem [ref=e974]:
+              - code [ref=e975]: limit
+              - text: "- server defaults to a reasonable page size if unset."
+            - listitem [ref=e976]:
+              - code [ref=e977]: sortKey
+              - text: "-"
+              - code [ref=e978]: created_at
+              - text: (default) or
+              - code [ref=e979]: updated_at
+              - text: .
+            - listitem [ref=e980]:
+              - code [ref=e981]: modelProviders
+              - text: "- restrict results to specific providers; unset, null, or an empty array includes all providers."
+            - listitem [ref=e982]:
+              - code [ref=e983]: sourceKinds
+              - text: "- restrict results to specific thread sources. When omitted or"
+              - code [ref=e984]: "[]"
+              - text: ", the server defaults to interactive sources only:"
+              - code [ref=e985]: cli
+              - text: and
+              - code [ref=e986]: vscode
+              - text: .
+            - listitem [ref=e987]:
+              - code [ref=e988]: archived
+              - text: "- when"
+              - code [ref=e989]: "true"
+              - text: ", list archived threads only. When"
+              - code [ref=e990]: "false"
+              - text: or omitted, list non-archived threads (default).
+            - listitem [ref=e991]:
+              - code [ref=e992]: cwd
+              - text: "- restrict results to threads whose session current working directory exactly matches this path."
+          - paragraph [ref=e993]:
+            - code [ref=e994]: sourceKinds
+            - text: "accepts the following values:"
+          - list [ref=e995]:
+            - listitem [ref=e996]:
+              - code [ref=e997]: cli
+            - listitem [ref=e998]:
+              - code [ref=e999]: vscode
+            - listitem [ref=e1000]:
+              - code [ref=e1001]: exec
+            - listitem [ref=e1002]:
+              - code [ref=e1003]: appServer
+            - listitem [ref=e1004]:
+              - code [ref=e1005]: subAgent
+            - listitem [ref=e1006]:
+              - code [ref=e1007]: subAgentReview
+            - listitem [ref=e1008]:
+              - code [ref=e1009]: subAgentCompact
+            - listitem [ref=e1010]:
+              - code [ref=e1011]: subAgentThreadSpawn
+            - listitem [ref=e1012]:
+              - code [ref=e1013]: subAgentOther
+            - listitem [ref=e1014]:
+              - code [ref=e1015]: unknown
+          - paragraph [ref=e1016]: "Example:"
+          - generic [ref=e1017]:
+            - code [ref=e1018]:
+              - generic [ref=e1019]: "{ \"method\": \"thread/list\", \"id\": 20, \"params\": {"
+              - generic [ref=e1020]: "\"cursor\": null,"
+              - generic [ref=e1021]: "\"limit\": 25,"
+              - generic [ref=e1022]: "\"sortKey\": \"created_at\""
+              - generic [ref=e1023]: "} }"
+              - generic [ref=e1024]: "{ \"id\": 20, \"result\": {"
+              - generic [ref=e1025]: "\"data\": ["
+              - generic [ref=e1026]: "{ \"id\": \"thr_a\", \"preview\": \"Create a TUI\", \"ephemeral\": false, \"modelProvider\": \"openai\", \"createdAt\": 1730831111, \"updatedAt\": 1730831111, \"name\": \"TUI prototype\", \"status\": { \"type\": \"notLoaded\" } },"
+              - generic [ref=e1027]: "{ \"id\": \"thr_b\", \"preview\": \"Fix tests\", \"ephemeral\": true, \"modelProvider\": \"openai\", \"createdAt\": 1730750000, \"updatedAt\": 1730750000, \"status\": { \"type\": \"notLoaded\" } }"
+              - generic [ref=e1028]: "],"
+              - generic [ref=e1029]: "\"nextCursor\": \"opaque-token-or-null\""
+              - generic [ref=e1030]: "} }"
+            - button "Copy code to clipboard" [ref=e1032] [cursor=pointer]:
+              - img [ref=e1033]
+          - paragraph [ref=e1035]:
+            - text: When
+            - code [ref=e1036]: nextCursor
+            - text: is
+            - code [ref=e1037]: "null"
+            - text: ", you have reached the final page."
+          - heading "Track thread status changes Copy link to track thread status changes" [level=3] [ref=e1038]:
+            - generic [ref=e1039]: Track thread status changes
+            - button "Copy link to track thread status changes" [ref=e1040] [cursor=pointer]:
+              - img [ref=e1041]
+          - paragraph [ref=e1043]:
+            - code [ref=e1044]: thread/status/changed
+            - text: is emitted whenever a loaded thread’s runtime status changes. The payload includes
+            - code [ref=e1045]: threadId
+            - text: and the new
+            - code [ref=e1046]: status
+            - text: .
+          - generic [ref=e1047]:
+            - code [ref=e1048]:
+              - generic [ref=e1049]: "{"
+              - generic [ref=e1050]: "\"method\": \"thread/status/changed\","
+              - generic [ref=e1051]: "\"params\": {"
+              - generic [ref=e1052]: "\"threadId\": \"thr_123\","
+              - generic [ref=e1053]: "\"status\": { \"type\": \"active\", \"activeFlags\": [\"waitingOnApproval\"] }"
+              - generic [ref=e1054]: "}"
+              - generic [ref=e1055]: "}"
+            - button "Copy code to clipboard" [ref=e1057] [cursor=pointer]:
+              - img [ref=e1058]
+          - heading "List loaded threads Copy link to list loaded threads" [level=3] [ref=e1060]:
+            - generic [ref=e1061]: List loaded threads
+            - button "Copy link to list loaded threads" [ref=e1062] [cursor=pointer]:
+              - img [ref=e1063]
+          - paragraph [ref=e1065]:
+            - code [ref=e1066]: thread/loaded/list
+            - text: returns thread IDs currently loaded in memory.
+          - generic [ref=e1067]:
+            - code [ref=e1068]:
+              - generic [ref=e1069]: "{ \"method\": \"thread/loaded/list\", \"id\": 21 }"
+              - generic [ref=e1070]: "{ \"id\": 21, \"result\": { \"data\": [\"thr_123\", \"thr_456\"] } }"
+            - button "Copy code to clipboard" [ref=e1072] [cursor=pointer]:
+              - img [ref=e1073]
+          - heading "Unsubscribe from a loaded thread Copy link to unsubscribe from a loaded thread" [level=3] [ref=e1075]:
+            - generic [ref=e1076]: Unsubscribe from a loaded thread
+            - button "Copy link to unsubscribe from a loaded thread" [ref=e1077] [cursor=pointer]:
+              - img [ref=e1078]
+          - paragraph [ref=e1080]:
+            - code [ref=e1081]: thread/unsubscribe
+            - text: "removes the current connection’s subscription to a thread. The response status is one of:"
+          - list [ref=e1082]:
+            - listitem [ref=e1083]:
+              - code [ref=e1084]: unsubscribed
+              - text: when the connection was subscribed and is now removed.
+            - listitem [ref=e1085]:
+              - code [ref=e1086]: notSubscribed
+              - text: when the connection was not subscribed to that thread.
+            - listitem [ref=e1087]:
+              - code [ref=e1088]: notLoaded
+              - text: when the thread is not loaded.
+          - paragraph [ref=e1089]:
+            - text: If this was the last subscriber, the server unloads the thread and emits a
+            - code [ref=e1090]: thread/status/changed
+            - text: transition to
+            - code [ref=e1091]: notLoaded
+            - text: plus
+            - code [ref=e1092]: thread/closed
+            - text: .
+          - generic [ref=e1093]:
+            - code [ref=e1094]:
+              - generic [ref=e1095]: "{ \"method\": \"thread/unsubscribe\", \"id\": 22, \"params\": { \"threadId\": \"thr_123\" } }"
+              - generic [ref=e1096]: "{ \"id\": 22, \"result\": { \"status\": \"unsubscribed\" } }"
+              - generic [ref=e1097]: "{ \"method\": \"thread/status/changed\", \"params\": {"
+              - generic [ref=e1098]: "\"threadId\": \"thr_123\","
+              - generic [ref=e1099]: "\"status\": { \"type\": \"notLoaded\" }"
+              - generic [ref=e1100]: "} }"
+              - generic [ref=e1101]: "{ \"method\": \"thread/closed\", \"params\": { \"threadId\": \"thr_123\" } }"
+            - button "Copy code to clipboard" [ref=e1103] [cursor=pointer]:
+              - img [ref=e1104]
+          - heading "Archive a thread Copy link to archive a thread" [level=3] [ref=e1106]:
+            - generic [ref=e1107]: Archive a thread
+            - button "Copy link to archive a thread" [ref=e1108] [cursor=pointer]:
+              - img [ref=e1109]
+          - paragraph [ref=e1111]:
+            - text: Use
+            - code [ref=e1112]: thread/archive
+            - text: to move the persisted thread log (stored as a JSONL file on disk) into the archived sessions directory.
+          - generic [ref=e1113]:
+            - code [ref=e1114]:
+              - generic [ref=e1115]: "{ \"method\": \"thread/archive\", \"id\": 22, \"params\": { \"threadId\": \"thr_b\" } }"
+              - generic [ref=e1116]: "{ \"id\": 22, \"result\": {} }"
+              - generic [ref=e1117]: "{ \"method\": \"thread/archived\", \"params\": { \"threadId\": \"thr_b\" } }"
+            - button "Copy code to clipboard" [ref=e1119] [cursor=pointer]:
+              - img [ref=e1120]
+          - paragraph [ref=e1122]:
+            - text: Archived threads won’t appear in future calls to
+            - code [ref=e1123]: thread/list
+            - text: unless you pass
+            - code [ref=e1124]: "archived: true"
+            - text: .
+          - heading "Unarchive a thread Copy link to unarchive a thread" [level=3] [ref=e1125]:
+            - generic [ref=e1126]: Unarchive a thread
+            - button "Copy link to unarchive a thread" [ref=e1127] [cursor=pointer]:
+              - img [ref=e1128]
+          - paragraph [ref=e1130]:
+            - text: Use
+            - code [ref=e1131]: thread/unarchive
+            - text: to move an archived thread rollout back into the active sessions directory.
+          - generic [ref=e1132]:
+            - code [ref=e1133]:
+              - generic [ref=e1134]: "{ \"method\": \"thread/unarchive\", \"id\": 24, \"params\": { \"threadId\": \"thr_b\" } }"
+              - generic [ref=e1135]: "{ \"id\": 24, \"result\": { \"thread\": { \"id\": \"thr_b\", \"name\": \"Bug bash notes\" } } }"
+              - generic [ref=e1136]: "{ \"method\": \"thread/unarchived\", \"params\": { \"threadId\": \"thr_b\" } }"
+            - button "Copy code to clipboard" [ref=e1138] [cursor=pointer]:
+              - img [ref=e1139]
+          - heading "Trigger thread compaction Copy link to trigger thread compaction" [level=3] [ref=e1141]:
+            - generic [ref=e1142]: Trigger thread compaction
+            - button "Copy link to trigger thread compaction" [ref=e1143] [cursor=pointer]:
+              - img [ref=e1144]
+          - paragraph [ref=e1146]:
+            - text: Use
+            - code [ref=e1147]: thread/compact/start
+            - text: to trigger manual history compaction for a thread. The request returns immediately with
+            - code [ref=e1148]: "{}"
+            - text: .
+          - paragraph [ref=e1149]:
+            - text: App-server emits progress as standard
+            - code [ref=e1150]: turn/*
+            - text: and
+            - code [ref=e1151]: item/*
+            - text: notifications on the same
+            - code [ref=e1152]: threadId
+            - text: ", including a"
+            - code [ref=e1153]: contextCompaction
+            - text: item lifecycle (
+            - code [ref=e1154]: item/started
+            - text: then
+            - code [ref=e1155]: item/completed
+            - text: ).
+          - generic [ref=e1156]:
+            - code [ref=e1157]:
+              - generic [ref=e1158]: "{ \"method\": \"thread/compact/start\", \"id\": 25, \"params\": { \"threadId\": \"thr_b\" } }"
+              - generic [ref=e1159]: "{ \"id\": 25, \"result\": {} }"
+            - button "Copy code to clipboard" [ref=e1161] [cursor=pointer]:
+              - img [ref=e1162]
+          - heading "Roll back recent turns Copy link to roll back recent turns" [level=3] [ref=e1164]:
+            - generic [ref=e1165]: Roll back recent turns
+            - button "Copy link to roll back recent turns" [ref=e1166] [cursor=pointer]:
+              - img [ref=e1167]
+          - paragraph [ref=e1169]:
+            - text: Use
+            - code [ref=e1170]: thread/rollback
+            - text: to remove the last
+            - code [ref=e1171]: numTurns
+            - text: entries from the in-memory context and persist a rollback marker in the rollout log. The returned
+            - code [ref=e1172]: thread
+            - text: includes
+            - code [ref=e1173]: turns
+            - text: populated after the rollback.
+          - generic [ref=e1174]:
+            - code [ref=e1175]:
+              - generic [ref=e1176]: "{ \"method\": \"thread/rollback\", \"id\": 26, \"params\": { \"threadId\": \"thr_b\", \"numTurns\": 1 } }"
+              - generic [ref=e1177]: "{ \"id\": 26, \"result\": { \"thread\": { \"id\": \"thr_b\", \"name\": \"Bug bash notes\", \"ephemeral\": false } } }"
+            - button "Copy code to clipboard" [ref=e1179] [cursor=pointer]:
+              - img [ref=e1180]
+          - heading "Turns Copy link to turns" [level=2] [ref=e1182]:
+            - generic [ref=e1183]: Turns
+            - button "Copy link to turns" [ref=e1184] [cursor=pointer]:
+              - img [ref=e1185]
+          - paragraph [ref=e1187]:
+            - text: The
+            - code [ref=e1188]: input
+            - text: "field accepts a list of items:"
+          - list [ref=e1189]:
+            - listitem [ref=e1190]:
+              - code [ref=e1191]: "{ \"type\": \"text\", \"text\": \"Explain this diff\" }"
+            - listitem [ref=e1192]:
+              - code [ref=e1193]: "{ \"type\": \"image\", \"url\": \"https://.../design.png\" }"
+            - listitem [ref=e1194]:
+              - code [ref=e1195]: "{ \"type\": \"localImage\", \"path\": \"/tmp/screenshot.png\" }"
+          - paragraph [ref=e1196]:
+            - text: You can override configuration settings per turn (model, effort, personality,
+            - code [ref=e1197]: cwd
+            - text: ", sandbox policy, summary). When specified, these settings become the defaults for later turns on the same thread."
+            - code [ref=e1198]: outputSchema
+            - text: applies only to the current turn. For
+            - code [ref=e1199]: sandboxPolicy.type = "externalSandbox"
+            - text: ", set"
+            - code [ref=e1200]: networkAccess
+            - text: to
+            - code [ref=e1201]: restricted
+            - text: or
+            - code [ref=e1202]: enabled
+            - text: ; for
+            - code [ref=e1203]: workspaceWrite
+            - text: ","
+            - code [ref=e1204]: networkAccess
+            - text: remains a boolean.
+          - paragraph [ref=e1205]:
+            - text: For
+            - code [ref=e1206]: turn/start.collaborationMode
+            - text: ","
+            - code [ref=e1207]: "settings.developer_instructions: null"
+            - text: means “use built-in instructions for the selected mode” rather than clearing mode instructions.
+          - heading "Sandbox read access (ReadOnlyAccess) Copy link to sandbox read access readonlyaccess" [level=3] [ref=e1208]:
+            - generic [ref=e1209]:
+              - text: Sandbox read access (
+              - code [ref=e1210]: ReadOnlyAccess
+              - text: )
+            - button "Copy link to sandbox read access readonlyaccess" [ref=e1211] [cursor=pointer]:
+              - img [ref=e1212]
+          - paragraph [ref=e1214]:
+            - code [ref=e1215]: sandboxPolicy
+            - text: "supports explicit read-access controls:"
+          - list [ref=e1216]:
+            - listitem [ref=e1217]:
+              - code [ref=e1218]: readOnly
+              - text: ": optional"
+              - code [ref=e1219]: access
+              - text: (
+              - code [ref=e1220]: "{ \"type\": \"fullAccess\" }"
+              - text: by default, or restricted roots).
+            - listitem [ref=e1221]:
+              - code [ref=e1222]: workspaceWrite
+              - text: ": optional"
+              - code [ref=e1223]: readOnlyAccess
+              - text: (
+              - code [ref=e1224]: "{ \"type\": \"fullAccess\" }"
+              - text: by default, or restricted roots).
+          - paragraph [ref=e1225]: "Restricted read access shape:"
+          - generic [ref=e1226]:
+            - code [ref=e1227]:
+              - generic [ref=e1228]: "{"
+              - generic [ref=e1229]: "\"type\": \"restricted\","
+              - generic [ref=e1230]: "\"includePlatformDefaults\": true,"
+              - generic [ref=e1231]: "\"readableRoots\": [\"/Users/me/shared-read-only\"]"
+              - generic [ref=e1232]: "}"
+            - button "Copy code to clipboard" [ref=e1234] [cursor=pointer]:
+              - img [ref=e1235]
+          - paragraph [ref=e1237]:
+            - text: On macOS,
+            - code [ref=e1238]: "includePlatformDefaults: true"
+            - text: appends a curated platform-default Seatbelt policy for restricted-read sessions. This improves tool compatibility without broadly allowing all of
+            - code [ref=e1239]: /System
+            - text: .
+          - paragraph [ref=e1240]: "Examples:"
+          - generic [ref=e1241]:
+            - code [ref=e1242]:
+              - generic [ref=e1243]: "{ \"type\": \"readOnly\", \"access\": { \"type\": \"fullAccess\" } }"
+            - button "Copy code to clipboard" [ref=e1245] [cursor=pointer]:
+              - img [ref=e1246]
+          - generic [ref=e1248]:
+            - code [ref=e1249]:
+              - generic [ref=e1250]: "{"
+              - generic [ref=e1251]: "\"type\": \"workspaceWrite\","
+              - generic [ref=e1252]: "\"writableRoots\": [\"/Users/me/project\"],"
+              - generic [ref=e1253]: "\"readOnlyAccess\": {"
+              - generic [ref=e1254]: "\"type\": \"restricted\","
+              - generic [ref=e1255]: "\"includePlatformDefaults\": true,"
+              - generic [ref=e1256]: "\"readableRoots\": [\"/Users/me/shared-read-only\"]"
+              - generic [ref=e1257]: "},"
+              - generic [ref=e1258]: "\"networkAccess\": false"
+              - generic [ref=e1259]: "}"
+            - button "Copy code to clipboard" [ref=e1261] [cursor=pointer]:
+              - img [ref=e1262]
+          - heading "Start a turn Copy link to start a turn" [level=3] [ref=e1264]:
+            - generic [ref=e1265]: Start a turn
+            - button "Copy link to start a turn" [ref=e1266] [cursor=pointer]:
+              - img [ref=e1267]
+          - generic [ref=e1269]:
+            - code [ref=e1270]:
+              - generic [ref=e1271]: "{ \"method\": \"turn/start\", \"id\": 30, \"params\": {"
+              - generic [ref=e1272]: "\"threadId\": \"thr_123\","
+              - generic [ref=e1273]: "\"input\": [ { \"type\": \"text\", \"text\": \"Run tests\" } ],"
+              - generic [ref=e1274]: "\"cwd\": \"/Users/me/project\","
+              - generic [ref=e1275]: "\"approvalPolicy\": \"unlessTrusted\","
+              - generic [ref=e1276]: "\"sandboxPolicy\": {"
+              - generic [ref=e1277]: "\"type\": \"workspaceWrite\","
+              - generic [ref=e1278]: "\"writableRoots\": [\"/Users/me/project\"],"
+              - generic [ref=e1279]: "\"networkAccess\": true"
+              - generic [ref=e1280]: "},"
+              - generic [ref=e1281]: "\"model\": \"gpt-5.4\","
+              - generic [ref=e1282]: "\"effort\": \"medium\","
+              - generic [ref=e1283]: "\"summary\": \"concise\","
+              - generic [ref=e1284]: "\"personality\": \"friendly\","
+              - generic [ref=e1285]: "\"outputSchema\": {"
+              - generic [ref=e1286]: "\"type\": \"object\","
+              - generic [ref=e1287]: "\"properties\": { \"answer\": { \"type\": \"string\" } },"
+              - generic [ref=e1288]: "\"required\": [\"answer\"],"
+              - generic [ref=e1289]: "\"additionalProperties\": false"
+              - generic [ref=e1290]: "}"
+              - generic [ref=e1291]: "} }"
+              - generic [ref=e1292]: "{ \"id\": 30, \"result\": { \"turn\": { \"id\": \"turn_456\", \"status\": \"inProgress\", \"items\": [], \"error\": null } } }"
+            - button "Copy code to clipboard" [ref=e1294] [cursor=pointer]:
+              - img [ref=e1295]
+          - heading "Steer an active turn Copy link to steer an active turn" [level=3] [ref=e1297]:
+            - generic [ref=e1298]: Steer an active turn
+            - button "Copy link to steer an active turn" [ref=e1299] [cursor=pointer]:
+              - img [ref=e1300]
+          - paragraph [ref=e1302]:
+            - text: Use
+            - code [ref=e1303]: turn/steer
+            - text: to append more user input to the active in-flight turn.
+          - list [ref=e1304]:
+            - listitem [ref=e1305]:
+              - text: Include
+              - code [ref=e1306]: expectedTurnId
+              - text: ; it must match the active turn id.
+            - listitem [ref=e1307]: The request fails if there is no active turn on the thread.
+            - listitem [ref=e1308]:
+              - code [ref=e1309]: turn/steer
+              - text: doesn’t emit a new
+              - code [ref=e1310]: turn/started
+              - text: notification.
+            - listitem [ref=e1311]:
+              - code [ref=e1312]: turn/steer
+              - text: doesn’t accept turn-level overrides (
+              - code [ref=e1313]: model
+              - text: ","
+              - code [ref=e1314]: cwd
+              - text: ","
+              - code [ref=e1315]: sandboxPolicy
+              - text: ", or"
+              - code [ref=e1316]: outputSchema
+              - text: ).
+          - generic [ref=e1317]:
+            - code [ref=e1318]:
+              - generic [ref=e1319]: "{ \"method\": \"turn/steer\", \"id\": 32, \"params\": {"
+              - generic [ref=e1320]: "\"threadId\": \"thr_123\","
+              - generic [ref=e1321]: "\"input\": [ { \"type\": \"text\", \"text\": \"Actually focus on failing tests first.\" } ],"
+              - generic [ref=e1322]: "\"expectedTurnId\": \"turn_456\""
+              - generic [ref=e1323]: "} }"
+              - generic [ref=e1324]: "{ \"id\": 32, \"result\": { \"turnId\": \"turn_456\" } }"
+            - button "Copy code to clipboard" [ref=e1326] [cursor=pointer]:
+              - img [ref=e1327]
+          - heading "Start a turn (invoke a skill) Copy link to start a turn invoke a skill" [level=3] [ref=e1329]:
+            - generic [ref=e1330]: Start a turn (invoke a skill)
+            - button "Copy link to start a turn invoke a skill" [ref=e1331] [cursor=pointer]:
+              - img [ref=e1332]
+          - paragraph [ref=e1334]:
+            - text: Invoke a skill explicitly by including
+            - code [ref=e1335]: $<skill-name>
+            - text: in the text input and adding a
+            - code [ref=e1336]: skill
+            - text: input item alongside it.
+          - generic [ref=e1337]:
+            - code [ref=e1338]:
+              - generic [ref=e1339]: "{ \"method\": \"turn/start\", \"id\": 33, \"params\": {"
+              - generic [ref=e1340]: "\"threadId\": \"thr_123\","
+              - generic [ref=e1341]: "\"input\": ["
+              - generic [ref=e1342]: "{ \"type\": \"text\", \"text\": \"$skill-creator Add a new skill for triaging flaky CI and include step-by-step usage.\" },"
+              - generic [ref=e1343]: "{ \"type\": \"skill\", \"name\": \"skill-creator\", \"path\": \"/Users/me/.codex/skills/skill-creator/SKILL.md\" }"
+              - generic [ref=e1344]: "]"
+              - generic [ref=e1345]: "} }"
+              - generic [ref=e1346]: "{ \"id\": 33, \"result\": { \"turn\": { \"id\": \"turn_457\", \"status\": \"inProgress\", \"items\": [], \"error\": null } } }"
+            - button "Copy code to clipboard" [ref=e1348] [cursor=pointer]:
+              - img [ref=e1349]
+          - heading "Interrupt a turn Copy link to interrupt a turn" [level=3] [ref=e1351]:
+            - generic [ref=e1352]: Interrupt a turn
+            - button "Copy link to interrupt a turn" [ref=e1353] [cursor=pointer]:
+              - img [ref=e1354]
+          - generic [ref=e1356]:
+            - code [ref=e1357]:
+              - generic [ref=e1358]: "{ \"method\": \"turn/interrupt\", \"id\": 31, \"params\": { \"threadId\": \"thr_123\", \"turnId\": \"turn_456\" } }"
+              - generic [ref=e1359]: "{ \"id\": 31, \"result\": {} }"
+            - button "Copy code to clipboard" [ref=e1361] [cursor=pointer]:
+              - img [ref=e1362]
+          - paragraph [ref=e1364]:
+            - text: On success, the turn finishes with
+            - code [ref=e1365]: "status: \"interrupted\""
+            - text: .
+          - heading "Review Copy link to review" [level=2] [ref=e1366]:
+            - generic [ref=e1367]: Review
+            - button "Copy link to review" [ref=e1368] [cursor=pointer]:
+              - img [ref=e1369]
+          - paragraph [ref=e1371]:
+            - code [ref=e1372]: review/start
+            - text: "runs the Codex reviewer for a thread and streams review items. Targets include:"
+          - list [ref=e1373]:
+            - listitem [ref=e1374]:
+              - code [ref=e1375]: uncommittedChanges
+            - listitem [ref=e1376]:
+              - code [ref=e1377]: baseBranch
+              - text: (diff against a branch)
+            - listitem [ref=e1378]:
+              - code [ref=e1379]: commit
+              - text: (review a specific commit)
+            - listitem [ref=e1380]:
+              - code [ref=e1381]: custom
+              - text: (free-form instructions)
+          - paragraph [ref=e1382]:
+            - text: Use
+            - code [ref=e1383]: "delivery: \"inline\""
+            - text: (default) to run the review on the existing thread, or
+            - code [ref=e1384]: "delivery: \"detached\""
+            - text: to fork a new review thread.
+          - paragraph [ref=e1385]: "Example request/response:"
+          - generic [ref=e1386]:
+            - code [ref=e1387]:
+              - generic [ref=e1388]: "{ \"method\": \"review/start\", \"id\": 40, \"params\": {"
+              - generic [ref=e1389]: "\"threadId\": \"thr_123\","
+              - generic [ref=e1390]: "\"delivery\": \"inline\","
+              - generic [ref=e1391]: "\"target\": { \"type\": \"commit\", \"sha\": \"1234567deadbeef\", \"title\": \"Polish tui colors\" }"
+              - generic [ref=e1392]: "} }"
+              - generic [ref=e1393]: "{ \"id\": 40, \"result\": {"
+              - generic [ref=e1394]: "\"turn\": {"
+              - generic [ref=e1395]: "\"id\": \"turn_900\","
+              - generic [ref=e1396]: "\"status\": \"inProgress\","
+              - generic [ref=e1397]: "\"items\": ["
+              - generic [ref=e1398]: "{ \"type\": \"userMessage\", \"id\": \"turn_900\", \"content\": [ { \"type\": \"text\", \"text\": \"Review commit 1234567: Polish tui colors\" } ] }"
+              - generic [ref=e1399]: "],"
+              - generic [ref=e1400]: "\"error\": null"
+              - generic [ref=e1401]: "},"
+              - generic [ref=e1402]: "\"reviewThreadId\": \"thr_123\""
+              - generic [ref=e1403]: "} }"
+            - button "Copy code to clipboard" [ref=e1405] [cursor=pointer]:
+              - img [ref=e1406]
+          - paragraph [ref=e1408]:
+            - text: For a detached review, use
+            - code [ref=e1409]: "\"delivery\": \"detached\""
+            - text: . The response is the same shape, but
+            - code [ref=e1410]: reviewThreadId
+            - text: will be the id of the new review thread (different from the original
+            - code [ref=e1411]: threadId
+            - text: ). The server also emits a
+            - code [ref=e1412]: thread/started
+            - text: notification for that new thread before streaming the review turn.
+          - paragraph [ref=e1413]:
+            - text: Codex streams the usual
+            - code [ref=e1414]: turn/started
+            - text: notification followed by an
+            - code [ref=e1415]: item/started
+            - text: with an
+            - code [ref=e1416]: enteredReviewMode
+            - text: "item:"
+          - generic [ref=e1417]:
+            - code [ref=e1418]:
+              - generic [ref=e1419]: "{"
+              - generic [ref=e1420]: "\"method\": \"item/started\","
+              - generic [ref=e1421]: "\"params\": {"
+              - generic [ref=e1422]: "\"item\": {"
+              - generic [ref=e1423]: "\"type\": \"enteredReviewMode\","
+              - generic [ref=e1424]: "\"id\": \"turn_900\","
+              - generic [ref=e1425]: "\"review\": \"current changes\""
+              - generic [ref=e1426]: "}"
+              - generic [ref=e1427]: "}"
+              - generic [ref=e1428]: "}"
+            - button "Copy code to clipboard" [ref=e1430] [cursor=pointer]:
+              - img [ref=e1431]
+          - paragraph [ref=e1433]:
+            - text: When the reviewer finishes, the server emits
+            - code [ref=e1434]: item/started
+            - text: and
+            - code [ref=e1435]: item/completed
+            - text: containing an
+            - code [ref=e1436]: exitedReviewMode
+            - text: "item with the final review text:"
+          - generic [ref=e1437]:
+            - code [ref=e1438]:
+              - generic [ref=e1439]: "{"
+              - generic [ref=e1440]: "\"method\": \"item/completed\","
+              - generic [ref=e1441]: "\"params\": {"
+              - generic [ref=e1442]: "\"item\": {"
+              - generic [ref=e1443]: "\"type\": \"exitedReviewMode\","
+              - generic [ref=e1444]: "\"id\": \"turn_900\","
+              - generic [ref=e1445]: "\"review\": \"Looks solid overall...\""
+              - generic [ref=e1446]: "}"
+              - generic [ref=e1447]: "}"
+              - generic [ref=e1448]: "}"
+            - button "Copy code to clipboard" [ref=e1450] [cursor=pointer]:
+              - img [ref=e1451]
+          - paragraph [ref=e1453]: Use this notification to render the reviewer output in your client.
+          - heading "Command execution Copy link to command execution" [level=2] [ref=e1454]:
+            - generic [ref=e1455]: Command execution
+            - button "Copy link to command execution" [ref=e1456] [cursor=pointer]:
+              - img [ref=e1457]
+          - paragraph [ref=e1459]:
+            - code [ref=e1460]: command/exec
+            - text: runs a single command (
+            - code [ref=e1461]: argv
+            - text: array) under the server sandbox without creating a thread.
+          - generic [ref=e1462]:
+            - code [ref=e1463]:
+              - generic [ref=e1464]: "{ \"method\": \"command/exec\", \"id\": 50, \"params\": {"
+              - generic [ref=e1465]: "\"command\": [\"ls\", \"-la\"],"
+              - generic [ref=e1466]: "\"cwd\": \"/Users/me/project\","
+              - generic [ref=e1467]: "\"sandboxPolicy\": { \"type\": \"workspaceWrite\" },"
+              - generic [ref=e1468]: "\"timeoutMs\": 10000"
+              - generic [ref=e1469]: "} }"
+              - generic [ref=e1470]: "{ \"id\": 50, \"result\": { \"exitCode\": 0, \"stdout\": \"...\", \"stderr\": \"\" } }"
+            - button "Copy code to clipboard" [ref=e1472] [cursor=pointer]:
+              - img [ref=e1473]
+          - paragraph [ref=e1475]:
+            - text: Use
+            - code [ref=e1476]: sandboxPolicy.type = "externalSandbox"
+            - text: if you already sandbox the server process and want Codex to skip its own sandbox enforcement. For external sandbox mode, set
+            - code [ref=e1477]: networkAccess
+            - text: to
+            - code [ref=e1478]: restricted
+            - text: (default) or
+            - code [ref=e1479]: enabled
+            - text: . For
+            - code [ref=e1480]: readOnly
+            - text: and
+            - code [ref=e1481]: workspaceWrite
+            - text: ", use the same optional"
+            - code [ref=e1482]: access
+            - text: /
+            - code [ref=e1483]: readOnlyAccess
+            - text: structure shown above.
+          - paragraph [ref=e1484]: "Notes:"
+          - list [ref=e1485]:
+            - listitem [ref=e1486]:
+              - text: The server rejects empty
+              - code [ref=e1487]: command
+              - text: arrays.
+            - listitem [ref=e1488]:
+              - code [ref=e1489]: sandboxPolicy
+              - text: accepts the same shape used by
+              - code [ref=e1490]: turn/start
+              - text: (for example,
+              - code [ref=e1491]: dangerFullAccess
+              - text: ","
+              - code [ref=e1492]: readOnly
+              - text: ","
+              - code [ref=e1493]: workspaceWrite
+              - text: ","
+              - code [ref=e1494]: externalSandbox
+              - text: ).
+            - listitem [ref=e1495]:
+              - text: When omitted,
+              - code [ref=e1496]: timeoutMs
+              - text: falls back to the server default.
+            - listitem [ref=e1497]:
+              - text: Set
+              - code [ref=e1498]: "tty: true"
+              - text: for PTY-backed sessions, and use
+              - code [ref=e1499]: processId
+              - text: when you plan to follow up with
+              - code [ref=e1500]: command/exec/write
+              - text: ","
+              - code [ref=e1501]: command/exec/resize
+              - text: ", or"
+              - code [ref=e1502]: command/exec/terminate
+              - text: .
+            - listitem [ref=e1503]:
+              - text: Set
+              - code [ref=e1504]: "streamStdoutStderr: true"
+              - text: to receive
+              - code [ref=e1505]: command/exec/outputDelta
+              - text: notifications while the command is running.
+          - heading "Read admin requirements (configRequirements/read) Copy link to read admin requirements configrequirementsread" [level=3] [ref=e1506]:
+            - generic [ref=e1507]:
+              - text: Read admin requirements (
+              - code [ref=e1508]: configRequirements/read
+              - text: )
+            - button "Copy link to read admin requirements configrequirementsread" [ref=e1509] [cursor=pointer]:
+              - img [ref=e1510]
+          - paragraph [ref=e1512]:
+            - text: Use
+            - code [ref=e1513]: configRequirements/read
+            - text: to inspect the effective admin requirements loaded from
+            - code [ref=e1514]: requirements.toml
+            - text: and/or MDM.
+          - generic [ref=e1515]:
+            - code [ref=e1516]:
+              - generic [ref=e1517]: "{ \"method\": \"configRequirements/read\", \"id\": 52, \"params\": {} }"
+              - generic [ref=e1518]: "{ \"id\": 52, \"result\": {"
+              - generic [ref=e1519]: "\"requirements\": {"
+              - generic [ref=e1520]: "\"allowedApprovalPolicies\": [\"onRequest\", \"unlessTrusted\"],"
+              - generic [ref=e1521]: "\"allowedSandboxModes\": [\"readOnly\", \"workspaceWrite\"],"
+              - generic [ref=e1522]: "\"featureRequirements\": {"
+              - generic [ref=e1523]: "\"personality\": true,"
+              - generic [ref=e1524]: "\"unified_exec\": false"
+              - generic [ref=e1525]: "},"
+              - generic [ref=e1526]: "\"network\": {"
+              - generic [ref=e1527]: "\"enabled\": true,"
+              - generic [ref=e1528]: "\"allowedDomains\": [\"api.openai.com\"],"
+              - generic [ref=e1529]: "\"allowUnixSockets\": [\"/tmp/example.sock\"],"
+              - generic [ref=e1530]: "\"dangerouslyAllowAllUnixSockets\": false"
+              - generic [ref=e1531]: "}"
+              - generic [ref=e1532]: "}"
+              - generic [ref=e1533]: "} }"
+            - button "Copy code to clipboard" [ref=e1535] [cursor=pointer]:
+              - img [ref=e1536]
+          - paragraph [ref=e1538]:
+            - code [ref=e1539]: result.requirements
+            - text: is
+            - code [ref=e1540]: "null"
+            - text: when no requirements are configured. See the docs on
+            - link "requirements.toml" [ref=e1541] [cursor=pointer]:
+              - /url: /codex/config-reference#requirementstoml
+              - code [ref=e1542]: requirements.toml
+            - text: for details on supported keys and values.
+          - heading "Windows sandbox setup (windowsSandbox/setupStart) Copy link to windows sandbox setup windowssandboxsetupstart" [level=3] [ref=e1543]:
+            - generic [ref=e1544]:
+              - text: Windows sandbox setup (
+              - code [ref=e1545]: windowsSandbox/setupStart
+              - text: )
+            - button "Copy link to windows sandbox setup windowssandboxsetupstart" [ref=e1546] [cursor=pointer]:
+              - img [ref=e1547]
+          - paragraph [ref=e1549]: Custom Windows clients can trigger sandbox setup asynchronously instead of blocking on startup checks.
+          - generic [ref=e1550]:
+            - code [ref=e1551]:
+              - generic [ref=e1552]: "{ \"method\": \"windowsSandbox/setupStart\", \"id\": 53, \"params\": { \"mode\": \"elevated\" } }"
+              - generic [ref=e1553]: "{ \"id\": 53, \"result\": { \"started\": true } }"
+            - button "Copy code to clipboard" [ref=e1555] [cursor=pointer]:
+              - img [ref=e1556]
+          - paragraph [ref=e1558]: "App-server starts setup in the background and later emits a completion notification:"
+          - generic [ref=e1559]:
+            - code [ref=e1560]:
+              - generic [ref=e1561]: "{"
+              - generic [ref=e1562]: "\"method\": \"windowsSandbox/setupCompleted\","
+              - generic [ref=e1563]: "\"params\": { \"mode\": \"elevated\", \"success\": true, \"error\": null }"
+              - generic [ref=e1564]: "}"
+            - button "Copy code to clipboard" [ref=e1566] [cursor=pointer]:
+              - img [ref=e1567]
+          - paragraph [ref=e1569]: "Modes:"
+          - list [ref=e1570]:
+            - listitem [ref=e1571]:
+              - code [ref=e1572]: elevated
+              - text: "- run the elevated Windows sandbox setup path."
+            - listitem [ref=e1573]:
+              - code [ref=e1574]: unelevated
+              - text: "- run the legacy setup/preflight path."
+          - heading "Events Copy link to events" [level=2] [ref=e1575]:
+            - generic [ref=e1576]: Events
+            - button "Copy link to events" [ref=e1577] [cursor=pointer]:
+              - img [ref=e1578]
+          - paragraph [ref=e1580]:
+            - text: Event notifications are the server-initiated stream for thread lifecycles, turn lifecycles, and the items within them. After you start or resume a thread, keep reading the active transport stream for
+            - code [ref=e1581]: thread/started
+            - text: ","
+            - code [ref=e1582]: thread/archived
+            - text: ","
+            - code [ref=e1583]: thread/unarchived
+            - text: ","
+            - code [ref=e1584]: thread/closed
+            - text: ","
+            - code [ref=e1585]: thread/status/changed
+            - text: ","
+            - code [ref=e1586]: turn/*
+            - text: ","
+            - code [ref=e1587]: item/*
+            - text: ", and"
+            - code [ref=e1588]: serverRequest/resolved
+            - text: notifications.
+          - heading "Notification opt-out Copy link to notification opt out" [level=3] [ref=e1589]:
+            - generic [ref=e1590]: Notification opt-out
+            - button "Copy link to notification opt out" [ref=e1591] [cursor=pointer]:
+              - img [ref=e1592]
+          - paragraph [ref=e1594]:
+            - text: Clients can suppress specific notifications per connection by sending exact method names in
+            - code [ref=e1595]: initialize.params.capabilities.optOutNotificationMethods
+            - text: .
+          - list [ref=e1596]:
+            - listitem [ref=e1597]:
+              - text: "Exact-match only:"
+              - code [ref=e1598]: item/agentMessage/delta
+              - text: suppresses only that method.
+            - listitem [ref=e1599]: Unknown method names are ignored.
+            - listitem [ref=e1600]:
+              - text: Applies to the current
+              - code [ref=e1601]: thread/*
+              - text: ","
+              - code [ref=e1602]: turn/*
+              - text: ","
+              - code [ref=e1603]: item/*
+              - text: ", and related v2 notifications."
+            - listitem [ref=e1604]: Doesn’t apply to requests, responses, or errors.
+          - heading "Fuzzy file search events (experimental) Copy link to fuzzy file search events experimental" [level=3] [ref=e1605]:
+            - generic [ref=e1606]: Fuzzy file search events (experimental)
+            - button "Copy link to fuzzy file search events experimental" [ref=e1607] [cursor=pointer]:
+              - img [ref=e1608]
+          - paragraph [ref=e1610]: "The fuzzy file search session API emits per-query notifications:"
+          - list [ref=e1611]:
+            - listitem [ref=e1612]:
+              - code [ref=e1613]: fuzzyFileSearch/sessionUpdated
+              - text: "-"
+              - code [ref=e1614]: "{ sessionId, query, files }"
+              - text: with the current matches for the active query.
+            - listitem [ref=e1615]:
+              - code [ref=e1616]: fuzzyFileSearch/sessionCompleted
+              - text: "-"
+              - code [ref=e1617]: "{ sessionId }"
+              - text: once indexing and matching for that query completes.
+          - heading "Windows sandbox setup events Copy link to windows sandbox setup events" [level=3] [ref=e1618]:
+            - generic [ref=e1619]: Windows sandbox setup events
+            - button "Copy link to windows sandbox setup events" [ref=e1620] [cursor=pointer]:
+              - img [ref=e1621]
+          - list [ref=e1623]:
+            - listitem [ref=e1624]:
+              - code [ref=e1625]: windowsSandbox/setupCompleted
+              - text: "-"
+              - code [ref=e1626]: "{ mode, success, error }"
+              - text: emitted after a
+              - code [ref=e1627]: windowsSandbox/setupStart
+              - text: request finishes.
+          - heading "Turn events Copy link to turn events" [level=3] [ref=e1628]:
+            - generic [ref=e1629]: Turn events
+            - button "Copy link to turn events" [ref=e1630] [cursor=pointer]:
+              - img [ref=e1631]
+          - list [ref=e1633]:
+            - listitem [ref=e1634]:
+              - code [ref=e1635]: turn/started
+              - text: "-"
+              - code [ref=e1636]: "{ turn }"
+              - text: with the turn id, empty
+              - code [ref=e1637]: items
+              - text: ", and"
+              - code [ref=e1638]: "status: \"inProgress\""
+              - text: .
+            - listitem [ref=e1639]:
+              - code [ref=e1640]: turn/completed
+              - text: "-"
+              - code [ref=e1641]: "{ turn }"
+              - text: where
+              - code [ref=e1642]: turn.status
+              - text: is
+              - code [ref=e1643]: completed
+              - text: ","
+              - code [ref=e1644]: interrupted
+              - text: ", or"
+              - code [ref=e1645]: failed
+              - text: ; failures carry
+              - code [ref=e1646]: "{ error: { message, codexErrorInfo?, additionalDetails? } }"
+              - text: .
+            - listitem [ref=e1647]:
+              - code [ref=e1648]: turn/diff/updated
+              - text: "-"
+              - code [ref=e1649]: "{ threadId, turnId, diff }"
+              - text: with the latest aggregated unified diff across every file change in the turn.
+            - listitem [ref=e1650]:
+              - code [ref=e1651]: turn/plan/updated
+              - text: "-"
+              - code [ref=e1652]: "{ turnId, explanation?, plan }"
+              - text: whenever the agent shares or changes its plan; each
+              - code [ref=e1653]: plan
+              - text: entry is
+              - code [ref=e1654]: "{ step, status }"
+              - text: with
+              - code [ref=e1655]: status
+              - text: in
+              - code [ref=e1656]: pending
+              - text: ","
+              - code [ref=e1657]: inProgress
+              - text: ", or"
+              - code [ref=e1658]: completed
+              - text: .
+            - listitem [ref=e1659]:
+              - code [ref=e1660]: thread/tokenUsage/updated
+              - text: "- usage updates for the active thread."
+          - paragraph [ref=e1661]:
+            - code [ref=e1662]: turn/diff/updated
+            - text: and
+            - code [ref=e1663]: turn/plan/updated
+            - text: currently include empty
+            - code [ref=e1664]: items
+            - text: arrays even when item events stream. Use
+            - code [ref=e1665]: item/*
+            - text: notifications as the source of truth for turn items.
+          - heading "Items Copy link to items" [level=3] [ref=e1666]:
+            - generic [ref=e1667]: Items
+            - button "Copy link to items" [ref=e1668] [cursor=pointer]:
+              - img [ref=e1669]
+          - paragraph [ref=e1671]:
+            - code [ref=e1672]: ThreadItem
+            - text: is the tagged union carried in turn responses and
+            - code [ref=e1673]: item/*
+            - text: "notifications. Common item types include:"
+          - list [ref=e1674]:
+            - listitem [ref=e1675]:
+              - code [ref=e1676]: userMessage
+              - text: "-"
+              - code [ref=e1677]: "{id, content}"
+              - text: where
+              - code [ref=e1678]: content
+              - text: is a list of user inputs (
+              - code [ref=e1679]: text
+              - text: ","
+              - code [ref=e1680]: image
+              - text: ", or"
+              - code [ref=e1681]: localImage
+              - text: ).
+            - listitem [ref=e1682]:
+              - code [ref=e1683]: agentMessage
+              - text: "-"
+              - code [ref=e1684]: "{id, text, phase?}"
+              - text: containing the accumulated agent reply. When present,
+              - code [ref=e1685]: phase
+              - text: uses Responses API wire values (
+              - code [ref=e1686]: commentary
+              - text: ","
+              - code [ref=e1687]: final_answer
+              - text: ).
+            - listitem [ref=e1688]:
+              - code [ref=e1689]: plan
+              - text: "-"
+              - code [ref=e1690]: "{id, text}"
+              - text: containing proposed plan text in plan mode. Treat the final
+              - code [ref=e1691]: plan
+              - text: item from
+              - code [ref=e1692]: item/completed
+              - text: as authoritative.
+            - listitem [ref=e1693]:
+              - code [ref=e1694]: reasoning
+              - text: "-"
+              - code [ref=e1695]: "{id, summary, content}"
+              - text: where
+              - code [ref=e1696]: summary
+              - text: holds streamed reasoning summaries and
+              - code [ref=e1697]: content
+              - text: holds raw reasoning blocks.
+            - listitem [ref=e1698]:
+              - code [ref=e1699]: commandExecution
+              - text: "-"
+              - code [ref=e1700]: "{id, command, cwd, status, commandActions, aggregatedOutput?, exitCode?, durationMs?}"
+              - text: .
+            - listitem [ref=e1701]:
+              - code [ref=e1702]: fileChange
+              - text: "-"
+              - code [ref=e1703]: "{id, changes, status}"
+              - text: describing proposed edits;
+              - code [ref=e1704]: changes
+              - text: list
+              - code [ref=e1705]: "{path, kind, diff}"
+              - text: .
+            - listitem [ref=e1706]:
+              - code [ref=e1707]: mcpToolCall
+              - text: "-"
+              - code [ref=e1708]: "{id, server, tool, status, arguments, result?, error?}"
+              - text: .
+            - listitem [ref=e1709]:
+              - code [ref=e1710]: dynamicToolCall
+              - text: "-"
+              - code [ref=e1711]: "{id, tool, arguments, status, contentItems?, success?, durationMs?}"
+              - text: for client-executed dynamic tool invocations.
+            - listitem [ref=e1712]:
+              - code [ref=e1713]: collabToolCall
+              - text: "-"
+              - code [ref=e1714]: "{id, tool, status, senderThreadId, receiverThreadId?, newThreadId?, prompt?, agentStatus?}"
+              - text: .
+            - listitem [ref=e1715]:
+              - code [ref=e1716]: webSearch
+              - text: "-"
+              - code [ref=e1717]: "{id, query, action?}"
+              - text: for web search requests issued by the agent.
+            - listitem [ref=e1718]:
+              - code [ref=e1719]: imageView
+              - text: "-"
+              - code [ref=e1720]: "{id, path}"
+              - text: emitted when the agent invokes the image viewer tool.
+            - listitem [ref=e1721]:
+              - code [ref=e1722]: enteredReviewMode
+              - text: "-"
+              - code [ref=e1723]: "{id, review}"
+              - text: sent when the reviewer starts.
+            - listitem [ref=e1724]:
+              - code [ref=e1725]: exitedReviewMode
+              - text: "-"
+              - code [ref=e1726]: "{id, review}"
+              - text: emitted when the reviewer finishes.
+            - listitem [ref=e1727]:
+              - code [ref=e1728]: contextCompaction
+              - text: "-"
+              - code [ref=e1729]: "{id}"
+              - text: emitted when Codex compacts the conversation history.
+          - paragraph [ref=e1730]:
+            - text: For
+            - code [ref=e1731]: webSearch.action
+            - text: ", the action"
+            - code [ref=e1732]: type
+            - text: can be
+            - code [ref=e1733]: search
+            - text: (
+            - code [ref=e1734]: query?
+            - text: ","
+            - code [ref=e1735]: queries?
+            - text: ),
+            - code [ref=e1736]: openPage
+            - text: (
+            - code [ref=e1737]: url?
+            - text: ), or
+            - code [ref=e1738]: findInPage
+            - text: (
+            - code [ref=e1739]: url?
+            - text: ","
+            - code [ref=e1740]: pattern?
+            - text: ).
+          - paragraph [ref=e1741]:
+            - text: The app server deprecates the legacy
+            - code [ref=e1742]: thread/compacted
+            - text: notification; use the
+            - code [ref=e1743]: contextCompaction
+            - text: item instead.
+          - paragraph [ref=e1744]: "All items emit two shared lifecycle events:"
+          - list [ref=e1745]:
+            - listitem [ref=e1746]:
+              - code [ref=e1747]: item/started
+              - text: "- emits the full"
+              - code [ref=e1748]: item
+              - text: when a new unit of work begins; the
+              - code [ref=e1749]: item.id
+              - text: matches the
+              - code [ref=e1750]: itemId
+              - text: used by deltas.
+            - listitem [ref=e1751]:
+              - code [ref=e1752]: item/completed
+              - text: "- sends the final"
+              - code [ref=e1753]: item
+              - text: once work finishes; treat this as the authoritative state.
+          - heading "Item deltas Copy link to item deltas" [level=3] [ref=e1754]:
+            - generic [ref=e1755]: Item deltas
+            - button "Copy link to item deltas" [ref=e1756] [cursor=pointer]:
+              - img [ref=e1757]
+          - list [ref=e1759]:
+            - listitem [ref=e1760]:
+              - code [ref=e1761]: item/agentMessage/delta
+              - text: "- appends streamed text for the agent message."
+            - listitem [ref=e1762]:
+              - code [ref=e1763]: item/plan/delta
+              - text: "- streams proposed plan text. The final"
+              - code [ref=e1764]: plan
+              - text: item may not exactly equal the concatenated deltas.
+            - listitem [ref=e1765]:
+              - code [ref=e1766]: item/reasoning/summaryTextDelta
+              - text: "- streams readable reasoning summaries;"
+              - code [ref=e1767]: summaryIndex
+              - text: increments when a new summary section opens.
+            - listitem [ref=e1768]:
+              - code [ref=e1769]: item/reasoning/summaryPartAdded
+              - text: "- marks a boundary between reasoning summary sections."
+            - listitem [ref=e1770]:
+              - code [ref=e1771]: item/reasoning/textDelta
+              - text: "- streams raw reasoning text (when supported by the model)."
+            - listitem [ref=e1772]:
+              - code [ref=e1773]: item/commandExecution/outputDelta
+              - text: "- streams stdout/stderr for a command; append deltas in order."
+            - listitem [ref=e1774]:
+              - code [ref=e1775]: item/fileChange/outputDelta
+              - text: "- contains the tool call response of the underlying"
+              - code [ref=e1776]: apply_patch
+              - text: tool call.
+          - heading "Errors Copy link to errors" [level=2] [ref=e1777]:
+            - generic [ref=e1778]: Errors
+            - button "Copy link to errors" [ref=e1779] [cursor=pointer]:
+              - img [ref=e1780]
+          - paragraph [ref=e1782]:
+            - text: If a turn fails, the server emits an
+            - code [ref=e1783]: error
+            - text: event with
+            - code [ref=e1784]: "{ error: { message, codexErrorInfo?, additionalDetails? } }"
+            - text: and then finishes the turn with
+            - code [ref=e1785]: "status: \"failed\""
+            - text: . When an upstream HTTP status is available, it appears in
+            - code [ref=e1786]: codexErrorInfo.httpStatusCode
+            - text: .
+          - paragraph [ref=e1787]:
+            - text: Common
+            - code [ref=e1788]: codexErrorInfo
+            - text: "values include:"
+          - list [ref=e1789]:
+            - listitem [ref=e1790]:
+              - code [ref=e1791]: ContextWindowExceeded
+            - listitem [ref=e1792]:
+              - code [ref=e1793]: UsageLimitExceeded
+            - listitem [ref=e1794]:
+              - code [ref=e1795]: HttpConnectionFailed
+              - text: (4xx/5xx upstream errors)
+            - listitem [ref=e1796]:
+              - code [ref=e1797]: ResponseStreamConnectionFailed
+            - listitem [ref=e1798]:
+              - code [ref=e1799]: ResponseStreamDisconnected
+            - listitem [ref=e1800]:
+              - code [ref=e1801]: ResponseTooManyFailedAttempts
+            - listitem [ref=e1802]:
+              - code [ref=e1803]: BadRequest
+              - text: ","
+              - code [ref=e1804]: Unauthorized
+              - text: ","
+              - code [ref=e1805]: SandboxError
+              - text: ","
+              - code [ref=e1806]: InternalServerError
+              - text: ","
+              - code [ref=e1807]: Other
+          - paragraph [ref=e1808]:
+            - text: When an upstream HTTP status is available, the server forwards it in
+            - code [ref=e1809]: httpStatusCode
+            - text: on the relevant
+            - code [ref=e1810]: codexErrorInfo
+            - text: variant.
+          - heading "Approvals Copy link to approvals" [level=2] [ref=e1811]:
+            - generic [ref=e1812]: Approvals
+            - button "Copy link to approvals" [ref=e1813] [cursor=pointer]:
+              - img [ref=e1814]
+          - paragraph [ref=e1816]: Depending on a user’s Codex settings, command execution and file changes may require approval. The app-server sends a server-initiated JSON-RPC request to the client, and the client responds with a decision payload.
+          - list [ref=e1817]:
+            - listitem [ref=e1818]:
+              - paragraph [ref=e1819]:
+                - text: "Command execution decisions:"
+                - code [ref=e1820]: accept
+                - text: ","
+                - code [ref=e1821]: acceptForSession
+                - text: ","
+                - code [ref=e1822]: decline
+                - text: ","
+                - code [ref=e1823]: cancel
+                - text: ", or"
+                - code [ref=e1824]: "{ \"acceptWithExecpolicyAmendment\": { \"execpolicy_amendment\": [\"cmd\", \"...\"] } }"
+                - text: .
+            - listitem [ref=e1825]:
+              - paragraph [ref=e1826]:
+                - text: "File change decisions:"
+                - code [ref=e1827]: accept
+                - text: ","
+                - code [ref=e1828]: acceptForSession
+                - text: ","
+                - code [ref=e1829]: decline
+                - text: ","
+                - code [ref=e1830]: cancel
+                - text: .
+            - listitem [ref=e1831]:
+              - paragraph [ref=e1832]:
+                - text: Requests include
+                - code [ref=e1833]: threadId
+                - text: and
+                - code [ref=e1834]: turnId
+                - text: "- use them to scope UI state to the active conversation."
+            - listitem [ref=e1835]:
+              - paragraph [ref=e1836]:
+                - text: The server resumes or declines the work and ends the item with
+                - code [ref=e1837]: item/completed
+                - text: .
+          - heading "Command execution approvals Copy link to command execution approvals" [level=3] [ref=e1838]:
+            - generic [ref=e1839]: Command execution approvals
+            - button "Copy link to command execution approvals" [ref=e1840] [cursor=pointer]:
+              - img [ref=e1841]
+          - paragraph [ref=e1843]: "Order of messages:"
+          - list [ref=e1844]:
+            - listitem [ref=e1845]:
+              - code [ref=e1846]: item/started
+              - text: shows the pending
+              - code [ref=e1847]: commandExecution
+              - text: item with
+              - code [ref=e1848]: command
+              - text: ","
+              - code [ref=e1849]: cwd
+              - text: ", and other fields."
+            - listitem [ref=e1850]:
+              - code [ref=e1851]: item/commandExecution/requestApproval
+              - text: includes
+              - code [ref=e1852]: itemId
+              - text: ","
+              - code [ref=e1853]: threadId
+              - text: ","
+              - code [ref=e1854]: turnId
+              - text: ", optional"
+              - code [ref=e1855]: reason
+              - text: ", optional"
+              - code [ref=e1856]: command
+              - text: ", optional"
+              - code [ref=e1857]: cwd
+              - text: ", optional"
+              - code [ref=e1858]: commandActions
+              - text: ", optional"
+              - code [ref=e1859]: proposedExecpolicyAmendment
+              - text: ", optional"
+              - code [ref=e1860]: networkApprovalContext
+              - text: ", and optional"
+              - code [ref=e1861]: availableDecisions
+              - text: . When
+              - code [ref=e1862]: initialize.params.capabilities.experimentalApi = true
+              - text: ", the payload can also include experimental"
+              - code [ref=e1863]: additionalPermissions
+              - text: describing requested per-command sandbox access. Any filesystem paths inside
+              - code [ref=e1864]: additionalPermissions
+              - text: are absolute on the wire.
+            - listitem [ref=e1865]: Client responds with one of the command execution approval decisions above.
+            - listitem [ref=e1866]:
+              - code [ref=e1867]: serverRequest/resolved
+              - text: confirms that the pending request has been answered or cleared.
+            - listitem [ref=e1868]:
+              - code [ref=e1869]: item/completed
+              - text: returns the final
+              - code [ref=e1870]: commandExecution
+              - text: item with
+              - code [ref=e1871]: "status: completed | failed | declined"
+              - text: .
+          - paragraph [ref=e1872]:
+            - text: When
+            - code [ref=e1873]: networkApprovalContext
+            - text: is present, the prompt is for managed network access (not a general shell-command approval). The current v2 schema exposes the target
+            - code [ref=e1874]: host
+            - text: and
+            - code [ref=e1875]: protocol
+            - text: ; clients should render a network-specific prompt and not rely on
+            - code [ref=e1876]: command
+            - text: being a user-meaningful shell command preview.
+          - paragraph [ref=e1877]:
+            - text: Codex groups concurrent network approval prompts by destination (
+            - code [ref=e1878]: host
+            - text: ", protocol, and port). The app-server may therefore send one prompt that unblocks multiple queued requests to the same destination, while different ports on the same host are treated separately."
+          - heading "File change approvals Copy link to file change approvals" [level=3] [ref=e1879]:
+            - generic [ref=e1880]: File change approvals
+            - button "Copy link to file change approvals" [ref=e1881] [cursor=pointer]:
+              - img [ref=e1882]
+          - paragraph [ref=e1884]: "Order of messages:"
+          - list [ref=e1885]:
+            - listitem [ref=e1886]:
+              - code [ref=e1887]: item/started
+              - text: emits a
+              - code [ref=e1888]: fileChange
+              - text: item with proposed
+              - code [ref=e1889]: changes
+              - text: and
+              - code [ref=e1890]: "status: \"inProgress\""
+              - text: .
+            - listitem [ref=e1891]:
+              - code [ref=e1892]: item/fileChange/requestApproval
+              - text: includes
+              - code [ref=e1893]: itemId
+              - text: ","
+              - code [ref=e1894]: threadId
+              - text: ","
+              - code [ref=e1895]: turnId
+              - text: ", optional"
+              - code [ref=e1896]: reason
+              - text: ", and optional"
+              - code [ref=e1897]: grantRoot
+              - text: .
+            - listitem [ref=e1898]: Client responds with one of the file change approval decisions above.
+            - listitem [ref=e1899]:
+              - code [ref=e1900]: serverRequest/resolved
+              - text: confirms that the pending request has been answered or cleared.
+            - listitem [ref=e1901]:
+              - code [ref=e1902]: item/completed
+              - text: returns the final
+              - code [ref=e1903]: fileChange
+              - text: item with
+              - code [ref=e1904]: "status: completed | failed | declined"
+              - text: .
+          - heading "tool/requestUserInput Copy link to toolrequestuserinput" [level=3] [ref=e1905]:
+            - code [ref=e1907]: tool/requestUserInput
+            - button "Copy link to toolrequestuserinput" [ref=e1908] [cursor=pointer]:
+              - img [ref=e1909]
+          - paragraph [ref=e1911]:
+            - text: When the client responds to
+            - code [ref=e1912]: item/tool/requestUserInput
+            - text: ", app-server emits"
+            - code [ref=e1913]: serverRequest/resolved
+            - text: with
+            - code [ref=e1914]: "{ threadId, requestId }"
+            - text: . If the pending request is cleared by turn start, turn completion, or turn interruption before the client answers, the server emits the same notification for that cleanup.
+          - heading "Dynamic tool calls (experimental) Copy link to dynamic tool calls experimental" [level=3] [ref=e1915]:
+            - generic [ref=e1916]: Dynamic tool calls (experimental)
+            - button "Copy link to dynamic tool calls experimental" [ref=e1917] [cursor=pointer]:
+              - img [ref=e1918]
+          - paragraph [ref=e1920]:
+            - code [ref=e1921]: dynamicTools
+            - text: "on"
+            - code [ref=e1922]: thread/start
+            - text: and the corresponding
+            - code [ref=e1923]: item/tool/call
+            - text: request or response flow are experimental APIs.
+          - paragraph [ref=e1924]: "When a dynamic tool is invoked during a turn, app-server emits:"
+          - list [ref=e1925]:
+            - listitem [ref=e1926]:
+              - code [ref=e1927]: item/started
+              - text: with
+              - code [ref=e1928]: item.type = "dynamicToolCall"
+              - text: ","
+              - code [ref=e1929]: status = "inProgress"
+              - text: ", plus"
+              - code [ref=e1930]: tool
+              - text: and
+              - code [ref=e1931]: arguments
+              - text: .
+            - listitem [ref=e1932]:
+              - code [ref=e1933]: item/tool/call
+              - text: as a server request to the client.
+            - listitem [ref=e1934]: The client response payload with returned content items.
+            - listitem [ref=e1935]:
+              - code [ref=e1936]: item/completed
+              - text: with
+              - code [ref=e1937]: item.type = "dynamicToolCall"
+              - text: ", the final"
+              - code [ref=e1938]: status
+              - text: ", and any returned"
+              - code [ref=e1939]: contentItems
+              - text: or
+              - code [ref=e1940]: success
+              - text: value.
+          - heading "MCP tool-call approvals (apps) Copy link to mcp tool call approvals apps" [level=3] [ref=e1941]:
+            - generic [ref=e1942]: MCP tool-call approvals (apps)
+            - button "Copy link to mcp tool call approvals apps" [ref=e1943] [cursor=pointer]:
+              - img [ref=e1944]
+          - paragraph [ref=e1946]:
+            - text: App (connector) tool calls can also require approval. When an app tool call has side effects, the server may elicit approval with
+            - code [ref=e1947]: tool/requestUserInput
+            - text: and options such as
+            - strong [ref=e1948]: Accept
+            - text: ","
+            - strong [ref=e1949]: Decline
+            - text: ", and"
+            - strong [ref=e1950]: Cancel
+            - text: . Destructive tool annotations always trigger approval even when the tool also advertises less-privileged hints. If the user declines or cancels, the related
+            - code [ref=e1951]: mcpToolCall
+            - text: item completes with an error instead of running the tool.
+          - heading "Skills Copy link to skills" [level=2] [ref=e1952]:
+            - generic [ref=e1953]: Skills
+            - button "Copy link to skills" [ref=e1954] [cursor=pointer]:
+              - img [ref=e1955]
+          - paragraph [ref=e1957]:
+            - text: Invoke a skill by including
+            - code [ref=e1958]: $<skill-name>
+            - text: in the user text input. Add a
+            - code [ref=e1959]: skill
+            - text: input item (recommended) so the server injects full skill instructions instead of relying on the model to resolve the name.
+          - generic [ref=e1960]:
+            - code [ref=e1961]:
+              - generic [ref=e1962]: "{"
+              - generic [ref=e1963]: "\"method\": \"turn/start\","
+              - generic [ref=e1964]: "\"id\": 101,"
+              - generic [ref=e1965]: "\"params\": {"
+              - generic [ref=e1966]: "\"threadId\": \"thread-1\","
+              - generic [ref=e1967]: "\"input\": ["
+              - generic [ref=e1968]: "{"
+              - generic [ref=e1969]: "\"type\": \"text\","
+              - generic [ref=e1970]: "\"text\": \"$skill-creator Add a new skill for triaging flaky CI.\""
+              - generic [ref=e1971]: "},"
+              - generic [ref=e1972]: "{"
+              - generic [ref=e1973]: "\"type\": \"skill\","
+              - generic [ref=e1974]: "\"name\": \"skill-creator\","
+              - generic [ref=e1975]: "\"path\": \"/Users/me/.codex/skills/skill-creator/SKILL.md\""
+              - generic [ref=e1976]: "}"
+              - generic [ref=e1977]: "]"
+              - generic [ref=e1978]: "}"
+              - generic [ref=e1979]: "}"
+            - button "Copy code to clipboard" [ref=e1981] [cursor=pointer]:
+              - img [ref=e1982]
+          - paragraph [ref=e1984]:
+            - text: If you omit the
+            - code [ref=e1985]: skill
+            - text: item, the model will still parse the
+            - code [ref=e1986]: $<skill-name>
+            - text: marker and try to locate the skill, which can add latency.
+          - paragraph [ref=e1987]: "Example:"
+          - generic [ref=e1988]:
+            - code [ref=e1989]:
+              - generic [ref=e1990]: $skill-creator Add a new skill for triaging flaky CI and include step-by-step usage.
+            - button "Copy code to clipboard" [ref=e1992] [cursor=pointer]:
+              - img [ref=e1993]
+          - paragraph [ref=e1995]:
+            - text: Use
+            - code [ref=e1996]: skills/list
+            - text: to fetch available skills (optionally scoped by
+            - code [ref=e1997]: cwds
+            - text: ", with"
+            - code [ref=e1998]: forceReload
+            - text: ). You can also include
+            - code [ref=e1999]: perCwdExtraUserRoots
+            - text: to scan extra absolute paths as
+            - code [ref=e2000]: user
+            - text: scope for specific
+            - code [ref=e2001]: cwd
+            - text: values. App-server ignores entries whose
+            - code [ref=e2002]: cwd
+            - text: isn’t present in
+            - code [ref=e2003]: cwds
+            - text: .
+            - code [ref=e2004]: skills/list
+            - text: may reuse a cached result per
+            - code [ref=e2005]: cwd
+            - text: ; set
+            - code [ref=e2006]: "forceReload: true"
+            - text: to refresh from disk. When present, the server reads
+            - code [ref=e2007]: interface
+            - text: and
+            - code [ref=e2008]: dependencies
+            - text: from
+            - code [ref=e2009]: SKILL.json
+            - text: .
+          - generic [ref=e2010]:
+            - code [ref=e2011]:
+              - generic [ref=e2012]: "{ \"method\": \"skills/list\", \"id\": 25, \"params\": {"
+              - generic [ref=e2013]: "\"cwds\": [\"/Users/me/project\", \"/Users/me/other-project\"],"
+              - generic [ref=e2014]: "\"forceReload\": true,"
+              - generic [ref=e2015]: "\"perCwdExtraUserRoots\": ["
+              - generic [ref=e2016]: "{"
+              - generic [ref=e2017]: "\"cwd\": \"/Users/me/project\","
+              - generic [ref=e2018]: "\"extraUserRoots\": [\"/Users/me/shared-skills\"]"
+              - generic [ref=e2019]: "}"
+              - generic [ref=e2020]: "]"
+              - generic [ref=e2021]: "} }"
+              - generic [ref=e2022]: "{ \"id\": 25, \"result\": {"
+              - generic [ref=e2023]: "\"data\": [{"
+              - generic [ref=e2024]: "\"cwd\": \"/Users/me/project\","
+              - generic [ref=e2025]: "\"skills\": ["
+              - generic [ref=e2026]: "{"
+              - generic [ref=e2027]: "\"name\": \"skill-creator\","
+              - generic [ref=e2028]: "\"description\": \"Create or update a Codex skill\","
+              - generic [ref=e2029]: "\"enabled\": true,"
+              - generic [ref=e2030]: "\"interface\": {"
+              - generic [ref=e2031]: "\"displayName\": \"Skill Creator\","
+              - generic [ref=e2032]: "\"shortDescription\": \"Create or update a Codex skill\""
+              - generic [ref=e2033]: "},"
+              - generic [ref=e2034]: "\"dependencies\": {"
+              - generic [ref=e2035]: "\"tools\": ["
+              - generic [ref=e2036]: "{"
+              - generic [ref=e2037]: "\"type\": \"env_var\","
+              - generic [ref=e2038]: "\"value\": \"GITHUB_TOKEN\","
+              - generic [ref=e2039]: "\"description\": \"GitHub API token\""
+              - generic [ref=e2040]: "},"
+              - generic [ref=e2041]: "{"
+              - generic [ref=e2042]: "\"type\": \"mcp\","
+              - generic [ref=e2043]: "\"value\": \"github\","
+              - generic [ref=e2044]: "\"transport\": \"streamable_http\","
+              - generic [ref=e2045]: "\"url\": \"https://example.com/mcp\""
+              - generic [ref=e2046]: "}"
+              - generic [ref=e2047]: "]"
+              - generic [ref=e2048]: "}"
+              - generic [ref=e2049]: "}"
+              - generic [ref=e2050]: "],"
+              - generic [ref=e2051]: "\"errors\": []"
+              - generic [ref=e2052]: "}]"
+              - generic [ref=e2053]: "} }"
+            - button "Copy code to clipboard" [ref=e2055] [cursor=pointer]:
+              - img [ref=e2056]
+          - paragraph [ref=e2058]: "To enable or disable a skill by path:"
+          - generic [ref=e2059]:
+            - code [ref=e2060]:
+              - generic [ref=e2061]: "{"
+              - generic [ref=e2062]: "\"method\": \"skills/config/write\","
+              - generic [ref=e2063]: "\"id\": 26,"
+              - generic [ref=e2064]: "\"params\": {"
+              - generic [ref=e2065]: "\"path\": \"/Users/me/.codex/skills/skill-creator/SKILL.md\","
+              - generic [ref=e2066]: "\"enabled\": false"
+              - generic [ref=e2067]: "}"
+              - generic [ref=e2068]: "}"
+            - button "Copy code to clipboard" [ref=e2070] [cursor=pointer]:
+              - img [ref=e2071]
+          - heading "Apps (connectors) Copy link to apps connectors" [level=2] [ref=e2073]:
+            - generic [ref=e2074]: Apps (connectors)
+            - button "Copy link to apps connectors" [ref=e2075] [cursor=pointer]:
+              - img [ref=e2076]
+          - paragraph [ref=e2078]:
+            - text: Use
+            - code [ref=e2079]: app/list
+            - text: to fetch available apps. In the CLI/TUI,
+            - code [ref=e2080]: /apps
+            - text: is the user-facing picker; in custom clients, call
+            - code [ref=e2081]: app/list
+            - text: directly. Each entry includes both
+            - code [ref=e2082]: isAccessible
+            - text: (available to the user) and
+            - code [ref=e2083]: isEnabled
+            - text: (enabled in
+            - code [ref=e2084]: config.toml
+            - text: ) so clients can distinguish install/access from local enabled state. App entries can also include optional
+            - code [ref=e2085]: branding
+            - text: ","
+            - code [ref=e2086]: appMetadata
+            - text: ", and"
+            - code [ref=e2087]: labels
+            - text: fields.
+          - generic [ref=e2088]:
+            - code [ref=e2089]:
+              - generic [ref=e2090]: "{ \"method\": \"app/list\", \"id\": 50, \"params\": {"
+              - generic [ref=e2091]: "\"cursor\": null,"
+              - generic [ref=e2092]: "\"limit\": 50,"
+              - generic [ref=e2093]: "\"threadId\": \"thread-1\","
+              - generic [ref=e2094]: "\"forceRefetch\": false"
+              - generic [ref=e2095]: "} }"
+              - generic [ref=e2096]: "{ \"id\": 50, \"result\": {"
+              - generic [ref=e2097]: "\"data\": ["
+              - generic [ref=e2098]: "{"
+              - generic [ref=e2099]: "\"id\": \"demo-app\","
+              - generic [ref=e2100]: "\"name\": \"Demo App\","
+              - generic [ref=e2101]: "\"description\": \"Example connector for documentation.\","
+              - generic [ref=e2102]: "\"logoUrl\": \"https://example.com/demo-app.png\","
+              - generic [ref=e2103]: "\"logoUrlDark\": null,"
+              - generic [ref=e2104]: "\"distributionChannel\": null,"
+              - generic [ref=e2105]: "\"branding\": null,"
+              - generic [ref=e2106]: "\"appMetadata\": null,"
+              - generic [ref=e2107]: "\"labels\": null,"
+              - generic [ref=e2108]: "\"installUrl\": \"https://chatgpt.com/apps/demo-app/demo-app\","
+              - generic [ref=e2109]: "\"isAccessible\": true,"
+              - generic [ref=e2110]: "\"isEnabled\": true"
+              - generic [ref=e2111]: "}"
+              - generic [ref=e2112]: "],"
+              - generic [ref=e2113]: "\"nextCursor\": null"
+              - generic [ref=e2114]: "} }"
+            - button "Copy code to clipboard" [ref=e2116] [cursor=pointer]:
+              - img [ref=e2117]
+          - paragraph [ref=e2119]:
+            - text: If you provide
+            - code [ref=e2120]: threadId
+            - text: ", app feature gating ("
+            - code [ref=e2121]: features.apps
+            - text: ) uses that thread’s config snapshot. When omitted, app-server uses the latest global config.
+          - paragraph [ref=e2122]:
+            - code [ref=e2123]: app/list
+            - text: returns after both accessible apps and directory apps load. Set
+            - code [ref=e2124]: "forceRefetch: true"
+            - text: to bypass app caches and fetch fresh data. Cache entries are only replaced when refreshes succeed.
+          - paragraph [ref=e2125]:
+            - text: The server also emits
+            - code [ref=e2126]: app/list/updated
+            - text: notifications whenever either source (accessible apps or directory apps) finishes loading. Each notification includes the latest merged app list.
+          - generic [ref=e2127]:
+            - code [ref=e2128]:
+              - generic [ref=e2129]: "{"
+              - generic [ref=e2130]: "\"method\": \"app/list/updated\","
+              - generic [ref=e2131]: "\"params\": {"
+              - generic [ref=e2132]: "\"data\": ["
+              - generic [ref=e2133]: "{"
+              - generic [ref=e2134]: "\"id\": \"demo-app\","
+              - generic [ref=e2135]: "\"name\": \"Demo App\","
+              - generic [ref=e2136]: "\"description\": \"Example connector for documentation.\","
+              - generic [ref=e2137]: "\"logoUrl\": \"https://example.com/demo-app.png\","
+              - generic [ref=e2138]: "\"logoUrlDark\": null,"
+              - generic [ref=e2139]: "\"distributionChannel\": null,"
+              - generic [ref=e2140]: "\"branding\": null,"
+              - generic [ref=e2141]: "\"appMetadata\": null,"
+              - generic [ref=e2142]: "\"labels\": null,"
+              - generic [ref=e2143]: "\"installUrl\": \"https://chatgpt.com/apps/demo-app/demo-app\","
+              - generic [ref=e2144]: "\"isAccessible\": true,"
+              - generic [ref=e2145]: "\"isEnabled\": true"
+              - generic [ref=e2146]: "}"
+              - generic [ref=e2147]: "]"
+              - generic [ref=e2148]: "}"
+              - generic [ref=e2149]: "}"
+            - button "Copy code to clipboard" [ref=e2151] [cursor=pointer]:
+              - img [ref=e2152]
+          - paragraph [ref=e2154]:
+            - text: Invoke an app by inserting
+            - code [ref=e2155]: $<app-slug>
+            - text: in the text input and adding a
+            - code [ref=e2156]: mention
+            - text: input item with the
+            - code [ref=e2157]: app://<id>
+            - text: path (recommended).
+          - generic [ref=e2158]:
+            - code [ref=e2159]:
+              - generic [ref=e2160]: "{"
+              - generic [ref=e2161]: "\"method\": \"turn/start\","
+              - generic [ref=e2162]: "\"id\": 51,"
+              - generic [ref=e2163]: "\"params\": {"
+              - generic [ref=e2164]: "\"threadId\": \"thread-1\","
+              - generic [ref=e2165]: "\"input\": ["
+              - generic [ref=e2166]: "{"
+              - generic [ref=e2167]: "\"type\": \"text\","
+              - generic [ref=e2168]: "\"text\": \"$demo-app Pull the latest updates from the team.\""
+              - generic [ref=e2169]: "},"
+              - generic [ref=e2170]: "{"
+              - generic [ref=e2171]: "\"type\": \"mention\","
+              - generic [ref=e2172]: "\"name\": \"Demo App\","
+              - generic [ref=e2173]: "\"path\": \"app://demo-app\""
+              - generic [ref=e2174]: "}"
+              - generic [ref=e2175]: "]"
+              - generic [ref=e2176]: "}"
+              - generic [ref=e2177]: "}"
+            - button "Copy code to clipboard" [ref=e2179] [cursor=pointer]:
+              - img [ref=e2180]
+          - heading "Config RPC examples for app settings Copy link to config rpc examples for app settings" [level=3] [ref=e2182]:
+            - generic [ref=e2183]: Config RPC examples for app settings
+            - button "Copy link to config rpc examples for app settings" [ref=e2184] [cursor=pointer]:
+              - img [ref=e2185]
+          - paragraph [ref=e2187]:
+            - text: Use
+            - code [ref=e2188]: config/read
+            - text: ","
+            - code [ref=e2189]: config/value/write
+            - text: ", and"
+            - code [ref=e2190]: config/batchWrite
+            - text: to inspect or update app controls in
+            - code [ref=e2191]: config.toml
+            - text: .
+          - paragraph [ref=e2192]:
+            - text: Read the effective app config shape (including
+            - code [ref=e2193]: _default
+            - text: "and per-tool overrides):"
+          - generic [ref=e2194]:
+            - code [ref=e2195]:
+              - generic [ref=e2196]: "{ \"method\": \"config/read\", \"id\": 60, \"params\": { \"includeLayers\": false } }"
+              - generic [ref=e2197]: "{ \"id\": 60, \"result\": {"
+              - generic [ref=e2198]: "\"config\": {"
+              - generic [ref=e2199]: "\"apps\": {"
+              - generic [ref=e2200]: "\"_default\": {"
+              - generic [ref=e2201]: "\"enabled\": true,"
+              - generic [ref=e2202]: "\"destructive_enabled\": true,"
+              - generic [ref=e2203]: "\"open_world_enabled\": true"
+              - generic [ref=e2204]: "},"
+              - generic [ref=e2205]: "\"google_drive\": {"
+              - generic [ref=e2206]: "\"enabled\": true,"
+              - generic [ref=e2207]: "\"destructive_enabled\": false,"
+              - generic [ref=e2208]: "\"default_tools_approval_mode\": \"prompt\","
+              - generic [ref=e2209]: "\"tools\": {"
+              - generic [ref=e2210]: "\"files/delete\": { \"enabled\": false, \"approval_mode\": \"approve\" }"
+              - generic [ref=e2211]: "}"
+              - generic [ref=e2212]: "}"
+              - generic [ref=e2213]: "}"
+              - generic [ref=e2214]: "}"
+              - generic [ref=e2215]: "} }"
+            - button "Copy code to clipboard" [ref=e2217] [cursor=pointer]:
+              - img [ref=e2218]
+          - paragraph [ref=e2220]: "Update a single app setting:"
+          - generic [ref=e2221]:
+            - code [ref=e2222]:
+              - generic [ref=e2223]: "{"
+              - generic [ref=e2224]: "\"method\": \"config/value/write\","
+              - generic [ref=e2225]: "\"id\": 61,"
+              - generic [ref=e2226]: "\"params\": {"
+              - generic [ref=e2227]: "\"keyPath\": \"apps.google_drive.default_tools_approval_mode\","
+              - generic [ref=e2228]: "\"value\": \"prompt\","
+              - generic [ref=e2229]: "\"mergeStrategy\": \"replace\""
+              - generic [ref=e2230]: "}"
+              - generic [ref=e2231]: "}"
+            - button "Copy code to clipboard" [ref=e2233] [cursor=pointer]:
+              - img [ref=e2234]
+          - paragraph [ref=e2236]: "Apply multiple app edits atomically:"
+          - generic [ref=e2237]:
+            - code [ref=e2238]:
+              - generic [ref=e2239]: "{"
+              - generic [ref=e2240]: "\"method\": \"config/batchWrite\","
+              - generic [ref=e2241]: "\"id\": 62,"
+              - generic [ref=e2242]: "\"params\": {"
+              - generic [ref=e2243]: "\"edits\": ["
+              - generic [ref=e2244]: "{"
+              - generic [ref=e2245]: "\"keyPath\": \"apps._default.destructive_enabled\","
+              - generic [ref=e2246]: "\"value\": false,"
+              - generic [ref=e2247]: "\"mergeStrategy\": \"upsert\""
+              - generic [ref=e2248]: "},"
+              - generic [ref=e2249]: "{"
+              - generic [ref=e2250]: "\"keyPath\": \"apps.google_drive.tools.files/delete.approval_mode\","
+              - generic [ref=e2251]: "\"value\": \"approve\","
+              - generic [ref=e2252]: "\"mergeStrategy\": \"upsert\""
+              - generic [ref=e2253]: "}"
+              - generic [ref=e2254]: "]"
+              - generic [ref=e2255]: "}"
+              - generic [ref=e2256]: "}"
+            - button "Copy code to clipboard" [ref=e2258] [cursor=pointer]:
+              - img [ref=e2259]
+          - heading "Detect and import external agent config Copy link to detect and import external agent config" [level=3] [ref=e2261]:
+            - generic [ref=e2262]: Detect and import external agent config
+            - button "Copy link to detect and import external agent config" [ref=e2263] [cursor=pointer]:
+              - img [ref=e2264]
+          - paragraph [ref=e2266]:
+            - text: Use
+            - code [ref=e2267]: externalAgentConfig/detect
+            - text: to discover migratable external-agent artifacts, then pass the selected entries to
+            - code [ref=e2268]: externalAgentConfig/import
+            - text: .
+          - paragraph [ref=e2269]: "Detection example:"
+          - generic [ref=e2270]:
+            - code [ref=e2271]:
+              - generic [ref=e2272]: "{ \"method\": \"externalAgentConfig/detect\", \"id\": 63, \"params\": {"
+              - generic [ref=e2273]: "\"includeHome\": true,"
+              - generic [ref=e2274]: "\"cwds\": [\"/Users/me/project\"]"
+              - generic [ref=e2275]: "} }"
+              - generic [ref=e2276]: "{ \"id\": 63, \"result\": {"
+              - generic [ref=e2277]: "\"items\": ["
+              - generic [ref=e2278]: "{"
+              - generic [ref=e2279]: "\"itemType\": \"AGENTS_MD\","
+              - generic [ref=e2280]: "\"description\": \"Import /Users/me/project/CLAUDE.md to /Users/me/project/AGENTS.md.\","
+              - generic [ref=e2281]: "\"cwd\": \"/Users/me/project\""
+              - generic [ref=e2282]: "},"
+              - generic [ref=e2283]: "{"
+              - generic [ref=e2284]: "\"itemType\": \"SKILLS\","
+              - generic [ref=e2285]: "\"description\": \"Copy skill folders from /Users/me/.claude/skills to /Users/me/.agents/skills.\","
+              - generic [ref=e2286]: "\"cwd\": null"
+              - generic [ref=e2287]: "}"
+              - generic [ref=e2288]: "]"
+              - generic [ref=e2289]: "} }"
+            - button "Copy code to clipboard" [ref=e2291] [cursor=pointer]:
+              - img [ref=e2292]
+          - paragraph [ref=e2294]: "Import example:"
+          - generic [ref=e2295]:
+            - code [ref=e2296]:
+              - generic [ref=e2297]: "{ \"method\": \"externalAgentConfig/import\", \"id\": 64, \"params\": {"
+              - generic [ref=e2298]: "\"migrationItems\": ["
+              - generic [ref=e2299]: "{"
+              - generic [ref=e2300]: "\"itemType\": \"AGENTS_MD\","
+              - generic [ref=e2301]: "\"description\": \"Import /Users/me/project/CLAUDE.md to /Users/me/project/AGENTS.md.\","
+              - generic [ref=e2302]: "\"cwd\": \"/Users/me/project\""
+              - generic [ref=e2303]: "}"
+              - generic [ref=e2304]: "]"
+              - generic [ref=e2305]: "} }"
+              - generic [ref=e2306]: "{ \"id\": 64, \"result\": {} }"
+            - button "Copy code to clipboard" [ref=e2308] [cursor=pointer]:
+              - img [ref=e2309]
+          - paragraph [ref=e2311]:
+            - text: Supported
+            - code [ref=e2312]: itemType
+            - text: values are
+            - code [ref=e2313]: AGENTS_MD
+            - text: ","
+            - code [ref=e2314]: CONFIG
+            - text: ","
+            - code [ref=e2315]: SKILLS
+            - text: ", and"
+            - code [ref=e2316]: MCP_SERVER_CONFIG
+            - text: . Detection returns only items that still have work to do. For example, AGENTS migration is skipped when
+            - code [ref=e2317]: AGENTS.md
+            - text: already exists and is non-empty, and skill imports do not overwrite existing skill directories.
+          - heading "Auth endpoints Copy link to auth endpoints" [level=2] [ref=e2318]:
+            - generic [ref=e2319]: Auth endpoints
+            - button "Copy link to auth endpoints" [ref=e2320] [cursor=pointer]:
+              - img [ref=e2321]
+          - paragraph [ref=e2323]:
+            - text: The JSON-RPC auth/account surface exposes request/response methods plus server-initiated notifications (no
+            - code [ref=e2324]: id
+            - text: ). Use these to determine auth state, start or cancel logins, logout, and inspect ChatGPT rate limits.
+          - heading "Authentication modes Copy link to authentication modes" [level=3] [ref=e2325]:
+            - generic [ref=e2326]: Authentication modes
+            - button "Copy link to authentication modes" [ref=e2327] [cursor=pointer]:
+              - img [ref=e2328]
+          - paragraph [ref=e2330]:
+            - text: Codex supports three authentication modes.
+            - code [ref=e2331]: account/updated.authMode
+            - text: shows the active mode, and
+            - code [ref=e2332]: account/read
+            - text: also reports it.
+          - list [ref=e2333]:
+            - listitem [ref=e2334]:
+              - strong [ref=e2335]:
+                - text: API key (
+                - code [ref=e2336]: apikey
+                - text: )
+              - text: "- the caller supplies an OpenAI API key and Codex stores it for API requests."
+            - listitem [ref=e2337]:
+              - strong [ref=e2338]:
+                - text: ChatGPT managed (
+                - code [ref=e2339]: chatgpt
+                - text: )
+              - text: "- Codex owns the ChatGPT OAuth flow, persists tokens, and refreshes them automatically."
+            - listitem [ref=e2340]:
+              - strong [ref=e2341]:
+                - text: ChatGPT external tokens (
+                - code [ref=e2342]: chatgptAuthTokens
+                - text: )
+              - text: "- a host app supplies"
+              - code [ref=e2343]: idToken
+              - text: and
+              - code [ref=e2344]: accessToken
+              - text: directly. Codex stores these tokens in memory, and the host app must refresh them when asked.
+          - heading "API overview Copy link to api overview 1" [level=3] [ref=e2345]:
+            - generic [ref=e2346]: API overview
+            - button "Copy link to api overview 1" [ref=e2347] [cursor=pointer]:
+              - img [ref=e2348]
+          - list [ref=e2350]:
+            - listitem [ref=e2351]:
+              - code [ref=e2352]: account/read
+              - text: "- fetch current account info; optionally refresh tokens."
+            - listitem [ref=e2353]:
+              - code [ref=e2354]: account/login/start
+              - text: "- begin login ("
+              - code [ref=e2355]: apiKey
+              - text: ","
+              - code [ref=e2356]: chatgpt
+              - text: ", or"
+              - code [ref=e2357]: chatgptAuthTokens
+              - text: ).
+            - listitem [ref=e2358]:
+              - code [ref=e2359]: account/login/completed
+              - text: (notify) - emitted when a login attempt finishes (success or error).
+            - listitem [ref=e2360]:
+              - code [ref=e2361]: account/login/cancel
+              - text: "- cancel a pending ChatGPT login by"
+              - code [ref=e2362]: loginId
+              - text: .
+            - listitem [ref=e2363]:
+              - code [ref=e2364]: account/logout
+              - text: "- sign out; triggers"
+              - code [ref=e2365]: account/updated
+              - text: .
+            - listitem [ref=e2366]:
+              - code [ref=e2367]: account/updated
+              - text: (notify) - emitted whenever auth mode changes (
+              - code [ref=e2368]: authMode
+              - text: ":"
+              - code [ref=e2369]: apikey
+              - text: ","
+              - code [ref=e2370]: chatgpt
+              - text: ","
+              - code [ref=e2371]: chatgptAuthTokens
+              - text: ", or"
+              - code [ref=e2372]: "null"
+              - text: ).
+            - listitem [ref=e2373]:
+              - code [ref=e2374]: account/chatgptAuthTokens/refresh
+              - text: (server request) - request fresh externally managed ChatGPT tokens after an authorization error.
+            - listitem [ref=e2375]:
+              - code [ref=e2376]: account/rateLimits/read
+              - text: "- fetch ChatGPT rate limits."
+            - listitem [ref=e2377]:
+              - code [ref=e2378]: account/rateLimits/updated
+              - text: (notify) - emitted whenever a user’s ChatGPT rate limits change.
+            - listitem [ref=e2379]:
+              - code [ref=e2380]: mcpServer/oauthLogin/completed
+              - text: (notify) - emitted after a
+              - code [ref=e2381]: mcpServer/oauth/login
+              - text: flow finishes; payload includes
+              - code [ref=e2382]: "{ name, success, error? }"
+              - text: .
+          - heading "1) Check auth state Copy link to 1 check auth state" [level=3] [ref=e2383]:
+            - generic [ref=e2384]: 1) Check auth state
+            - button "Copy link to 1 check auth state" [ref=e2385] [cursor=pointer]:
+              - img [ref=e2386]
+          - paragraph [ref=e2388]: "Request:"
+          - generic [ref=e2389]:
+            - code [ref=e2390]:
+              - generic [ref=e2391]: "{ \"method\": \"account/read\", \"id\": 1, \"params\": { \"refreshToken\": false } }"
+            - button "Copy code to clipboard" [ref=e2393] [cursor=pointer]:
+              - img [ref=e2394]
+          - paragraph [ref=e2396]: "Response examples:"
+          - generic [ref=e2397]:
+            - code [ref=e2398]:
+              - generic [ref=e2399]: "{ \"id\": 1, \"result\": { \"account\": null, \"requiresOpenaiAuth\": false } }"
+            - button "Copy code to clipboard" [ref=e2401] [cursor=pointer]:
+              - img [ref=e2402]
+          - generic [ref=e2404]:
+            - code [ref=e2405]:
+              - generic [ref=e2406]: "{ \"id\": 1, \"result\": { \"account\": null, \"requiresOpenaiAuth\": true } }"
+            - button "Copy code to clipboard" [ref=e2408] [cursor=pointer]:
+              - img [ref=e2409]
+          - generic [ref=e2411]:
+            - code [ref=e2412]:
+              - generic [ref=e2413]: "{"
+              - generic [ref=e2414]: "\"id\": 1,"
+              - generic [ref=e2415]: "\"result\": { \"account\": { \"type\": \"apiKey\" }, \"requiresOpenaiAuth\": true }"
+              - generic [ref=e2416]: "}"
+            - button "Copy code to clipboard" [ref=e2418] [cursor=pointer]:
+              - img [ref=e2419]
+          - generic [ref=e2421]:
+            - code [ref=e2422]:
+              - generic [ref=e2423]: "{"
+              - generic [ref=e2424]: "\"id\": 1,"
+              - generic [ref=e2425]: "\"result\": {"
+              - generic [ref=e2426]: "\"account\": {"
+              - generic [ref=e2427]: "\"type\": \"chatgpt\","
+              - generic [ref=e2428]: "\"email\": \"user@example.com\","
+              - generic [ref=e2429]: "\"planType\": \"pro\""
+              - generic [ref=e2430]: "},"
+              - generic [ref=e2431]: "\"requiresOpenaiAuth\": true"
+              - generic [ref=e2432]: "}"
+              - generic [ref=e2433]: "}"
+            - button "Copy code to clipboard" [ref=e2435] [cursor=pointer]:
+              - img [ref=e2436]
+          - paragraph [ref=e2438]: "Field notes:"
+          - list [ref=e2439]:
+            - listitem [ref=e2440]:
+              - code [ref=e2441]: refreshToken
+              - text: "(boolean): set"
+              - code [ref=e2442]: "true"
+              - text: to force a token refresh in managed ChatGPT mode. In external token mode (
+              - code [ref=e2443]: chatgptAuthTokens
+              - text: ), app-server ignores this flag.
+            - listitem [ref=e2444]:
+              - code [ref=e2445]: requiresOpenaiAuth
+              - text: reflects the active provider; when
+              - code [ref=e2446]: "false"
+              - text: ", Codex can run without OpenAI credentials."
+          - heading "2) Log in with an API key Copy link to 2 log in with an api key" [level=3] [ref=e2447]:
+            - generic [ref=e2448]: 2) Log in with an API key
+            - button "Copy link to 2 log in with an api key" [ref=e2449] [cursor=pointer]:
+              - img [ref=e2450]
+          - list [ref=e2452]:
+            - listitem [ref=e2453]:
+              - paragraph [ref=e2454]: "Send:"
+              - generic [ref=e2455]:
+                - code [ref=e2456]:
+                  - generic [ref=e2457]: "{"
+                  - generic [ref=e2458]: "\"method\": \"account/login/start\","
+                  - generic [ref=e2459]: "\"id\": 2,"
+                  - generic [ref=e2460]: "\"params\": { \"type\": \"apiKey\", \"apiKey\": \"sk-...\" }"
+                  - generic [ref=e2461]: "}"
+                - button "Copy code to clipboard" [ref=e2463] [cursor=pointer]:
+                  - img [ref=e2464]
+            - listitem [ref=e2466]:
+              - paragraph [ref=e2467]: "Expect:"
+              - generic [ref=e2468]:
+                - code [ref=e2469]:
+                  - generic [ref=e2470]: "{ \"id\": 2, \"result\": { \"type\": \"apiKey\" } }"
+                - button "Copy code to clipboard" [ref=e2472] [cursor=pointer]:
+                  - img [ref=e2473]
+            - listitem [ref=e2475]:
+              - paragraph [ref=e2476]: "Notifications:"
+              - generic [ref=e2477]:
+                - code [ref=e2478]:
+                  - generic [ref=e2479]: "{"
+                  - generic [ref=e2480]: "\"method\": \"account/login/completed\","
+                  - generic [ref=e2481]: "\"params\": { \"loginId\": null, \"success\": true, \"error\": null }"
+                  - generic [ref=e2482]: "}"
+                - button "Copy code to clipboard" [ref=e2484] [cursor=pointer]:
+                  - img [ref=e2485]
+              - generic [ref=e2487]:
+                - code [ref=e2488]:
+                  - generic [ref=e2489]: "{ \"method\": \"account/updated\", \"params\": { \"authMode\": \"apikey\" } }"
+                - button "Copy code to clipboard" [ref=e2491] [cursor=pointer]:
+                  - img [ref=e2492]
+          - heading "3) Log in with ChatGPT (browser flow) Copy link to 3 log in with chatgpt browser flow" [level=3] [ref=e2494]:
+            - generic [ref=e2495]: 3) Log in with ChatGPT (browser flow)
+            - button "Copy link to 3 log in with chatgpt browser flow" [ref=e2496] [cursor=pointer]:
+              - img [ref=e2497]
+          - list [ref=e2499]:
+            - listitem [ref=e2500]:
+              - paragraph [ref=e2501]: "Start:"
+              - generic [ref=e2502]:
+                - code [ref=e2503]:
+                  - generic [ref=e2504]: "{ \"method\": \"account/login/start\", \"id\": 3, \"params\": { \"type\": \"chatgpt\" } }"
+                - button "Copy code to clipboard" [ref=e2506] [cursor=pointer]:
+                  - img [ref=e2507]
+              - generic [ref=e2509]:
+                - code [ref=e2510]:
+                  - generic [ref=e2511]: "{"
+                  - generic [ref=e2512]: "\"id\": 3,"
+                  - generic [ref=e2513]: "\"result\": {"
+                  - generic [ref=e2514]: "\"type\": \"chatgpt\","
+                  - generic [ref=e2515]: "\"loginId\": \"<uuid>\","
+                  - generic [ref=e2516]: "\"authUrl\": \"https://chatgpt.com/...&redirect_uri=http%3A%2F%2Flocalhost%3A<port>%2Fauth%2Fcallback\""
+                  - generic [ref=e2517]: "}"
+                  - generic [ref=e2518]: "}"
+                - button "Copy code to clipboard" [ref=e2520] [cursor=pointer]:
+                  - img [ref=e2521]
+            - listitem [ref=e2523]:
+              - paragraph [ref=e2524]:
+                - text: Open
+                - code [ref=e2525]: authUrl
+                - text: in a browser; the app-server hosts the local callback.
+            - listitem [ref=e2526]:
+              - paragraph [ref=e2527]: "Wait for notifications:"
+              - generic [ref=e2528]:
+                - code [ref=e2529]:
+                  - generic [ref=e2530]: "{"
+                  - generic [ref=e2531]: "\"method\": \"account/login/completed\","
+                  - generic [ref=e2532]: "\"params\": { \"loginId\": \"<uuid>\", \"success\": true, \"error\": null }"
+                  - generic [ref=e2533]: "}"
+                - button "Copy code to clipboard" [ref=e2535] [cursor=pointer]:
+                  - img [ref=e2536]
+              - generic [ref=e2538]:
+                - code [ref=e2539]:
+                  - generic [ref=e2540]: "{ \"method\": \"account/updated\", \"params\": { \"authMode\": \"chatgpt\" } }"
+                - button "Copy code to clipboard" [ref=e2542] [cursor=pointer]:
+                  - img [ref=e2543]
+          - heading "3b) Log in with externally managed ChatGPT tokens (chatgptAuthTokens) Copy link to 3b log in with externally managed chatgpt tokens chatgptauthtokens" [level=3] [ref=e2545]:
+            - generic [ref=e2546]:
+              - text: 3b) Log in with externally managed ChatGPT tokens (
+              - code [ref=e2547]: chatgptAuthTokens
+              - text: )
+            - button "Copy link to 3b log in with externally managed chatgpt tokens chatgptauthtokens" [ref=e2548] [cursor=pointer]:
+              - img [ref=e2549]
+          - paragraph [ref=e2551]: Use this mode when a host application owns the user’s ChatGPT auth lifecycle and supplies tokens directly.
+          - list [ref=e2552]:
+            - listitem [ref=e2553]:
+              - paragraph [ref=e2554]: "Send:"
+              - generic [ref=e2555]:
+                - code [ref=e2556]:
+                  - generic [ref=e2557]: "{"
+                  - generic [ref=e2558]: "\"method\": \"account/login/start\","
+                  - generic [ref=e2559]: "\"id\": 7,"
+                  - generic [ref=e2560]: "\"params\": {"
+                  - generic [ref=e2561]: "\"type\": \"chatgptAuthTokens\","
+                  - generic [ref=e2562]: "\"idToken\": \"<jwt>\","
+                  - generic [ref=e2563]: "\"accessToken\": \"<jwt>\""
+                  - generic [ref=e2564]: "}"
+                  - generic [ref=e2565]: "}"
+                - button "Copy code to clipboard" [ref=e2567] [cursor=pointer]:
+                  - img [ref=e2568]
+            - listitem [ref=e2570]:
+              - paragraph [ref=e2571]: "Expect:"
+              - generic [ref=e2572]:
+                - code [ref=e2573]:
+                  - generic [ref=e2574]: "{ \"id\": 7, \"result\": { \"type\": \"chatgptAuthTokens\" } }"
+                - button "Copy code to clipboard" [ref=e2576] [cursor=pointer]:
+                  - img [ref=e2577]
+            - listitem [ref=e2579]:
+              - paragraph [ref=e2580]: "Notifications:"
+              - generic [ref=e2581]:
+                - code [ref=e2582]:
+                  - generic [ref=e2583]: "{"
+                  - generic [ref=e2584]: "\"method\": \"account/login/completed\","
+                  - generic [ref=e2585]: "\"params\": { \"loginId\": null, \"success\": true, \"error\": null }"
+                  - generic [ref=e2586]: "}"
+                - button "Copy code to clipboard" [ref=e2588] [cursor=pointer]:
+                  - img [ref=e2589]
+              - generic [ref=e2591]:
+                - code [ref=e2592]:
+                  - generic [ref=e2593]: "{"
+                  - generic [ref=e2594]: "\"method\": \"account/updated\","
+                  - generic [ref=e2595]: "\"params\": { \"authMode\": \"chatgptAuthTokens\" }"
+                  - generic [ref=e2596]: "}"
+                - button "Copy code to clipboard" [ref=e2598] [cursor=pointer]:
+                  - img [ref=e2599]
+          - paragraph [ref=e2601]:
+            - text: When the server receives a
+            - code [ref=e2602]: 401 Unauthorized
+            - text: ", it may request refreshed tokens from the host app:"
+          - generic [ref=e2603]:
+            - code [ref=e2604]:
+              - generic [ref=e2605]: "{"
+              - generic [ref=e2606]: "\"method\": \"account/chatgptAuthTokens/refresh\","
+              - generic [ref=e2607]: "\"id\": 8,"
+              - generic [ref=e2608]: "\"params\": { \"reason\": \"unauthorized\", \"previousAccountId\": \"org-123\" }"
+              - generic [ref=e2609]: "}"
+              - generic [ref=e2610]: "{ \"id\": 8, \"result\": { \"idToken\": \"<jwt>\", \"accessToken\": \"<jwt>\" } }"
+            - button "Copy code to clipboard" [ref=e2612] [cursor=pointer]:
+              - img [ref=e2613]
+          - paragraph [ref=e2615]: The server retries the original request after a successful refresh response. Requests time out after about 10 seconds.
+          - heading "4) Cancel a ChatGPT login Copy link to 4 cancel a chatgpt login" [level=3] [ref=e2616]:
+            - generic [ref=e2617]: 4) Cancel a ChatGPT login
+            - button "Copy link to 4 cancel a chatgpt login" [ref=e2618] [cursor=pointer]:
+              - img [ref=e2619]
+          - generic [ref=e2621]:
+            - code [ref=e2622]:
+              - generic [ref=e2623]: "{ \"method\": \"account/login/cancel\", \"id\": 4, \"params\": { \"loginId\": \"<uuid>\" } }"
+              - generic [ref=e2624]: "{ \"method\": \"account/login/completed\", \"params\": { \"loginId\": \"<uuid>\", \"success\": false, \"error\": \"...\" } }"
+            - button "Copy code to clipboard" [ref=e2626] [cursor=pointer]:
+              - img [ref=e2627]
+          - heading "5) Logout Copy link to 5 logout" [level=3] [ref=e2629]:
+            - generic [ref=e2630]: 5) Logout
+            - button "Copy link to 5 logout" [ref=e2631] [cursor=pointer]:
+              - img [ref=e2632]
+          - generic [ref=e2634]:
+            - code [ref=e2635]:
+              - generic [ref=e2636]: "{ \"method\": \"account/logout\", \"id\": 5 }"
+              - generic [ref=e2637]: "{ \"id\": 5, \"result\": {} }"
+              - generic [ref=e2638]: "{ \"method\": \"account/updated\", \"params\": { \"authMode\": null } }"
+            - button "Copy code to clipboard" [ref=e2640] [cursor=pointer]:
+              - img [ref=e2641]
+          - heading "6) Rate limits (ChatGPT) Copy link to 6 rate limits chatgpt" [level=3] [ref=e2643]:
+            - generic [ref=e2644]: 6) Rate limits (ChatGPT)
+            - button "Copy link to 6 rate limits chatgpt" [ref=e2645] [cursor=pointer]:
+              - img [ref=e2646]
+          - generic [ref=e2648]:
+            - code [ref=e2649]:
+              - generic [ref=e2650]: "{ \"method\": \"account/rateLimits/read\", \"id\": 6 }"
+              - generic [ref=e2651]: "{ \"id\": 6, \"result\": {"
+              - generic [ref=e2652]: "\"rateLimits\": {"
+              - generic [ref=e2653]: "\"limitId\": \"codex\","
+              - generic [ref=e2654]: "\"limitName\": null,"
+              - generic [ref=e2655]: "\"primary\": { \"usedPercent\": 25, \"windowDurationMins\": 15, \"resetsAt\": 1730947200 },"
+              - generic [ref=e2656]: "\"secondary\": null"
+              - generic [ref=e2657]: "},"
+              - generic [ref=e2658]: "\"rateLimitsByLimitId\": {"
+              - generic [ref=e2659]: "\"codex\": {"
+              - generic [ref=e2660]: "\"limitId\": \"codex\","
+              - generic [ref=e2661]: "\"limitName\": null,"
+              - generic [ref=e2662]: "\"primary\": { \"usedPercent\": 25, \"windowDurationMins\": 15, \"resetsAt\": 1730947200 },"
+              - generic [ref=e2663]: "\"secondary\": null"
+              - generic [ref=e2664]: "},"
+              - generic [ref=e2665]: "\"codex_other\": {"
+              - generic [ref=e2666]: "\"limitId\": \"codex_other\","
+              - generic [ref=e2667]: "\"limitName\": \"codex_other\","
+              - generic [ref=e2668]: "\"primary\": { \"usedPercent\": 42, \"windowDurationMins\": 60, \"resetsAt\": 1730950800 },"
+              - generic [ref=e2669]: "\"secondary\": null"
+              - generic [ref=e2670]: "}"
+              - generic [ref=e2671]: "}"
+              - generic [ref=e2672]: "} }"
+              - generic [ref=e2673]: "{ \"method\": \"account/rateLimits/updated\", \"params\": {"
+              - generic [ref=e2674]: "\"rateLimits\": {"
+              - generic [ref=e2675]: "\"limitId\": \"codex\","
+              - generic [ref=e2676]: "\"primary\": { \"usedPercent\": 31, \"windowDurationMins\": 15, \"resetsAt\": 1730948100 }"
+              - generic [ref=e2677]: "}"
+              - generic [ref=e2678]: "} }"
+            - button "Copy code to clipboard" [ref=e2680] [cursor=pointer]:
+              - img [ref=e2681]
+          - paragraph [ref=e2683]: "Field notes:"
+          - list [ref=e2684]:
+            - listitem [ref=e2685]:
+              - code [ref=e2686]: rateLimits
+              - text: is the backward-compatible single-bucket view.
+            - listitem [ref=e2687]:
+              - code [ref=e2688]: rateLimitsByLimitId
+              - text: (when present) is the multi-bucket view keyed by metered
+              - code [ref=e2689]: limit_id
+              - text: (for example
+              - code [ref=e2690]: codex
+              - text: ).
+            - listitem [ref=e2691]:
+              - code [ref=e2692]: limitId
+              - text: is the metered bucket identifier.
+            - listitem [ref=e2693]:
+              - code [ref=e2694]: limitName
+              - text: is an optional user-facing label for the bucket.
+            - listitem [ref=e2695]:
+              - code [ref=e2696]: usedPercent
+              - text: is current usage within the quota window.
+            - listitem [ref=e2697]:
+              - code [ref=e2698]: windowDurationMins
+              - text: is the quota window length.
+            - listitem [ref=e2699]:
+              - code [ref=e2700]: resetsAt
+              - text: is a Unix timestamp (seconds) for the next reset.

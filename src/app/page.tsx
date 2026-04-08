@@ -1,65 +1,367 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef, useState, FormEvent } from "react";
+import { Sidebar } from "@/components/Sidebar";
+import { Message, Model } from "@/types/chat";
+import { ChatHeader } from "@/components/chat/ChatHeader";
+import { MessageList } from "@/components/chat/MessageList";
+import { ChatInput } from "@/components/chat/ChatInput";
+
+function normalizeText(val: any): string {
+  if (typeof val === "string") return val;
+  if (!val) return "";
+  if (Array.isArray(val)) {
+    return val.map((c: any) => (typeof c === "string" ? c : c.text || "")).join("");
+  }
+  if (typeof val === "object") {
+    return val.text || val.content || "";
+  }
+  return String(val);
+}
+
+function mapTurnsToMessages(turns: any[]): Message[] {
+  return turns.flatMap((turn: any) => {
+    const messages: Message[] = [];
+    let lastThought = "";
+    let lastSummary = "";
+
+    (turn.items || []).forEach((item: any) => {
+      if (item.type === "reasoning") {
+        lastThought = normalizeText(item.content);
+        lastSummary = normalizeText(item.summary);
+      } else if (item.type === "userMessage" || item.type === "agentMessage") {
+        const role: "user" | "agent" = item.type === "userMessage" ? "user" : "agent";
+        const content = normalizeText(item.content || item.text);
+        
+        messages.push({
+          id: item.id || `${role}_${Date.now()}_${Math.random()}`,
+          turnId: turn.id,
+          role,
+          content,
+          thought: role === "agent" ? lastThought : undefined,
+          reasoningSummary: role === "agent" ? lastSummary : undefined
+        });
+        
+        if (role === "agent") {
+          lastThought = "";
+          lastSummary = "";
+        }
+      }
+    });
+    return messages;
+  });
+}
 
 export default function Home() {
+  const [threadId, setThreadId] = useState<string | null>(null);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [mounted, setMounted] = useState(false);
+  const [models, setModels] = useState<Model[]>([]);
+  const [selectedModel, setSelectedModel] = useState<string>("gpt-5.4");
+  const [selectedEffort, setSelectedEffort] = useState<string>("medium");
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    async function loadInitialData() {
+      try {
+        const res = await fetch("/api/session");
+        const data = await res.json();
+        if (data.models) {
+          setModels(data.models);
+          const defaultModel = data.models.find((m: Model) => m.isDefault)?.id || data.models[0]?.id;
+          if (defaultModel) {
+            setSelectedModel(defaultModel);
+            const modelObj = data.models.find((m: Model) => m.id === defaultModel);
+            if (modelObj?.defaultReasoningEffort) {
+              setSelectedEffort(modelObj.defaultReasoningEffort);
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load models:", err);
+      }
+    }
+    loadInitialData();
+    setMounted(true);
+    if (window.innerWidth < 768) {
+      setSidebarOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const es = new EventSource("/api/stream");
+    
+    es.onmessage = (event) => {
+      try {
+        const payload = JSON.parse(event.data);
+        console.log("SSE msg:", payload);
+
+        const method = payload.method || "";
+        const params = payload.params || {};
+        const turnId = params.turnId;
+
+        if (method === "item/started" && (params.item?.type === "agentMessage" || params.item?.type === "reasoning")) {
+          const item = params.item;
+          const id = item.id;
+          const type = item.type;
+
+          setMessages((prev) => {
+            const existingIndex = turnId ? prev.findIndex(m => m.turnId === turnId && m.role === "agent") : -1;
+            if (existingIndex !== -1) {
+              const updated = [...prev];
+              updated[existingIndex] = {
+                ...updated[existingIndex],
+                id: type === "agentMessage" ? id : updated[existingIndex].id,
+                thought: type === "reasoning" ? normalizeText(item.content) : updated[existingIndex].thought,
+                content: type === "agentMessage" ? normalizeText(item.text || item.content) : updated[existingIndex].content,
+                isThinking: type === "reasoning" ? true : (type === "agentMessage" ? false : updated[existingIndex].isThinking),
+                inProgress: true
+              };
+              return updated;
+            } else {
+              return [...prev, {
+                id,
+                turnId,
+                role: "agent",
+                content: type === "agentMessage" ? normalizeText(item.text || item.content) : "",
+                thought: type === "reasoning" ? normalizeText(item.content) : undefined,
+                isThinking: type === "reasoning",
+                inProgress: true
+              }];
+            }
+          });
+        } else if (method === "item/agentMessage/delta") {
+          const delta = params.delta || "";
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent")
+                ? { ...m, content: m.content + delta, isThinking: false, inProgress: true }
+                : m
+            )
+          );
+        } else if (method === "item/reasoning/textDelta") {
+          const delta = params.delta || "";
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent")
+                ? { ...m, thought: (m.thought || "") + delta, isThinking: true, inProgress: true }
+                : m
+            )
+          );
+        } else if (method === "item/reasoning/summaryTextDelta") {
+           const delta = params.delta || "";
+           setMessages((prev) =>
+             prev.map((m) =>
+               m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent")
+                 ? { ...m, reasoningSummary: (m.reasoningSummary || "") + delta, isThinking: true, inProgress: true }
+                 : m
+             )
+           );
+        } else if (method === "item/completed" && (params.item?.type === "agentMessage" || params.item?.type === "reasoning")) {
+          const type = params.item.type;
+          setMessages((prev) =>
+            prev.map((m) => {
+              if (m.id === params.item.id || (turnId && m.turnId === turnId && m.role === "agent")) {
+                 return { 
+                   ...m, 
+                   content: type === "agentMessage" ? normalizeText(params.item.text || params.item.content || m.content) : m.content,
+                   thought: type === "reasoning" ? normalizeText(params.item.content || m.thought) : m.thought,
+                   isThinking: type === "reasoning" ? false : m.isThinking,
+                   inProgress: type === "agentMessage" ? false : m.inProgress 
+                 };
+              }
+              return m;
+            })
+          );
+        } else if (method === "turn/completed") {
+          setMessages((prev) =>
+            prev.map((m) => (m.inProgress ? { ...m, inProgress: false } : m))
+          );
+        }
+      } catch (err) {
+        console.error("Stream parse error", err);
+      }
+    };
+
+    return () => {
+      es.close();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  const handleSubmit = async (e: FormEvent) => {
+    if (e) e.preventDefault();
+    if (!input.trim() || loading) return;
+
+    const userText = input.trim();
+    setInput("");
+    setLoading(true);
+
+    const tempId = `temp_${Date.now()}`;
+    setMessages((prev) => [
+      ...prev,
+      { id: tempId, role: "user", content: userText },
+    ]);
+
+    try {
+      let activeThread = threadId;
+      if (!activeThread) {
+        const initRes = await fetch("/api/session", { 
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ model: selectedModel })
+        });
+        const initData = await initRes.json();
+        if (initData?.thread?.id) {
+          activeThread = initData.thread.id;
+          setThreadId(activeThread);
+        } else {
+          throw new Error("Failed to start thread");
+        }
+      }
+
+      const response = await fetch("/api/task", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          threadId: activeThread, 
+          text: userText,
+          model: selectedModel,
+          effort: selectedEffort
+        }),
+      });
+
+      const result = await response.json();
+      console.log("Task result:", result);
+
+      if (result?.turn?.items?.length > 0) {
+        setMessages((prev) => {
+          let next = [...prev];
+          result.turn.items.forEach((item: any) => {
+            if (item.type === "agentMessage" || item.text) {
+              const existing = next.findIndex(m => m.id === item.id);
+              const text = normalizeText(item.text || item.content);
+              if (existing !== -1) {
+                next[existing] = { ...next[existing], content: text || next[existing].content, inProgress: false };
+              } else {
+                next.push({
+                  id: item.id || `res_${Date.now()}`,
+                  role: "agent",
+                  content: text,
+                  inProgress: false
+                });
+              }
+            }
+          });
+          return next;
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      setMessages((prev) => [
+        ...prev,
+        { id: `err_${Date.now()}`, role: "agent", content: "Error communicating with Codex App Server." },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReset = () => {
+    setThreadId(null);
+    setMessages([]);
+  };
+
+  const handleModelChange = (modelId: string) => {
+    setSelectedModel(modelId);
+    const modelObj = models.find((model) => model.id === modelId);
+    if (modelObj?.defaultReasoningEffort) {
+      setSelectedEffort(modelObj.defaultReasoningEffort);
+    }
+  };
+
+  const loadThreadMessages = async (id: string) => {
+    try {
+      setLoading(true);
+      if (window.innerWidth < 768) {
+        setSidebarOpen(false);
+      }
+      const res = await fetch(`/api/threads/${id}`);
+      const data = await res.json();
+      
+      if (data.thread?.turns) {
+        setMessages(mapTurnsToMessages(data.thread.turns));
+        if (data.thread.model) {
+          setSelectedModel(data.thread.model);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to load thread messages:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!mounted) return <div className="h-[100dvh] bg-[#050505]" />;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="flex h-[100dvh] bg-[#050505] text-zinc-100 font-sans selection:bg-zinc-700 overflow-hidden relative">
+      <Sidebar 
+        currentThreadId={threadId} 
+        onSelectThread={(id) => {
+          setThreadId(id);
+          setMessages([]); 
+          loadThreadMessages(id);
+        }}
+        onNewSession={() => {
+          handleReset();
+          if (window.innerWidth < 768) setSidebarOpen(false);
+        }}
+        isOpen={sidebarOpen}
+        onToggle={setSidebarOpen}
+      />
+
+      {/* Mobile Backdrop */}
+      {sidebarOpen && (
+        <button 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300 w-full h-full cursor-default"
+          onClick={() => setSidebarOpen(false)}
+          aria-label="Close sidebar"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      )}
+
+      <div className="flex-1 flex flex-col relative overflow-hidden">
+        <ChatHeader 
+          threadId={threadId} 
+          sidebarOpen={sidebarOpen} 
+          setSidebarOpen={setSidebarOpen}
+        />
+        
+        <MessageList 
+          messages={messages} 
+          scrollRef={scrollRef} 
+        />
+
+        <ChatInput 
+          input={input} 
+          setInput={setInput} 
+          handleSubmit={handleSubmit} 
+          loading={loading}
+          models={models}
+          selectedModel={selectedModel}
+          onModelChange={handleModelChange}
+          selectedEffort={selectedEffort}
+          onEffortChange={setSelectedEffort}
+        />
+      </div>
     </div>
   );
 }
