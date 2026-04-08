@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, FormEvent } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { Message, Model } from "@/types/chat";
 import { ChatHeader } from "@/components/chat/ChatHeader";
@@ -52,6 +52,93 @@ function mapTurnsToMessages(turns: any[]): Message[] {
   });
 }
 
+/**
+ * Message State Update Helpers to reduce function nesting depth.
+ */
+
+function handleStartedUpdate(prev: Message[], params: any, turnId: string | undefined): Message[] {
+  const item = params.item;
+  const { id, type } = item;
+  const existingIndex = turnId ? prev.findIndex(m => m.turnId === turnId && m.role === "agent") : -1;
+  
+  if (existingIndex >= 0) {
+    const updated = [...prev];
+    const current = updated[existingIndex];
+    let isThinking = current.isThinking;
+    if (type === "reasoning") isThinking = true;
+    else if (type === "agentMessage") isThinking = false;
+
+    updated[existingIndex] = {
+      ...current,
+      id: type === "agentMessage" ? id : current.id,
+      thought: type === "reasoning" ? normalizeText(item.content) : current.thought,
+      content: type === "agentMessage" ? normalizeText(item.text || item.content) : current.content,
+      isThinking,
+      inProgress: true
+    };
+    return updated;
+  }
+
+  return [...prev, {
+    id,
+    turnId,
+    role: "agent",
+    content: type === "agentMessage" ? normalizeText(item.text || item.content) : "",
+    thought: type === "reasoning" ? normalizeText(item.content) : undefined,
+    isThinking: type === "reasoning",
+    inProgress: true
+  }];
+}
+
+function handleDeltaUpdate(prev: Message[], params: any, turnId: string | undefined, deltaKey: keyof Message, deltaValue: string, isThinking: boolean): Message[] {
+  return prev.map((m) => {
+    const matches = m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent");
+    if (matches) {
+      const currentVal = (m[deltaKey] as string) || "";
+      return { ...m, [deltaKey]: currentVal + deltaValue, isThinking, inProgress: true };
+    }
+    return m;
+  });
+}
+
+function handleCompletedUpdate(prev: Message[], params: any, turnId: string | undefined): Message[] {
+  const type = params.item.type;
+  return prev.map((m) => {
+    const matches = m.id === params.item.id || (turnId && m.turnId === turnId && m.role === "agent");
+    if (matches) {
+      return { 
+        ...m, 
+        content: type === "agentMessage" ? normalizeText(params.item.text || params.item.content || m.content) : m.content,
+        thought: type === "reasoning" ? normalizeText(params.item.content || m.thought) : m.thought,
+        isThinking: type === "reasoning" ? false : m.isThinking,
+        inProgress: type === "agentMessage" ? false : m.inProgress 
+      };
+    }
+    return m;
+  });
+}
+
+function handleFinalizeTask(prev: Message[], result: any): Message[] {
+  const next = [...prev];
+  result.turn.items.forEach((item: any) => {
+    if (item.type === "agentMessage" || item.text) {
+      const existing = next.findIndex(m => m.id === item.id);
+      const text = normalizeText(item.text || item.content);
+      if (existing >= 0) {
+        next[existing] = { ...next[existing], content: text || next[existing].content, inProgress: false };
+      } else {
+        next.push({
+          id: item.id || `res_${Date.now()}`,
+          role: "agent",
+          content: text,
+          inProgress: false
+        });
+      }
+    }
+  });
+  return next;
+}
+
 export default function Home() {
   const [threadId, setThreadId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -94,97 +181,49 @@ export default function Home() {
   useEffect(() => {
     const es = new EventSource("/api/stream");
     
-    es.onmessage = (event) => {
+    const handleSseMessage = (event: MessageEvent) => {
       try {
         const payload = JSON.parse(event.data);
-        console.log("SSE msg:", payload);
+        const { method = "", params = {} } = payload;
+        const { turnId, delta = "", item } = params;
 
-        const method = payload.method || "";
-        const params = payload.params || {};
-        const turnId = params.turnId;
-
-        if (method === "item/started" && (params.item?.type === "agentMessage" || params.item?.type === "reasoning")) {
-          const item = params.item;
-          const id = item.id;
-          const type = item.type;
-
-          setMessages((prev) => {
-            const existingIndex = turnId ? prev.findIndex(m => m.turnId === turnId && m.role === "agent") : -1;
-            if (existingIndex !== -1) {
-              const updated = [...prev];
-              updated[existingIndex] = {
-                ...updated[existingIndex],
-                id: type === "agentMessage" ? id : updated[existingIndex].id,
-                thought: type === "reasoning" ? normalizeText(item.content) : updated[existingIndex].thought,
-                content: type === "agentMessage" ? normalizeText(item.text || item.content) : updated[existingIndex].content,
-                isThinking: type === "reasoning" ? true : (type === "agentMessage" ? false : updated[existingIndex].isThinking),
-                inProgress: true
-              };
-              return updated;
-            } else {
-              return [...prev, {
-                id,
-                turnId,
-                role: "agent",
-                content: type === "agentMessage" ? normalizeText(item.text || item.content) : "",
-                thought: type === "reasoning" ? normalizeText(item.content) : undefined,
-                isThinking: type === "reasoning",
-                inProgress: true
-              }];
+        switch (method) {
+          case "item/started":
+            if (item?.type === "agentMessage" || item?.type === "reasoning") {
+              setMessages((prev) => handleStartedUpdate(prev, params, turnId));
             }
-          });
-        } else if (method === "item/agentMessage/delta") {
-          const delta = params.delta || "";
-          setMessages((prev) =>
-            prev.map((m) =>
-              m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent")
-                ? { ...m, content: m.content + delta, isThinking: false, inProgress: true }
-                : m
-            )
-          );
-        } else if (method === "item/reasoning/textDelta") {
-          const delta = params.delta || "";
-          setMessages((prev) =>
-            prev.map((m) =>
-              m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent")
-                ? { ...m, thought: (m.thought || "") + delta, isThinking: true, inProgress: true }
-                : m
-            )
-          );
-        } else if (method === "item/reasoning/summaryTextDelta") {
-           const delta = params.delta || "";
-           setMessages((prev) =>
-             prev.map((m) =>
-               m.id === params.itemId || (turnId && m.turnId === turnId && m.role === "agent")
-                 ? { ...m, reasoningSummary: (m.reasoningSummary || "") + delta, isThinking: true, inProgress: true }
-                 : m
-             )
-           );
-        } else if (method === "item/completed" && (params.item?.type === "agentMessage" || params.item?.type === "reasoning")) {
-          const type = params.item.type;
-          setMessages((prev) =>
-            prev.map((m) => {
-              if (m.id === params.item.id || (turnId && m.turnId === turnId && m.role === "agent")) {
-                 return { 
-                   ...m, 
-                   content: type === "agentMessage" ? normalizeText(params.item.text || params.item.content || m.content) : m.content,
-                   thought: type === "reasoning" ? normalizeText(params.item.content || m.thought) : m.thought,
-                   isThinking: type === "reasoning" ? false : m.isThinking,
-                   inProgress: type === "agentMessage" ? false : m.inProgress 
-                 };
-              }
-              return m;
-            })
-          );
-        } else if (method === "turn/completed") {
-          setMessages((prev) =>
-            prev.map((m) => (m.inProgress ? { ...m, inProgress: false } : m))
-          );
+            break;
+
+          case "item/agentMessage/delta":
+            setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "content", delta, false));
+            break;
+
+          case "item/reasoning/textDelta":
+            setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "thought", delta, true));
+            break;
+
+          case "item/reasoning/summaryTextDelta":
+            setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "reasoningSummary", delta, true));
+            break;
+
+          case "item/completed":
+            if (item?.type === "agentMessage" || item?.type === "reasoning") {
+              setMessages((prev) => handleCompletedUpdate(prev, params, turnId));
+            }
+            break;
+
+          case "turn/completed":
+            setMessages((prev) =>
+              prev.map((m) => (m.inProgress ? { ...m, inProgress: false } : m))
+            );
+            break;
         }
       } catch (err) {
         console.error("Stream parse error", err);
       }
     };
+
+    es.onmessage = handleSseMessage;
 
     return () => {
       es.close();
@@ -197,7 +236,7 @@ export default function Home() {
     }
   }, [messages]);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
     if (!input.trim() || loading) return;
 
@@ -243,26 +282,7 @@ export default function Home() {
       console.log("Task result:", result);
 
       if (result?.turn?.items?.length > 0) {
-        setMessages((prev) => {
-          let next = [...prev];
-          result.turn.items.forEach((item: any) => {
-            if (item.type === "agentMessage" || item.text) {
-              const existing = next.findIndex(m => m.id === item.id);
-              const text = normalizeText(item.text || item.content);
-              if (existing !== -1) {
-                next[existing] = { ...next[existing], content: text || next[existing].content, inProgress: false };
-              } else {
-                next.push({
-                  id: item.id || `res_${Date.now()}`,
-                  role: "agent",
-                  content: text,
-                  inProgress: false
-                });
-              }
-            }
-          });
-          return next;
-        });
+        setMessages((prev) => handleFinalizeTask(prev, result));
       }
     } catch (err) {
       console.error(err);

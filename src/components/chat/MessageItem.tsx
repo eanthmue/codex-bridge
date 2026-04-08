@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { TerminalIcon, Brain, ChevronDown, ChevronUp } from "lucide-react";
+import { TerminalIcon, Brain, ChevronDown } from "lucide-react";
 import { Message } from "@/types/chat";
 
 interface MessageItemProps {
@@ -15,14 +15,14 @@ export function MessageItem({ msg }: MessageItemProps) {
   // Support both explicit thought field (alignment with doc) and legacy <think> tags
   const content = String(msg.content || "");
   const thinkingMatch = content.match(/<think>([\s\S]*?)(?:<\/think>|$)/);
-  
+
   const rawThought = msg.thought;
   const thoughtStr = typeof rawThought === "string" ? rawThought : "";
-  
+
   const hasThinking = !!thoughtStr || !!thinkingMatch;
   const thinkingContent = (thoughtStr || (thinkingMatch ? thinkingMatch[1] : "")).trim();
   const isThinkingClosed = thoughtStr ? !msg.inProgress : content.includes("</think>");
-  
+
   let finalContent = "";
   if (thoughtStr) {
     finalContent = content.trim();
@@ -54,16 +54,14 @@ export function MessageItem({ msg }: MessageItemProps) {
 
   return (
     <div
-      className={`flex w-full ${
-        msg.role === "user" ? "justify-end" : "justify-start"
-      }`}
+      className={`flex w-full ${msg.role === "user" ? "justify-end" : "justify-start"
+        }`}
     >
       <div
-        className={`relative max-w-[85%] sm:max-w-[75%] px-5 py-3.5 text-[15px] leading-relaxed shadow-sm transition-all duration-300 ${
-          msg.role === "user"
+        className={`relative max-w-[85%] sm:max-w-[75%] px-5 py-3.5 text-[15px] leading-relaxed shadow-sm transition-all duration-300 ${msg.role === "user"
             ? "bg-zinc-800 text-zinc-100 rounded-2xl rounded-tr-sm ring-1 ring-white/5"
             : "bg-transparent text-zinc-300 border-l border-white/10 ml-8 sm:ml-4"
-        }`}
+          }`}
       >
         {msg.role === "agent" && (
           <div className="absolute -left-8 sm:-left-10 top-1 w-6 h-6 sm:w-7 sm:h-7 bg-white/5 rounded-full flex items-center justify-center ring-1 ring-white/10 group">
@@ -85,11 +83,10 @@ export function MessageItem({ msg }: MessageItemProps) {
                 <ChevronDown size={12} />
               </div>
             </button>
-            
-            <div 
-              className={`grid transition-all duration-500 ease-in-out ${
-                isThinkingExpanded ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"
-              }`}
+
+            <div
+              className={`grid transition-all duration-500 ease-in-out ${isThinkingExpanded ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"
+                }`}
             >
               <div className="overflow-hidden">
                 <div className="pl-4 py-1 border-l-2 border-zinc-800/50 text-zinc-500/80 text-[13.5px] italic leading-relaxed font-light">
@@ -108,7 +105,7 @@ export function MessageItem({ msg }: MessageItemProps) {
             {finalContent}
           </div>
         )}
-        
+
         {msg.inProgress && (!hasThinking || isThinkingClosed) && (
           <span className="inline-block w-2 h-4 ml-1 bg-zinc-500 animate-pulse align-middle rounded-sm" />
         )}

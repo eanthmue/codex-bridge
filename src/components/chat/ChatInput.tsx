@@ -5,7 +5,7 @@ import { Model } from "@/types/chat";
 interface ChatInputProps {
   readonly input: string;
   readonly setInput: (value: string) => void;
-  readonly handleSubmit: (e: React.FormEvent) => void;
+  readonly handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void | Promise<void>;
   readonly loading: boolean;
   readonly models: Model[];
   readonly selectedModel: string;
@@ -37,7 +37,7 @@ export function ChatInput({
   const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSubmit(e as unknown as React.FormEvent);
+      handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
     }
   };
 
