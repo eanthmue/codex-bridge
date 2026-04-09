@@ -6,9 +6,10 @@ import { EmptyState } from "./EmptyState";
 interface MessageListProps {
   readonly messages: Message[];
   readonly scrollRef: RefObject<HTMLDivElement | null>;
+  readonly onApproval?: (msgId: string, approvalId: string | number, decision: string) => void;
 }
 
-export function MessageList({ messages, scrollRef }: MessageListProps) {
+export function MessageList({ messages, scrollRef, onApproval }: MessageListProps) {
   return (
     <main
       ref={scrollRef as any}
@@ -19,7 +20,7 @@ export function MessageList({ messages, scrollRef }: MessageListProps) {
           <EmptyState />
         ) : (
           messages.map((msg) => (
-            <MessageItem key={msg.id} msg={msg} />
+            <MessageItem key={msg.id} msg={msg} onApproval={onApproval} />
           ))
         )}
       </div>

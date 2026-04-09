@@ -1,28 +1,7 @@
 import { codexWorker } from "@/lib/codex-worker";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
-  try {
-    if (!codexWorker.initialized) {
-      await codexWorker.start();
-    }
 
-    // Fetch models and threads
-    const [modelsResult] = await Promise.all([
-      codexWorker.listModels({ includeHidden: true }),
-      codexWorker.listThreads({
-        cwd: process.cwd(),
-      })
-    ]);
-
-    return NextResponse.json({
-      threads: codexWorker.threads,
-      models: modelsResult?.data || []
-    });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
-  }
-}
 
 export async function POST(req: NextRequest) {
   try {

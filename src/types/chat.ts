@@ -1,3 +1,19 @@
+export interface ToolCall {
+  id: string;
+  name: string;
+  arguments: string;
+  result?: string;
+  status: "started" | "completed" | "failed";
+}
+
+export interface ApprovalRequest {
+  id: string | number; // JSON-RPC request ID
+  type: "commandExecution" | "fileChange";
+  itemId: string;
+  params: any;
+  decision?: string; // Cache the decision made
+}
+
 export interface Message {
   id: string;
   turnId?: string;
@@ -7,6 +23,8 @@ export interface Message {
   reasoningSummary?: string;
   isThinking?: boolean;
   inProgress?: boolean;
+  toolCalls?: ToolCall[];
+  approvals?: ApprovalRequest[];
 }
 export interface ReasoningEffort {
   reasoningEffort: "low" | "medium" | "high";

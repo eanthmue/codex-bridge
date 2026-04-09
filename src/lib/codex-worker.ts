@@ -3,7 +3,7 @@ import readline from "node:readline";
 import { EventEmitter } from "node:events";
 import { JsonRpcRequest, JsonRpcNotification, ThreadResult } from "./rpc-types";
 
-const isVerbose = process.env.CODEX_DEBUG === "true";
+const isVerbose = "true";
 
 const logger = {
   info: (msg: string, ...args: any[]) => console.info(`[CodexWorker] ℹ️ ${msg}`, ...args),
@@ -26,7 +26,7 @@ class CodexWorker extends EventEmitter {
   public threads: ThreadResult[] = [];
 
   // To track pending requests by ID
-  private pendingRequests = new Map<number | string, { resolve: (val: any) => void, reject: (err: any) => void }>();
+  private readonly pendingRequests = new Map<number | string, { resolve: (val: any) => void, reject: (err: any) => void }>();
 
   private constructor() {
     super();
@@ -59,8 +59,8 @@ class CodexWorker extends EventEmitter {
         rl.on("line", (line) => {
           if (!line.trim()) return;
           try {
+            logger.debug(`server → client:`, line);
             const msg = JSON.parse(line);
-            logger.debug(`server → client:`, msg);
             this.handleMessage(msg);
           } catch (err) {
             logger.error("Failed to parse codex message", err);
@@ -115,6 +115,7 @@ class CodexWorker extends EventEmitter {
 
   private handleMessage(msg: any) {
     if ('id' in msg && ('result' in msg || 'error' in msg)) {
+      // client-initiated request's response
       const id = msg.id;
       const pending = this.pendingRequests.get(id);
       if (pending) {
@@ -126,16 +127,23 @@ class CodexWorker extends EventEmitter {
         this.pendingRequests.delete(id);
       }
     } else if ('method' in msg) {
-      this.emit('notification', msg as JsonRpcNotification);
+      if ('id' in msg) {
+        // server-initiated request
+        logger.debug(`server → client [request:${msg.id}]:`, msg);
+        this.emit('serverRequest', msg);
+      } else {
+        // notification
+        this.emit('notification', msg as JsonRpcNotification);
+      }
     } else {
-      this.emit('serverRequest', msg);
+      this.emit('notification', msg);
     }
   }
 
   public async sendRequest(method: string, params?: any): Promise<any> {
-    if (!this.proc || !this.proc.stdin) {
+    if (!this.proc?.stdin) {
       if (!this.initialized) await this.start();
-      if (!this.proc || !this.proc.stdin) throw new Error("Worker not running.");
+      if (!this.proc?.stdin) throw new Error("Worker not running.");
     }
 
     const id = ++this.nextId;
@@ -146,7 +154,7 @@ class CodexWorker extends EventEmitter {
     return new Promise((resolve, reject) => {
       this.pendingRequests.set(id, { resolve, reject });
       const payload = JSON.stringify(req) + "\n";
-      this.proc!.stdin!.write(payload, (error) => {
+      this.proc?.stdin?.write(payload, (error) => {
         if (error) {
           logger.error(`Failed to send request ${id}:`, error);
           this.pendingRequests.delete(id);
@@ -154,6 +162,14 @@ class CodexWorker extends EventEmitter {
         }
       });
     });
+  }
+
+  public sendResponse(id: number | string, result: any): void {
+    if (!this.proc || !this.proc.stdin) return;
+    const res = { id, result };
+    logger.debug(`client → server [response:${id}]:`, result);
+    const payload = JSON.stringify(res) + "\n";
+    this.proc.stdin.write(payload);
   }
 
   public sendNotification(method: string, params?: any): void {

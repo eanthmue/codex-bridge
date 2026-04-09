@@ -26,7 +26,7 @@ export function Sidebar({ currentThreadId, onSelectThread, onNewSession, isOpen,
   const fetchThreads = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/session");
+      const res = await fetch("/api/threads");
       const data = await res.json();
       if (data.threads) {
         setThreads(data.threads);
@@ -40,8 +40,8 @@ export function Sidebar({ currentThreadId, onSelectThread, onNewSession, isOpen,
 
   useEffect(() => {
     fetchThreads();
-    const interval = setInterval(fetchThreads, 10000);
-    return () => clearInterval(interval);
+    //const interval = setInterval(fetchThreads, 50000);
+    //return () => clearInterval(interval);
   }, []);
 
   const renderContent = () => {
@@ -67,8 +67,8 @@ export function Sidebar({ currentThreadId, onSelectThread, onNewSession, isOpen,
         key={t.thread.id}
         onClick={() => onSelectThread(t.thread.id)}
         className={`w-full group flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left ${currentThreadId === t.thread.id
-            ? "bg-white/10 ring-1 ring-white/10 shadow-sm shadow-black/20"
-            : "hover:bg-white/5 active:scale-[0.99]"
+          ? "bg-white/10 ring-1 ring-white/10 shadow-sm shadow-black/20"
+          : "hover:bg-white/5 active:scale-[0.99]"
           }`}
       >
         <div className={`w-4 h-4 shrink-0 transition-colors ${currentThreadId === t.thread.id ? "text-zinc-100" : "text-zinc-500 group-hover:text-zinc-300"

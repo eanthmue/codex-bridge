@@ -22,33 +22,88 @@ function normalizeText(val: any): string {
 function mapTurnsToMessages(turns: any[]): Message[] {
   return turns.flatMap((turn: any) => {
     const messages: Message[] = [];
-    let lastThought = "";
-    let lastSummary = "";
-
-    (turn.items || []).forEach((item: any) => {
-      if (item.type === "reasoning") {
-        lastThought = normalizeText(item.content);
-        lastSummary = normalizeText(item.summary);
-      } else if (item.type === "userMessage" || item.type === "agentMessage") {
-        const role: "user" | "agent" = item.type === "userMessage" ? "user" : "agent";
-        const content = normalizeText(item.content || item.text);
-        
-        messages.push({
-          id: item.id || `${role}_${Date.now()}_${Math.random()}`,
-          turnId: turn.id,
-          role,
-          content,
-          thought: role === "agent" ? lastThought : undefined,
-          reasoningSummary: role === "agent" ? lastSummary : undefined
-        });
-        
-        if (role === "agent") {
-          lastThought = "";
-          lastSummary = "";
-        }
-      }
+    const items = turn.items || [];
+    
+    items.filter((i: any) => i.type === "userMessage").forEach((item: any) => {
+      messages.push({
+        id: item.id || `user_${Date.now()}_${Math.random()}`,
+        turnId: turn.id,
+        role: "user",
+        content: normalizeText(item.text || item.content),
+      });
     });
+    
+    const allToolCalls = items.filter((i: any) => i.type === "call").map((item: any) => ({
+      id: item.id,
+      name: item.name,
+      arguments: item.arguments || "",
+      result: item.result,
+      status: "completed" as const
+    }));
+    
+    const reasoningItem = items.find((i: any) => i.type === "reasoning");
+    const agentMessageItem = items.find((i: any) => i.type === "agentMessage");
+    
+    if (agentMessageItem || allToolCalls.length > 0 || reasoningItem) {
+       messages.push({
+          id: agentMessageItem?.id || `agent_${turn.id}_${Math.random()}`,
+          turnId: turn.id,
+          role: "agent",
+          content: agentMessageItem ? normalizeText(agentMessageItem.text || agentMessageItem.content) : "",
+          thought: reasoningItem ? normalizeText(reasoningItem.content) : undefined,
+          reasoningSummary: reasoningItem ? normalizeText(reasoningItem.summary) : undefined,
+          toolCalls: allToolCalls.length > 0 ? allToolCalls : undefined
+       });
+    }
+    
     return messages;
+  });
+}
+
+function handleCallStarted(prev: Message[], params: any, turnId: string | undefined): Message[] {
+  const item = params.item;
+  const { id, name } = item;
+  const existingIndex = turnId ? prev.findIndex(m => m.turnId === turnId && m.role === "agent") : -1;
+  const toolCall = { id, name: name || "tool_call", arguments: "", status: "started" as const };
+  
+  if (existingIndex >= 0) {
+    const updated = [...prev];
+    const current = updated[existingIndex];
+    const toolCalls = [...(current.toolCalls || []), toolCall];
+    updated[existingIndex] = { ...current, toolCalls, inProgress: true };
+    return updated;
+  }
+  
+  return [...prev, {
+    id: `agent_${id}`,
+    turnId,
+    role: "agent",
+    content: "",
+    toolCalls: [toolCall],
+    inProgress: true
+  }];
+}
+
+function handleCallDelta(prev: Message[], params: any, turnId: string | undefined, delta: string): Message[] {
+  return prev.map(m => {
+    const matches = turnId && m.turnId === turnId && m.role === "agent";
+    if (matches && m.toolCalls) {
+      const toolCalls = m.toolCalls.map(tc => tc.id === params.itemId ? { ...tc, arguments: tc.arguments + delta } : tc);
+      return { ...m, toolCalls };
+    }
+    return m;
+  });
+}
+
+function handleCallCompleted(prev: Message[], params: any, turnId: string | undefined): Message[] {
+  const item = params.item;
+  return prev.map(m => {
+    const matches = turnId && m.turnId === turnId && m.role === "agent";
+    if (matches && m.toolCalls) {
+      const toolCalls = m.toolCalls.map(tc => tc.id === item.id ? { ...tc, result: item.result, status: "completed" as const } : tc);
+      return { ...m, toolCalls };
+    }
+    return m;
   });
 }
 
@@ -122,24 +177,84 @@ function handleTurnCompletedUpdate(prev: Message[]): Message[] {
   return prev.map((m) => (m.inProgress ? { ...m, inProgress: false } : m));
 }
 
+function handleApprovalRequest(prev: Message[], payload: any): Message[] {
+  const { method, id, params } = payload;
+  const { turnId, itemId } = params;
+  const type = (method === "item/commandExecution/requestApproval" ? "commandExecution" : "fileChange") as "commandExecution" | "fileChange";
+  
+  const existingIndex = turnId ? prev.findIndex(m => m.turnId === turnId && m.role === "agent") : -1;
+  const approval: NonNullable<Message["approvals"]>[number] = { id, type, itemId, params };
+
+  if (existingIndex >= 0) {
+    const updated = [...prev];
+    const current = updated[existingIndex];
+    const approvals = current.approvals || [];
+    if (approvals.some(a => a.id === id)) return prev;
+    
+    updated[existingIndex] = {
+      ...current,
+      approvals: [...approvals, approval]
+    };
+    return updated;
+  }
+  
+  // Create message if none exists
+  return [...prev, {
+    id: `agent_${id}`,
+    turnId,
+    role: "agent",
+    content: "",
+    approvals: [approval],
+    inProgress: true
+  }];
+}
+
+function handleServerRequestResolved(prev: Message[], params: any): Message[] {
+  const { requestId, turnId } = params;
+  return prev.map(m => {
+    if (m.turnId === turnId && m.role === "agent" && m.approvals) {
+      return {
+        ...m,
+        approvals: m.approvals.filter(a => a.id !== requestId)
+      };
+    }
+    return m;
+  });
+}
+
 function processSseMessage(
   event: MessageEvent,
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>
 ) {
   try {
     const payload = JSON.parse(event.data);
-    const { method = "", params = {} } = payload;
+    const { method = "", params = "", id } = payload;
     const { turnId, delta = "", item } = params;
 
+    // Handle server-initiated requests (approvals)
+    if (id !== undefined && method.includes("requestApproval")) {
+      setMessages(prev => handleApprovalRequest(prev, payload));
+      return;
+    }
+
     switch (method) {
+      case "serverRequest/resolved":
+        setMessages(prev => handleServerRequestResolved(prev, params));
+        break;
       case "item/started":
         if (item?.type === "agentMessage" || item?.type === "reasoning") {
           setMessages((prev) => handleStartedUpdate(prev, params, turnId));
+        } else if (item?.type === "call") {
+          setMessages((prev) => handleCallStarted(prev, params, turnId));
         }
         break;
 
       case "item/agentMessage/delta":
         setMessages((prev) => handleDeltaUpdate(prev, params, turnId, "content", delta, false));
+        break;
+
+      case "item/call/argsDelta":
+        setMessages((prev) => handleCallDelta(prev, params, turnId, delta));
         break;
 
       case "item/reasoning/textDelta":
@@ -153,6 +268,8 @@ function processSseMessage(
       case "item/completed":
         if (item?.type === "agentMessage" || item?.type === "reasoning") {
           setMessages((prev) => handleCompletedUpdate(prev, params, turnId));
+        } else if (item?.type === "call") {
+          setMessages((prev) => handleCallCompleted(prev, params, turnId));
         }
         break;
 
@@ -171,7 +288,7 @@ async function loadInitialModels(
   setSelectedEffort: React.Dispatch<React.SetStateAction<string>>
 ) {
   try {
-    const res = await fetch("/api/session");
+    const res = await fetch("/api/models");
     const data = await res.json();
     if (data.models) {
       setModels(data.models);
@@ -192,22 +309,75 @@ async function loadInitialModels(
 
 function handleFinalizeTask(prev: Message[], result: any): Message[] {
   const next = [...prev];
-  result.turn.items.forEach((item: any) => {
-    if (item.type === "agentMessage" || item.text) {
-      const existing = next.findIndex(m => m.id === item.id);
-      const text = normalizeText(item.text || item.content);
-      if (existing >= 0) {
-        next[existing] = { ...next[existing], content: text || next[existing].content, inProgress: false };
-      } else {
+  const turn = result.turn;
+  const items = turn.items || [];
+  
+  const allToolCalls = items.filter((i: any) => i.type === "call").map((item: any) => ({
+    id: item.id,
+    name: item.name,
+    arguments: item.arguments || "",
+    result: item.result,
+    status: "completed" as const
+  }));
+  
+  const reasoningItem = items.find((i: any) => i.type === "reasoning");
+  const agentMessageItem = items.find((i: any) => i.type === "agentMessage" || i.text);
+  
+  if (agentMessageItem) {
+    const existing = next.findIndex(m => m.id === agentMessageItem.id || (m.turnId === turn.id && m.role === "agent"));
+    const text = normalizeText(agentMessageItem.text || agentMessageItem.content);
+    const thought = reasoningItem ? normalizeText(reasoningItem.content) : "";
+    const summary = reasoningItem ? normalizeText(reasoningItem.summary) : "";
+    
+    if (existing >= 0) {
+      next[existing] = {
+        ...next[existing],
+        id: agentMessageItem.id,
+        content: text || next[existing].content,
+        thought: thought || next[existing].thought,
+        reasoningSummary: summary || next[existing].reasoningSummary,
+        toolCalls: allToolCalls.length > 0 ? allToolCalls : next[existing].toolCalls,
+        inProgress: false
+      };
+    } else {
+      next.push({
+        id: agentMessageItem.id || `res_${Date.now()}`,
+        turnId: turn.id,
+        role: "agent",
+        content: text,
+        thought: thought,
+        reasoningSummary: summary,
+        toolCalls: allToolCalls.length > 0 ? allToolCalls : undefined,
+        inProgress: false
+      });
+    }
+  } else if (allToolCalls.length > 0 || reasoningItem) {
+     const existing = next.findIndex(m => m.turnId === turn.id && m.role === "agent");
+     const thought = reasoningItem ? normalizeText(reasoningItem.content) : "";
+     const summary = reasoningItem ? normalizeText(reasoningItem.summary) : "";
+     
+     if (existing >= 0) {
+        next[existing] = {
+          ...next[existing],
+          thought: thought || next[existing].thought,
+          reasoningSummary: summary || next[existing].reasoningSummary,
+          toolCalls: allToolCalls.length > 0 ? allToolCalls : next[existing].toolCalls,
+          inProgress: false
+        };
+     } else {
         next.push({
-          id: item.id || `res_${Date.now()}`,
+          id: `res_${Date.now()}`,
+          turnId: turn.id,
           role: "agent",
-          content: text,
+          content: "",
+          thought: thought,
+          reasoningSummary: summary,
+          toolCalls: allToolCalls.length > 0 ? allToolCalls : undefined,
           inProgress: false
         });
-      }
-    }
-  });
+     }
+  }
+  
   return next;
 }
 
@@ -340,6 +510,31 @@ export default function Home() {
     }
   };
 
+  const handleApprovalAction = async (msgId: string, approvalId: string | number, decision: string) => {
+    try {
+      const res = await fetch("/api/respond", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: approvalId, result: decision })
+      });
+      if (!res.ok) throw new Error("Approval failed");
+      
+      setMessages(prev => prev.map(m => {
+        // Robust matching using either message id or turnId
+        const matchesRequest = m.id === msgId || (m.approvals?.some(a => a.id === approvalId));
+        if (matchesRequest && m.approvals) {
+          return {
+            ...m,
+            approvals: m.approvals.map(a => a.id === approvalId ? { ...a, decision } : a)
+          };
+        }
+        return m;
+      }));
+    } catch (err) {
+      console.error("Failed to send approval:", err);
+    }
+  };
+
   if (!mounted) return <div className="h-[100dvh] bg-[#050505]" />;
 
   return (
@@ -378,6 +573,7 @@ export default function Home() {
         <MessageList 
           messages={messages} 
           scrollRef={scrollRef} 
+          onApproval={handleApprovalAction}
         />
 
         <ChatInput 
